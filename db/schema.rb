@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_092403) do
+
+ActiveRecord::Schema.define(version: 2020_05_14_095533) do
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "order_id", null: false
+    t.integer "amount", null: false
+    t.integer "making_status", default: 0, null: false
+    t.integer "order_price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ships", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_092403) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+
   end
 
 end
