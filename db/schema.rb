@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_093456) do
+ActiveRecord::Schema.define(version: 2020_05_14_105135) do
 
   create_table "items", force: :cascade do |t|
     t.integer "genre_id"
     t.string "name"
-    t.text "explanation"
     t.integer "price"
     t.boolean "is_saled"
     t.string "item_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "explanation"
     t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
