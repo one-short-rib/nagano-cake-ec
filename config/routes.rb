@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   # 会員限定URL
   scope module: :member do
-    devise_for :members
+    devise_for :members, controllers: {
+      sessions:      'members/sessions'
+      passwords:     'members/passwords'
+      registrations: 'members/registrations'
+    }
   	resource :members,only:[:show,:edit,:update] do
       collection do
         get :exit
@@ -29,8 +33,12 @@ Rails.application.routes.draw do
 
   # 管理者用URL
   scope module: :admin do
-    devise_for :admins
     get "/admin" => "homes#top"
+    devise_for :admins, controllers: {
+      sessions:      'admins/sessions',
+      passwords:     'admins/passwords',
+      registrations: 'admins/registrations'
+    }
   end
   namespace :admin do
   	resources :items,only:[:index,:show,:new,:create,:edit,:update]
