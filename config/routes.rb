@@ -7,20 +7,20 @@ Rails.application.routes.draw do
   root 'homes#top'
   get '/about', to: 'homes#about', as: 'about'
   get '/members/exit', to: 'members#exit', as: 'exit_member'
-  patch '/members/exit/:id', to: 'members#is_deleted', as: 'exit_member'
+  patch '/members/exit/:id', to: 'members#is_deleted', as: 'exit_members'
   post '/members/orders/confirm', to: 'orders#confirm', as: 'confirm_order'
   get '/members/orders/thanks', to: 'orders#thanks', as: 'thanks_order'
   delete '/members/cart_items', to: 'car_items#clean', as: 'clean_car_items'
   #get '/genres/:id/items', to: 'items#genre_index', as: 'genre_items'
 
-  scope module: :member do
-      resource :members, only: [:show, :edit, :update] do
-          resources :orders, only: [:new, :show, :index, :create]
-          resources :cart_items, only: [:index, :create, :update, :destroy]
-          resources :ships, only: [:index, :edit, :create, :update, :destroy]
-      end
+  namespace :member do
+      resources :members, only: [:show, :edit, :update]
+      resources :orders, only: [:new, :show, :index, :create]
+      resources :cart_items, only: [:index, :create, :update, :destroy]
+      resources :ships, only: [:index, :edit, :create, :update, :destroy]
+      resources :items, only: [:show, :index]
   end
-  resources :items, only: [:show, :index]
+
 
   #Adminサイト用ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
