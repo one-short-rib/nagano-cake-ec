@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_093456) do
     t.string "name", null: false
     t.string "explanation", null: false
     t.integer "price", null: false
-    t.boolean "is_saled", default: false
+    t.boolean "is_saled", default: true
     t.string "item_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
