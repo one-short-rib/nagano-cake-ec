@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_105135) do
+ActiveRecord::Schema.define(version: 2020_05_14_093456) do
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id"
-    t.string "name"
-    t.integer "price"
-    t.boolean "is_saled"
-    t.string "item_image_id"
+    t.integer "genre_id", null: false
+    t.string "name", null: false
+    t.string "explanation", null: false
+    t.integer "price", null: false
+    t.boolean "is_saled", default: false
+    t.string "item_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "explanation"
     t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "order_status"
-    t.string "postal_code"
-    t.string "address"
-    t.string "name"
-    t.integer "postage"
-    t.integer "payment_method"
-    t.integer "billing_amount"
+    t.integer "member_id", null: false
+    t.integer "order_status", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.integer "postage", null: false
+    t.integer "payment_method", null: false
+    t.integer "billing_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_orders_on_member_id"
