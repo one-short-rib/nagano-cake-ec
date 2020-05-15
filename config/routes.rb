@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :members
 
   #ECサイト用ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-   
+
   root 'homes#top'
   get '/about', to: 'homes#about', as: 'about'
   get '/members/exit', to: 'members#exit', as: 'exit_member'
@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   post '/members/orders/confirm', to: 'orders#confirm', as: 'confirm_order'
   get '/members/orders/thanks', to: 'orders#thanks', as: 'thanks_order'
   delete '/members/cart_items', to: 'car_items#clean', as: 'clean_car_items'
-  get '/genres/:id/items', to: 'items#index', as: 'items'
-  devise_for :members
+  #get '/genres/:id/items', to: 'items#genre_index', as: 'genre_items'
 
   scope module: :member do
       resource :members, only: [:show, :edit, :update] do
@@ -26,11 +25,9 @@ Rails.application.routes.draw do
   #Adminサイト用ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
   get 'admin/', to: 'homes#top', as: 'admin_top'
-  # get 'admin/genres/:id/items', to: 'items#genre_index'
   # get 'admin/orders_today', to: 'orders#index_today', as: 'admin_today_orders'
   #get 'admin/members/:id/orders', to: 'orders#index_member',
   #                                                    as: 'admin_member_orders'
-  devise_for :admins
 
   namespace :admin do
       resources :members, only: [:show, :index, :edit, :update]
