@@ -5,7 +5,6 @@ class Item < ApplicationRecord
 
   attachment :item_image
 
-  validates :genre_id, presence :true
   validates :name, presence :true, length: { maximum: 255 }
   validates :explanation, presence :true, length: { maximum: 255 }
   validates :price, presence :true
