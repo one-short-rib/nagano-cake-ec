@@ -3,15 +3,13 @@ Rails.application.routes.draw do
   root 'homes#top'
   get '/about' => 'homes#about'
   resources :items,only:[:index,:show]
-
+  devise_for :members, controllers: {
+    sessions:      'members/sessions',
+    passwords:     'members/passwords',
+    registrations: 'members/registrations'
+  }
   # 会員限定URL
   scope module: :member do
-    devise_for :members
-    # , controllers: {
-      # sessions:      'members/sessions'
-      # passwords:     'members/passwords'
-      # registrations: 'members/registrations'
-    # }
   	resource :members,only:[:show,:edit,:update] do
       collection do
         get :exit
