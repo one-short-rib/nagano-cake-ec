@@ -1,24 +1,56 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ながのケーキ　ECサイト
 
-Things you may want to cover:
+長野県にある小さな洋菓子店「ながのケーキ」の商品を通販するためのECサイトです。
+「ながのケーキ」のお菓子を全国の方々にもっと身近に、そして手軽に楽しんでいただくための機能を搭載しました。
+顧客様用ECサイトと、管理者様用管理者サイトに分けたワイヤーフレームを採用しています。
 
-* Ruby version
+# 機能一覧
 
-* System dependencies
+## ECサイト
+* ログイン・ログアウト機能
+deviseを使用
+* 商品一覧・詳細画面表示機能
+画面表示にはrefile使用
+* カート機能（一覧・編集・追加）
+* 注文機能
+* 会員情報編集機能
+* 退会機能
+* 配送先追加・編集機能
+* 注文履歴一覧・詳細画面表示機能
 
-* Configuration
+## 管理者サイト
+* ログイン・ログアウト機能
+deviseを使用
+* 注文履歴一覧・詳細画面表示機能
+* 顧客一覧・詳細画面表示機能
+* 商品一覧・詳細画面表示機能
+画面表示にはrefile使用
+* 商品情報変更機能
+* 商品ジャンル設定機能
 
-* Database creation
 
-* Database initialization
+# バージョン
 
-* How to run the test suite
+* Rails 5.2.4.2
+* Ruby 2.5.7
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# 技術
 
-* ...
+## フレームワーク
+Ruby on Rails
+## データベース
+sqlite3
+## 画像処理
+refile
+## セッション管理
+deviseによる、Cookieを使用したセッション管理
+
+
+# 開発者
+
+* カルビ
+* よっしー
+* はねちゃん
+* たけし
