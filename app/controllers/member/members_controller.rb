@@ -1,4 +1,7 @@
 class Member::MembersController < ApplicationController
+
+	before_action :set_member,only: [:show,:edit,:exit,:is_deleted]
+
   def show
   end
 
@@ -21,6 +24,9 @@ class Member::MembersController < ApplicationController
   		:email,:postal_code,:address,:phone_number)
   end
 
+  def set_member
+		@member = current_member
+  end
 
 
 end
