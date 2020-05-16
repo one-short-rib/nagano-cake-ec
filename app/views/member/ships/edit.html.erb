@@ -1,2 +1,23 @@
 <h1>Member::Ships#edit</h1>
 <p>Find me in app/views/member/ships/edit.html.erb</p>
+
+<h4>配送先編集</h4>
+<div>
+	<%= form_for @ship, url: "/members/ships/#{@ship.id}" do |f| %>
+		<div class="">
+			<%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
+			<%= f.text_field :postal_code, class: "postal_code" %>
+		</div>
+		<div class="">
+			<%= f.label :address,"住所" %>
+			<%= f.text_field :address, class: "address" %>
+		</div>
+		<div class="">
+			<%= f.label :name,"宛名" %>
+			<%= f.text_field :name, class: "name" %>
+		</div>
+		<div class="">
+			<%= f.submit "編集する" %>
+		</div>
+	<% end %>
+</div>
