@@ -1,2 +1,42 @@
 <h1>Member::Members#edit</h1>
 <p>Find me in app/views/member/members/edit.html.erb</p>
+
+
+
+<%= form_for(@member, url:'/members') do |f| %>
+	<div class="">
+		<p>名前</p>
+		<%= f.label :last_name,"(姓)" %>
+		<%= f.text_field :last_name, class: "last_name" %>
+		<%= f.label :first_name,"(名)" %>
+		<%= f.text_field :first_name, class: "first_name" %>
+	</div>
+	<div class="">
+		<%= f.label :last_name_kana,"(セイ)" %>
+		<%= f.text_field :last_name_kana, class: "last_name_kana" %>
+		<%= f.label :first_name_kana,"(メイ)" %>
+		<%= f.text_field :first_name_kana, class: "first_name_kana" %>
+	</div>
+
+	<div class="">
+		<%= f.label :email,"メールアドレス" %>
+		<%= f.text_field :email, class: "email" %>
+	</div>
+
+	<div class="">
+		<%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
+		<%= f.text_field :postal_code, class: "postal_code" %>
+	</div>
+	<div class="">
+		<%= f.label :address,"住所" %>
+		<%= f.text_field :address, class: "address" %>
+	</div>
+	<div class="">
+		<%= f.label :phone_number,"電話番号(ハイフンなし)" %>
+		<%= f.text_field :phone_number, class: "phone_number" %>
+	</div>
+
+	<div class="">
+		<%= f.submit %>
+	</div>
+<% end %>
