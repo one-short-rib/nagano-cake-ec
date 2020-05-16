@@ -1,0 +1,44 @@
+<%= form_for(@member) do |f| %>
+<<table>
+	<thead>
+		<tr>
+			<th>会員ID</th>
+			<th>氏名</th>
+			<th>フリガナ</th>
+			<th>郵便番号</th>
+			<th>住所</th>
+			<th>電話番号</th>
+			<th>メールアドレス</th>
+			<th>会員ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= member.id %></td>
+			<td>
+				<%= f.text_field :last_name, autofocus:true %>
+				<%= f.text_field :first_name %>
+			</td>
+			<td>
+				<%= f.text_field :last_name_kana %>
+				<%= f.text_field :first_name_kana %>
+			</td>
+			<td>
+				<%= f.text_field :postal_code %>
+			</td>
+			<td>
+				<%= f.text_field :address %>
+			</td>
+			<td>
+				<%= f.text_field :phone_number %>
+			</td>
+			<td>
+				<%= f.text_field :email %>
+			</td>
+			<td>
+				<!--有効・退会済みのポッチ-->
+			</td>
+		</tr>
+	</tbody>
+	<!--変更を保存するボタン-->
+</table>
