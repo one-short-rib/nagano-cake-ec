@@ -1,6 +1,6 @@
 class Member::MembersController < ApplicationController
 
-	before_action :set_member,only: [:show,:edit,:exit,:update,:is_deleted]
+	before_action :set_member,only: [:show,:edit,:update,:is_deleted]
 
 	def show
 	end
@@ -17,6 +17,8 @@ class Member::MembersController < ApplicationController
 	end
 
 	def is_deleted
+		@member.update(is_deleted: true)
+		redirect_to root_path
 	end
 
 	private

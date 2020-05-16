@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   	resource :members,only:[:show,:edit,:update] do
       collection do
         get :exit
-        patch :exit
+        patch :is_deleted
       end
       resources :ships,only:[:index,:create,:edit,:update,:destroy]
       resources :cart_items,only:[:index,:create,:update,:destroy] do
