@@ -3,15 +3,7 @@
     <%= render 'items/genres_box', genres: @genres %>
   </div>
   <div class="col-xs-10">
-    <div class="item_image">
-      <%= attachment_image_tag item, :item_image, :fill, 50, 50 %>
-    </div>
-    <div class="item_details">
-      <h2><%= item.name %></h2>
-      <p><%= item.explanation %></p>
-      <h3>¥<%= item.price %></h3><span class="in-tax">(税込)</span>
-    </div>
-    <h1>商品一覧</h1><span class="item-count">(全<%= @items.count %>件)</span>
-    <%= render 'items/item', items: @items %>
+    <%= render 'items/item_show', item: @item %>
+    <%= render 'items/cart_button', cart_item: @cart_item %>
   </div>
 </div>
