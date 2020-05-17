@@ -1,5 +1,5 @@
 <h2>
-	<%= member.last_name %><%= member.first_name %>さんの会員詳細
+	<%= @member.last_name %><%= @member.first_name %>さんの会員詳細
 </h2>
 <table>
 	<thead>
@@ -16,25 +16,25 @@
 	<tbody>
 		<tr>
 			<td>
-				<%= member.id %>
+				<%= @member.id %>
 			</td>
 			<td>
-				<%= member.last_name %>　<%= member.first_name %>
+				<%= @member.last_name %>　<%= @member.first_name %>
 			</td>
 			<td>
-				<%= member.last_name_kana %>　<%= member.first_name_kana %>
+				<%= @member.last_name_kana %>　<%= @member.first_name_kana %>
 			</td>
 			<td>
-				<%= member.postal_code %>
+				<%= @member.postal_code %>
 			</td>
 			<td>
-				<%= member.address %>
+				<%= @member.address %>
 			</td>
 			<td>
-				<%= member.phone_number %>
+				<%= @member.phone_number %>
 			</td>
 			<td>
-				<%= member.email %>
+				<%= @member.email %>
 			</td>
 		</tr>
 	</tbody>
