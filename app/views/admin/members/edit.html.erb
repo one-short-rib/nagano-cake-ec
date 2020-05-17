@@ -1,44 +1,50 @@
 <%= form_for(@member) do |f| %>
-<<table>
-	<thead>
-		<tr>
-			<th>会員ID</th>
-			<th>氏名</th>
-			<th>フリガナ</th>
-			<th>郵便番号</th>
-			<th>住所</th>
-			<th>電話番号</th>
-			<th>メールアドレス</th>
-			<th>会員ステータス</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><%= member.id %></td>
-			<td>
-				<%= f.text_field :last_name, autofocus:true %>
-				<%= f.text_field :first_name %>
-			</td>
-			<td>
-				<%= f.text_field :last_name_kana %>
-				<%= f.text_field :first_name_kana %>
-			</td>
-			<td>
-				<%= f.text_field :postal_code %>
-			</td>
-			<td>
-				<%= f.text_field :address %>
-			</td>
-			<td>
-				<%= f.text_field :phone_number %>
-			</td>
-			<td>
-				<%= f.text_field :email %>
-			</td>
-			<td>
-				<!--有効・退会済みのポッチ-->
-			</td>
-		</tr>
-	</tbody>
+<div class="bootstrap大きさ">
+	<label for="member_id">会員ID</label>
+	<div class="" ><%= @member.id %></div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">氏名</label>
+	<div class="" >
+		<%= f.text_field :last_name, autofocus:true %>
+		<%= f.text_field :first_name %>
+	</div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">フリガナ</label>
+	<div class="" >
+		<%= f.text_field :last_name_kana %>
+		<%= f.text_field :first_name_kana %>
+	</div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">郵便番号</label>
+	<div class="" >
+		<%= f.text_field :postal_code %>
+	</div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">住所</label>
+	<div class="" >
+		<%= f.text_field :address %>
+	</div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">電話番号</label>
+	<div class="" >
+		<%= f.text_field :phone_number %>
+	</div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">メールアドレス</label>
+	<div class="" >
+		<%= f.text_field :email %>
+	</div>
+</div>
+<div class="bootstrap大きさ">
+	<label for="name">会員ステータス</label>
+	<div class="" >
+		<!--有効・退会済みのポッチ-->
+	</div>
+</div>
 	<!--変更を保存するボタン-->
-</table>
