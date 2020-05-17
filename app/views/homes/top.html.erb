@@ -1,2 +1,21 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="row">
+  <div class="col-xs-2">
+    <%#= render 'genres_box', genres: @genres %>
+  </div>
+  <div class="col-xs-10">
+    <div class="main-visual">
+      <div class="main-message">
+        <p>
+          ようこそ、NaganoCakeへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+    <div class="recommendations">
+      <h2>オススメ商品</h2>
+      <%#= render 'items_index', items: @items %>
+    </div>
+  </div>
+</div>
