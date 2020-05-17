@@ -1,0 +1,8 @@
+<!-- recieves cart_item -->
+
+<div class="cart_button">
+  <%= form_for(cart_item, url: members_cart_items_path) do |f| %>
+        <%= f.number_field :amount, placeholder:"個数選択" %>
+        <%= f.submit "カートに入れる", class:"btn" %>
+  <% end %>
+</div>

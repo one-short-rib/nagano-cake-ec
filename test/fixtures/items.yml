@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   genre: one
-#   name: MyString
-#   explanation: MyText
-#   price: 1
-#   is_saled: false
-#   item_image_id: MyString
-#
+item1:
+  genre: genres(:genre1)
+  name: "pokky"
+  explanation: "very yum"
+  price: 98
+  is_saled: true
+  item_image_id: picture
+
 # two:
 #   genre: two
 #   name: MyString
