@@ -1,2 +1,60 @@
 <h1>Member::CartItems#index</h1>
 <p>Find me in app/views/member/cart_items/index.html.erb</p>
+
+<% if @cart_items.present? %>
+<div>
+	<h4>ショッピングカート</h4>
+	<%= link_to 'カートを空にする', clear_members_cart_items_path, method: :delete, class: "" %>
+</div>
+<table>
+	<thead>
+		<tr>
+			<th colspan="2">商品名</th>
+			<th>単価(税込)</th>
+			<th>数量</th>
+			<th>小計</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cart_items.each do |cart_item| %>
+			<tr>
+				<td>画像タグ</td>
+				<td><%= cart_item.item.name %></td>
+				<td><%= tax_include(cart_item.item.price) %></td>
+				<td>
+					<%= form_for cart_item, url: "/members/cart_items/#{cart_item.id}" do |f| %>
+					<%= f.number_field :amount, class: "" %>
+					<%= f.submit '変更' %>
+					<% end %>
+				</td>
+				<td><%= subtotal_price(cart_item) %></td>
+				<td>
+					<%= link_to '削除する', members_cart_item_path(cart_item), method: :delete,
+					data: {confirm: "本当に削除してもよろしいですか？"} %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="4">
+					<%= link_to "買い物を続ける", '#' %>
+			</td>
+			<th>合計金額</th>
+			<td><%= total_price %></td>
+		</tr>
+	</tbody>
+</table>
+<div>
+	<%= link_to "情報入力に進む", '#', class: "" %>
+</div>
+
+<% else %>
+<div>
+	<h4>ショッピングカート</h4>
+	<h5>カートの中は空です</h5>
+</div>
+<div>
+	<%= link_to '買い物を続ける', '#', class: ""  %>
+</div>
+<% end %>
+
