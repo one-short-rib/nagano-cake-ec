@@ -13,7 +13,7 @@ class Member::OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get members_order_path(1)
+    get members_order_path(orders(:order1))
     assert_response :success
   end
 
