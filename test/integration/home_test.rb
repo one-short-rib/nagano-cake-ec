@@ -9,6 +9,7 @@ class HomeTest < ActionDispatch::IntegrationTest
           会員でない方も商品の閲覧はできますが、
           購入には会員登録が必要になります。"
       assert_select "h2", "オススメ商品"
+      assert_select "a[href=?]", items_path
     end
 
 end
