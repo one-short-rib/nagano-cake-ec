@@ -1,6 +1,6 @@
 class Ship < ApplicationRecord
 
-	belongs_to :user
+	belongs_to :member
 
   validates :member_id, presence: true
 	validates :postal_code, presence: true, length:{is: 7}
