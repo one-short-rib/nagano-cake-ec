@@ -1,0 +1,54 @@
+<h1>Member::CartItems#index</h1>
+<p>Find me in app/views/member/cart_items/index.html.erb</p>
+
+<% if @cart_items.present? %>
+<!-- ナビバーで -->
+<div class="row">
+	<nav class="nav navbar-nav navbar-left">
+		<h4>ショッピングカート</h4>
+	</nav>
+	<nav class="nav navbar-nav navbar-right">
+		<%= link_to 'カートを空にする', clear_members_cart_items_path, method: :delete, class: "btn btn-danger" %>
+	</nav>
+</div>
+
+<div class="row index-table">
+	<table>
+		<thead>
+			<tr>
+				<th colspan="2">商品名</th>
+				<th>単価(税込)</th>
+				<th>数量</th>
+				<th>小計</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @cart_items.each do |cart_item| %>
+				<%= render 'member/cart_items/cart_item', cart_item: cart_item %>
+			<% end %>
+			<tr>
+				<td colspan="4">
+						<%= link_to "買い物を続ける", '#', class: "btn btn-primary" %>
+				</td>
+				<th>合計金額</th>
+				<td><%= total_price %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="center">
+	<%= link_to "情報入力に進む", '#', class: "btn btn-success btn-lg" %>
+</div>
+
+<% else %>
+<div>
+	<h4>ショッピングカート</h4>
+	<h5>カートの中は空です</h5>
+</div>
+<div>
+	<%= link_to '買い物を続ける', '#', class: "btn btn-primary"  %>
+</div>
+<% end %>
+
