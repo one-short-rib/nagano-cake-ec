@@ -12,4 +12,9 @@ class HomeTest < ActionDispatch::IntegrationTest
       assert_select "a[href=?]", items_path
     end
 
+    test "about view" do
+      get about_path
+      assert_select "h1", "Homes#about"
+    end
+
 end
