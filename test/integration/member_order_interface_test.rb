@@ -6,6 +6,13 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     @order = orders(:order1)
   end
 
+  test "new view" do
+    get new_members_order_path
+    assert_select "h2", "注文情報入力"
+    assert_select "h3", "支払方法"
+    assert_select "h3", "お届け先"    
+  end
+
   test "index view" do
     get members_orders_path
     assert_select "h3", "注文履歴一覧"
