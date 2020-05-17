@@ -7,11 +7,11 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    #@cart_item = CartItem.new
+    @cart_item = CartItem.new
   end
 
   private
     def set_genres
-      #@genres = Genre.all
+      @genres = Genre.all
     end
 end
