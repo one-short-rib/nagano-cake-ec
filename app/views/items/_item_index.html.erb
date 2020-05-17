@@ -1,6 +1,6 @@
 <!-- recieves items -->
 
-<% @items.each do |item| %>
+<% items.each do |item| %>
   <div class="item-box">
     <%= attachment_image_tag item, :item_image, :fill, 50, 50 %>
     <%= item.name %>
