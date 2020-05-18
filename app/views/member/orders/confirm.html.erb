@@ -21,14 +21,7 @@
         <td><%= "#{@order.postal_code} #{@order.address} ¥n #{@order.name}" %></td>
       </tr>
     </table>
-    <%= form_for @order, url: members_orders_path do |f| %>
-        <%= f.hidden_field :postal_code %>
-        <%= f.hidden_field :address %>
-        <%= f.hidden_field :name %>
-        <%= f.hidden_field :payment_method %>
-        <%= f.hidden_field :billing_amount %>
-        <%= f.submit "購入を確定する" %>
-    <% end %>
+    <%= render 'member/orders/confirmation_button', order: @order %>
   </div>
 
 </div>
