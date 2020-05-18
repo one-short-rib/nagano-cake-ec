@@ -12,26 +12,14 @@
   </head>
 
   <body>
-    <div class = "conrainer">
-      <div class = "row">
-        <header class = "nav navbar-inverse navbar-fluid">
-          <nav class = "nav navbar-nav navbar-left">
-            <span class = "head"><i class="fas fa-store"></i>Nagano cake</span>
-          </nav>
-          <nav>
-            <ul class = "nav navbar-nav navbar-right">
-              <!--<% signed_in? %>-->
-                <li><%= link_to '商品一覧', admin_items_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to '会員一覧', admin_members_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to '注文履歴一覧', admin_orders_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to 'ジャンル一覧', admin_genres_path, class:"btn navbar-btn"  %></li>
-                <li><%= link_to 'ログアウト', destroy_admin_session_path, class:"btn navbar-btn", method: :delete %></li>
-              <!--else以下も必要-->
-            </ul>
-          </nav>
-        </header>
+    <%= render('layouts/header')%>
+    <% if notice%>
+      <p id="notice"><%= notice %></p>
+    <% end %>
+    <div class="body">
+      <div class="container">
+        <%= yield %>
       </div>
     </div>
-    <%= yield %>
   </body>
 </html>
