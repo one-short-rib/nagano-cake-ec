@@ -1,0 +1,51 @@
+<h1>Member::Members#show</h1>
+<p>Find me in app/views/member/members/show.html.erb</p>
+
+
+<h3>マイページ</h3>
+
+<div>
+	<h4>登録情報</h4>
+	<%= link_to '編集する', edit_members_path %>
+	<%= link_to 'パスワードを変更する', "#" %>
+</div>
+
+
+<div>
+	<p>名前</p>
+	<p><%= @member.first_name%> <%= @member.last_name%></p>
+</div>
+
+<div>
+	<p>フリガナ</p>
+	<p><%= @member.first_name_kana%> <%= @member.last_name_kana%></p>
+</div>
+<div>
+	<p>メールアドレス</p>
+	<p><%= @member.email%></p>
+</div>
+
+<div>
+	<p>郵便番号</p>
+	<p><%= @member.postal_code%></p>
+</div>
+
+<div>
+	<p>住所</p>
+	<p><%= @member.address%></p>
+</div>
+
+<div>
+	<p>電話番号</p>
+	<p><%= @member.phone_number%></p>
+</div>
+
+
+<div>
+	<h4>配送先</h4>
+	<%= link_to '一覧を見る', '#' %>
+</div>
+<div>
+	<h4>注文履歴</h4>
+	<%= link_to '一覧を見る', '#' %>
+</div>
