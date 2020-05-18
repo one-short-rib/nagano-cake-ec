@@ -31,15 +31,15 @@ Rails.application.routes.draw do
     passwords:     'members/passwords',
     registrations: 'members/registrations'
   }
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
   # 管理者用URL
   scope module: :admin do
     get "/admin" => "homes#top"
-    devise_for :admins
-    # , controllers: {
-      # sessions:      'admins/sessions',
-      # passwords:     'admins/passwords',
-      # registrations: 'admins/registrations'
-    # }
+
   end
   namespace :admin do
   	resources :items,only:[:index,:show,:new,:create,:edit,:update]
