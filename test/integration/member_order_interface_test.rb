@@ -74,6 +74,17 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_select "input[value=?]", "購入を確定する"
   end
 
+  test "create and thanks view" do
+    assert_difference 'Order.count', 1 do
+    post members_orders_path, params: {order:{ postal_code: "7654321",
+                                               address: "大阪府高野飯",
+                                               name: "三五郎",
+                                               billing_amount: 100,
+                                               payment_method: "クレジットカード"}}
+    end
+    assert_redirected_to thanks_members_orders_path
+  end
+
   test "index view" do
     get members_orders_path
     assert_select "h3", "注文履歴一覧"

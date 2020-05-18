@@ -3,6 +3,14 @@ class Member::OrdersController < ApplicationController
 
   before_action :to_confirm, only: [:confirm]
 
+  def index
+    @orders = Order.all
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def new
     @cart_items = current_member.cart_items
     if current_member.cart_items.count != 0
@@ -35,12 +43,8 @@ class Member::OrdersController < ApplicationController
     end
   end
 
-  def index
-    @orders = Order.all
-  end
-
-  def show
-    @order = Order.find(params[:id])
+  def create
+    redirect_to thanks_members_orders_path if current_member.orders.create(order_params)
   end
 
   def thanks
@@ -50,6 +54,10 @@ class Member::OrdersController < ApplicationController
 
       def to_confirm
         redirect_to members_cart_items_path if params[:id] == "confirm"
+      end
+
+      def order_params
+        params.require(:order).permit(:postal_code, :address, :name, :payment_method, :billing_amount)
       end
 
 end
