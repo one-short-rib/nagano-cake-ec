@@ -1,0 +1,66 @@
+<div class = "row">
+	<div class = "col-md-12">
+		<h3>注文履歴詳細</h3>
+
+		<table class = "table table-hover">
+			<tr>
+				<th>購入者</th>
+				<td><%= @order.member.name %></td>
+			</tr>
+			<tr>
+				<th>配送先</th>
+				<td><%= @order.postal_code %><%= @order.address %></td>
+			</tr>
+			<tr>
+				<th>支払方法</th>
+				<td><%= @order.payment_method %></td>
+			</tr>
+			<tr>
+				<th>注文ステータス</th>
+				<td><%= select :order_status, :name, Order.order_statuses.keys.to_a %></td>
+				<td><%= button_to"更新", admin_order_path(@order.id), class:"btn btn-primary", method: :patch %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class = "row">
+	<div class = "col-md-8">
+		<table class = "table table-hover">
+			<tr>
+				<th>商品名</th>
+				<th>単価(税込)</th>
+				<th>数量</th>
+				<th>小計</th>
+				<th>製作ステータス</th>
+			</tr>
+
+			<%- @order.order_items.each do |order| %>
+				<tr>
+					<td><%= order.items.name %></td>
+					<td><%= order.order_price %></td>
+					<td><%= order.amount %></td>
+					<td><%= sub_total(order.order_item) %></td>
+					<td><%= select :making_status, :name, OrderItem.making_statuses.keys.to_a %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+
+	<div class = "col-md-4">
+		<table class = "table table-hover">
+			<tr>
+				<th>商品合計</th>
+				<td><%= total_price(order_items) %></td>
+			</tr>
+			<tr>
+				<th>送料</th>
+				<td><%= @order.postage %>円</td>
+			</tr>
+			<tr>
+				<th>請求額合計</th>
+				<td><%= total_billed_amount(@order) %></td>
+			</tr>
+		</table>
+	</div>
