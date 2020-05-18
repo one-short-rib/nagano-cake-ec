@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-2">
-    <%#= render 'genres_box', genres: @genres %>
+    <%= render 'items/genres_box', genres: @genres %>
   </div>
   <div class="col-xs-10">
     <div class="main-visual">
@@ -15,7 +15,7 @@
     </div>
     <div class="recommendations">
       <h2>オススメ商品</h2>
-      <%#= render 'items_index', items: @items %>
+      <%= render 'items/item_index', items: @items %>
     </div>
     <%= link_to "もっと見る>", items_path %>
   </div>

@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   def top
     @genres = Genre.all
-    @items = Item.where(id: 1 & 2 & 3 & 4)
+    Item.count > 3 ? @items = Item.all.sort_by{rand}.take(1..4) : @items = Item.take(1)
   end
 
   def about
