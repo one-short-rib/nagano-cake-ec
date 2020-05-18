@@ -1,7 +1,7 @@
 class Member::OrdersController < ApplicationController
   include Member::OrdersHelper
 
-  before_action :to_confirm, only: [:confirm]
+  before_action :to_confirm, only: [:show]
 
   def index
     @orders = Order.all
@@ -44,7 +44,12 @@ class Member::OrdersController < ApplicationController
   end
 
   def create
-    redirect_to thanks_members_orders_path if current_member.orders.create(order_params)
+    if current_member.orders.create(order_params)
+       current_member.cart_items.destroy_all
+       redirect_to thanks_members_orders_path
+    else
+       redirect_to members_cart_items_path
+    end
   end
 
   def thanks

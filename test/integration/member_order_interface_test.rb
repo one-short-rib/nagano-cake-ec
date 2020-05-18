@@ -83,6 +83,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                                                payment_method: "クレジットカード"}}
     end
     assert_redirected_to thanks_members_orders_path
+    assert_equal @member.cart_items.count, 0
     follow_redirect!
     assert_select "h2", "ご購入ありがとうございました！"
   end
