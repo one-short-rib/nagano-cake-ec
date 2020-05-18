@@ -1,7 +1,9 @@
 <div class="row">
   <h2>注文情報入力</h2>
+  <%= form_for(@order, url: confirm_members_orders_path) do |f| %>
   <h3>支払方法</h3>
-  <%= render 'member/orders/payment_method_buttons', order: @order %>
+  <%= render 'member/orders/payment_method_buttons', f: f %>
   <h3>お届け先</h3>
-  <%= render 'member/ships/ship_buttons', order: @order %>
+  <%= render 'member/ships/ship_buttons', f: f %>
+  <% end %>
 </div>
