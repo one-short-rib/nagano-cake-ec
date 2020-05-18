@@ -1,6 +1,5 @@
 <!-- recieves order -->
 
-<%#= form_for(order, url: members_orders_path) do |f| %>
   <div class="payment-method-buttons col-sm-offset-2 col-sm-10">
         <label>
           <%= f.radio_button :payment_method, :クレジットカード, checked: true %> クレジットカード
@@ -9,4 +8,3 @@
           <%= f.radio_button :payment_method, :銀行振込 %> 銀行振込
         </label>
   </div>
-<%# end %>

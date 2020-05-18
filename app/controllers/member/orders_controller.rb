@@ -13,16 +13,16 @@ class Member::OrdersController < ApplicationController
   def confirm
     @order = Order.new(member: current_member,
                       payment_method: params[:order][:payment_method])
-    if params[:order][:name] == "0"
-          @order.set_address(current_member)
-    elsif params[:order][:name] == "1"
-         ship = current_member.ships.find(params[:order][:address])
-         @order.set_address(ship)
-    else
-        ship = current_member.ships.new(postal_code: params[:order][:ship_postal_code],
-                                        name: params[:order][:ship_name],
-                                        address: params[:order][:ship_address])
-        @order.set_address(ship)
+    case params[:order][:choice]
+      when "0"
+           @order.set_address(current_member)
+      when "1"
+           @order.set_address(current_member.ships.find(params[:order][:ship_id]))
+      when "2"
+          ship = current_member.ships.new(postal_code: params[:order][:ship_postal_code],
+                                          name: params[:order][:ship_name],
+                                          address: params[:order][:ship_address])
+          @order.set_address(ship)
     end
   end
 
@@ -36,10 +36,5 @@ class Member::OrdersController < ApplicationController
 
   def thanks
   end
-
-  private
-    def order_params
-      params.require(:order).permit(:name, :address, :payment_method)
-    end
 
 end

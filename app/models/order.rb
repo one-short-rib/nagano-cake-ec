@@ -15,15 +15,9 @@ class Order < ApplicationRecord
   enum payment_method: {クレジットカード: 0, 銀行振込: 1}
 
   def set_address(key)
-    if key.class == Member
-        self.postal_code = key.postal_code
-        self.address = key.address
-        self.name = key.last_name + key.first_name
-    else
-        self.postal_code = key.postal_code
-        self.address = key.address
-        self.name = key.name
-    end
+      self.postal_code = key.postal_code
+      self.address = key.address
+      (key.class == Member)? self.name = key.last_name + key.first_name : self.name = key.name
   end
 
 end
