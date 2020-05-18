@@ -8,7 +8,7 @@ member1:
   postal_code: "1234567"
   address: "大阪"
   email: "taro@example.com"
-  encrypted_password: "password"
+  encrypted_password: <%= Member.new.send(:password_digest, 'password') %>
 
 member2:
   last_name: "試験"
@@ -19,4 +19,4 @@ member2:
   postal_code: "1234567"
   address: "東京"
   email: "jiro@example.com"
-  encrypted_password: "password"
+  encrypted_password: <%= Member.new.send(:password_digest, 'password') %>
