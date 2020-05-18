@@ -3,42 +3,5 @@
   <h3>支払方法</h3>
   <%= render 'member/orders/payment_method_buttons', order: @order %>
   <h3>お届け先</h3>
-  <%#= render 'member/ships/ship_buttons' %>
-
-  <%= form_for(@order, url: members_orders_path) do |f| %>
-    <div class="ship-buttons col-sm-offset-2 col-sm-10">
-          <label>
-            <%= f.radio_button :name, 0 %> ご自身の住所<br>
-            <%= "#{current_member.postal_code} #{current_member.address}" %><br>
-            <%= "#{current_member.last_name}#{current_member.first_name}" %>
-          </label><br>
-          <label>
-            <%= f.radio_button :name, 1 %> 登録済み住所から選択<br>
-            <%= f.select :address, current_member.ships.collect{|ship| ["#{ship.postal_code} #{ship.address} #{ship.name}", ship.id] } %>
-          </label><br>
-          <label>
-            <%= f.radio_button :name, 2 %> 新しいお届け先<br>
-            <table>
-                <%= form_for(Ship.new, url: members_orders_path) do |g| %>
-              <tr>
-                <td><%= g.label :postal_code, "郵便番号(ハイフンなし)" %></td>
-                <td><%= g.text_field :postal_code %></td>
-              </tr>
-              <tr>
-                <td><%= g.label :address, "住所" %></td>
-                <td><%= g.text_field :address %></td>
-              </tr>
-              <tr>
-                <td><%= g.label :name, "宛名" %></td>
-                <td><%= g.text_field :name %></td>
-              </tr>
-            <% end %>
-            </table>
-          </label>
-          <%= f.submit "確認画面へ進む", class:"btn" %>
-    </div>
-  <% end %>
-
-  <!-- orderの:nameに配送先(radioボタン)の選択肢が記入され、:addressに配送先からの選択肢が記入されている　と思われる笑 -->
-
+  <%= render 'member/ships/ship_buttons', order: @order %>
 </div>
