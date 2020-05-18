@@ -15,7 +15,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     get new_members_order_path
     assert_template "member/cart_items/index"
     #カートに商品がある場合
-    CartItem.create(member_id: @member.id,
+    CartItem.create(member: @member,
                     item: items(:item1),
                     amount: 2)
     get new_members_order_path
@@ -56,6 +56,22 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                                  address: "example_new_address",
                                  name: "example_new_name")
     assert_equal new_order.address, new_ship.address
+  end
+
+  test "confirm view" do
+    CartItem.create(member: @member,
+                    item: items(:item1),
+                    amount: 2)
+    post confirm_members_orders_path, params: {order:{ choice: "0",
+                                                       payment_method: "クレジットカード"}}
+    assert_select "h2", "注文情報確認"
+    new_order = assigns(:order)
+    new_order_items = assigns(:order_items)
+    assert_match new_order_items.first.item.name, response.body
+    assert_match new_order.billing_amount.to_s(:delimited), response.body
+    assert_match new_order.payment_method, response.body
+    assert_match new_order.address, response.body
+    assert_select "input[value=?]", "購入を確定する"
   end
 
   test "index view" do

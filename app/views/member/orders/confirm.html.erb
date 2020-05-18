@@ -1,1 +1,27 @@
-<h1>confirm view</h1>
+<div class="row">
+  <h2>注文情報確認</h2>
+  <div class="order-tables">
+    <div class="order-contents">
+      <table>
+      <%= render 'member/orders/order_contents', order_items: @order_items %>
+      </table>
+    </div>
+    <div class="billing-info">
+      <%= render 'member/orders/billing_info', order: @order %>
+    </div>
+  </div>
+  <div class="shipping-info">
+    <table>
+      <tr>
+        <td>支払方法</td>
+        <td><%= @order.payment_method %></td>
+      </tr>
+      <tr>
+        <td>お届け先</td>
+        <td><%= "#{@order.postal_code} #{@order.address} ¥n #{@order.name}" %></td>
+      </tr>
+    </table>
+    <%= button_to "購入を確定する", members_orders_path %>
+  </div>
+
+</div>

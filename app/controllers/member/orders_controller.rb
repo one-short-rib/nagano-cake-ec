@@ -1,4 +1,7 @@
 class Member::OrdersController < ApplicationController
+  include Member::OrdersHelper
+
+  before_action :to_confirm, only: [:confirm]
 
   def new
     @cart_items = current_member.cart_items
@@ -24,6 +27,12 @@ class Member::OrdersController < ApplicationController
                                           address: params[:order][:ship_address])
           @order.set_address(ship)
     end
+    @order_items = []
+    current_member.cart_items.each do |cart_item|
+      @order_items << OrderItem.new(item: cart_item.item,
+                             amount: cart_item.amount,
+                             order_price: tax_include(cart_item.item.price))
+    end
   end
 
   def index
@@ -36,5 +45,11 @@ class Member::OrdersController < ApplicationController
 
   def thanks
   end
+
+  private
+
+      def to_confirm
+        redirect_to members_cart_items_path if params[:id] == "confirm"
+      end
 
 end

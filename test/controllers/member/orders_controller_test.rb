@@ -20,4 +20,12 @@ class Member::OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get confirm" do
+    member = members(:member2)
+    login_as(member, :scope => :member)
+    post confirm_members_orders_path, params: {order:{ choice: "0",
+                                               payment_method: "クレジットカード"}}
+    assert_response :success
+  end
+
 end
