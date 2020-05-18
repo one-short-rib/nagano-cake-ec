@@ -13,22 +13,22 @@
         </label><br>
         <label>
           <%= f.radio_button :name, 2 %> 新しいお届け先<br>
-          <table>
-              <%= form_for(Ship.new, url: members_orders_path) do |g| %>
-            <tr>
-              <td><%= g.label :postal_code, "郵便番号(ハイフンなし)" %></td>
-              <td><%= g.text_field :postal_code %></td>
-            </tr>
-            <tr>
-              <td><%= g.label :address, "住所" %></td>
-              <td><%= g.text_field :address %></td>
-            </tr>
-            <tr>
-              <td><%= g.label :name, "宛名" %></td>
-              <td><%= g.text_field :name %></td>
-            </tr>
-          <% end %>
-          </table>
+            <table>
+                <%#= form_for(Ship.new, url: members_orders_path) do |g| %>
+                  <tr>
+                    <td><%= f.label :ship_postal_code, "郵便番号(ハイフンなし)" %></td>
+                    <td><%= f.text_field :ship_postal_code %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :ship_address, "住所" %></td>
+                    <td><%= f.text_field :ship_address %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :ship_name, "宛名" %></td>
+                    <td><%= f.text_field :ship_name %></td>
+                  </tr>
+              <%# end %>
+            </table>
         </label>
         <%= f.submit "確認画面へ進む", class:"btn" %>
   </div>

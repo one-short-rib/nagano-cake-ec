@@ -19,8 +19,9 @@ class Member::OrdersController < ApplicationController
          ship = current_member.ships.find(params[:order][:address])
          @order.set_address(ship)
     else
-      binding.pry
-        ship = current_member.ships.new(ship_params)
+        ship = current_member.ships.new(postal_code: params[:order][:ship_postal_code],
+                                        name: params[:order][:ship_name],
+                                        address: params[:order][:ship_address])
         @order.set_address(ship)
     end
   end
@@ -39,10 +40,6 @@ class Member::OrdersController < ApplicationController
   private
     def order_params
       params.require(:order).permit(:name, :address, :payment_method)
-    end
-
-    def ship_params
-      params.require(:ship).permit(:postal_code, :address, :name)
     end
 
 end
