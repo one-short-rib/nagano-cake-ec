@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+/*拡張言語をscssへ変更*/
+/*bootstrapgemに必要*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*font-awesome追加*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+.nav{
+  height:100px;
+}
+
+.head{
+ color:#FFFFFF;
+ font-size:20px;
+ padding-left:70px;
+}
+
+ul{
+padding-right:60px;
+}
+
+li{
+margin:0 5px;
+list-style:none;
+}

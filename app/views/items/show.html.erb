@@ -1,2 +1,9 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="row">
+  <div class="col-xs-2">
+    <%= render 'items/genres_box', genres: @genres %>
+  </div>
+  <div class="col-xs-10">
+    <%= render 'items/item_show', item: @item %>
+    <%= render 'items/cart_button', cart_item: @cart_item %>
+  </div>
+</div>
