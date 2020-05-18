@@ -6,9 +6,13 @@
 		<h3>マイページ</h3>
 
 		<div class="row info-title">
-			登録情報
-			<%= link_to '編集する', edit_members_path, class: "btn btn-primary" %>
-			<%= link_to 'パスワードを変更する', "#", class: "btn btn-primary" %>
+			<div class="pull-left">登録情報</div>
+			<div class="pull-left">
+				<%= link_to '編集する', edit_members_path, class: "btn btn-primary" %>
+			</div>
+			<div class="pull-left">
+				<%= link_to 'パスワードを変更する', "#", class: "btn btn-primary" %>
+			</div>
 		</div>
 
 		<div class="row">
@@ -39,14 +43,17 @@
 				</tr>
 			</table>
 		</div>
-		<div>
-			<h4>配送先</h4>
-			<%= link_to '一覧を見る', members_ships_path, class: "btn btn-primary" %>
+		<div class="row ships-link">
+			<div class="pull-left">配送先</div>
+			<div class="pull-left">
+				<%= link_to '一覧を見る', members_ships_path, class: "btn btn-primary" %>
+			</div>
 		</div>
-		<div>
-			<h4>注文履歴</h4>
-			<%= link_to '一覧を見る', members_orders_path, class: "btn btn-primary" %>
+		<div class="row orders-link">
+			<div class="pull-left">注文履歴</div>
+			<div class="pull-left">
+				<%= link_to '一覧を見る', members_orders_path, class: "btn btn-primary" %>
+			</div>
 		</div>
-	</div>
 	<div class="col-xs-1"></div>
 </div>
