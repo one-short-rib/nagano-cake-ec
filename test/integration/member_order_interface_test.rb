@@ -1,16 +1,28 @@
 require 'test_helper'
 
 class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
+  include Warden::Test::Helpers
+
 
   def setup
     @order = orders(:order1)
+    @member = members(:member1)
+    login_as(@member, :scope => :member)
   end
 
   test "new view" do
+    #カートが空の場合
     get new_members_order_path
+    assert_template "member/cart_items/index"
+    #カートに商品がある場合
+    CartItem.create(member_id: @member.id,
+                    item: items(:item1),
+                    amount: 2)
+    get new_members_order_path
+    assert_template "member/orders/new"
     assert_select "h2", "注文情報入力"
     assert_select "h3", "支払方法"
-    assert_select "h3", "お届け先"    
+    assert_select "h3", "お届け先"
   end
 
   test "index view" do

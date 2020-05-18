@@ -6,7 +6,7 @@ class Member::OrdersController < ApplicationController
     @order = Order.new
     @cart_items.destroy_all
     else
-      flash[:danger] = '商品を追加してください'
+      #flash[:danger] = '商品を追加してください'
       render 'member/cart_items/index'
     end
   end
