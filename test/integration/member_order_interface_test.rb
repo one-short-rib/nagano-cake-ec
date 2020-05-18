@@ -83,6 +83,8 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                                                payment_method: "クレジットカード"}}
     end
     assert_redirected_to thanks_members_orders_path
+    follow_redirect!
+    assert_select "h2", "ご購入ありがとうございました！"
   end
 
   test "index view" do
