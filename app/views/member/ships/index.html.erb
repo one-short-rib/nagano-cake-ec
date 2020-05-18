@@ -1,11 +1,9 @@
-<h1>Member::Ships#index</h1>
-<p>Find me in app/views/member/ships/index.html.erb</p>
-
 <div class="row">
 	<div class="col-xs-10 col-xs-offset-1">
 		<h4>　配送先登録 / 一覧　</h4>
+		<div class="row">
 			<%= form_for @ship, url: '/members/ships' do |f| %>
-				<div class="form_body">
+				<div class="form_body clearfix col-xs-7">
 					<table>
 						<tr>
 							<td><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></td>
@@ -18,14 +16,17 @@
 						<tr>
 							<td><%= f.label :name,"宛名" %></td>
 							<td><%= f.text_field :name, class: "name" %></td>
-							<td>&nbsp;</td>
-							<td><%= f.submit "登録する", class: "btn btn-success" %></td>
 						</tr>
 					</table>
+					<div class="action pull-right">
+						<%= f.submit "登録する", class: "btn btn-success" %>
+					</div>
 				</div>
 			<% end %>
-			<!-- ships一覧 -->
-			<div class="row ships_index">
+		</div>
+		<!-- ships一覧 -->
+		<div class="row">
+			<div class="ships_index col-xs-12">
 				<table>
 					<thead>
 						<tr>
@@ -50,5 +51,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-1"></div>
+</div>
+<div class="col-xs-1"></div>
 </div>
