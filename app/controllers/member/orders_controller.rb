@@ -14,19 +14,14 @@ class Member::OrdersController < ApplicationController
     @order = Order.new(member: current_member,
                       payment_method: params[:order][:payment_method])
     if params[:order][:name] == "0"
-          @order.postal_code = current_member.postal_code
-          @order.address = current_member.address
-          @order.name = current_member.last_name + current_member.first_name
+          @order.set_address(current_member)
     elsif params[:order][:name] == "1"
          ship = current_member.ships.find(params[:order][:address])
-         @order.postal_code = ship.postal_code
-         @order.address = ship.address
-         @order.name = ship.name
+         @order.set_address(ship)
     else
-        ship = Ship.find(ship_params)
-        @order.postal_code = ship.postal_code
-        @order.address = ship.address
-        @order.name = ship.name
+      binding.pry
+        ship = current_member.ships.new(ship_params)
+        @order.set_address(ship)
     end
   end
 

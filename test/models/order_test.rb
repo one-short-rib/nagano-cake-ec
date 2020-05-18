@@ -57,9 +57,9 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test "defaults should be valid" do
-    assert_equal @order.order_status, 0
+    assert_equal @order.order_status, "入金待ち"
     assert_equal @order.postage, 800
-    assert_equal @order.payment_method, 0
+    assert_equal @order.payment_method, "クレジットカード"
   end
 
 
