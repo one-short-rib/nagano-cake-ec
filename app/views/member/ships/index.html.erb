@@ -38,16 +38,7 @@
 					<tbody>
 						<% if @ships.present? %>
 							<% @ships.each do |ship| %>
-								<tr>
-									<td><%= ship.postal_code.to_s.insert(3, "-") %></td>
-									<td><%= ship.address %></td>
-									<td><%= ship.name %></td>
-									<td><%= link_to '編集する', edit_members_ship_path(ship), class: "btn btn-primary" %></td>
-									<td>
-										<%= link_to '削除する', members_ship_path(ship), method: :delete,
-										data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
-									</td>
-								</tr>
+								<%= render 'member/ships/ship', ship: ship %>
 							<% end %>
 						<% else %>
 						 <tr>
