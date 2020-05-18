@@ -1,56 +1,61 @@
 <h1>Member::Ships#index</h1>
 <p>Find me in app/views/member/ships/index.html.erb</p>
 
-<h4>　配送先登録 / 一覧　</h4>
-<div>
-	<%= form_for @ship, url: '/members/ships' do |f| %>
-		<div class="">
-			<%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
-			<%= f.text_field :postal_code, class: "postal_code" %>
-		</div>
-		<div class="">
-			<%= f.label :address,"住所" %>
-			<%= f.text_field :address, class: "address" %>
-		</div>
-		<div class="">
-			<%= f.label :name,"宛名" %>
-			<%= f.text_field :name, class: "name" %>
-		</div>
-		<div class="">
-			<%= f.submit "登録する" %>
-		</div>
-	<% end %>
-</div>
-
-
-
-<table>
-	<thead>
-		<tr>
-			<th>郵便番号</th>
-			<th>住所</th>
-			<th>宛名</th>
-			<th colspan="2"></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% if @ships.present? %>
-			<% @ships.each do |ship| %>
-				<tr>
-					<td><%= ship.postal_code %></td>
-					<td><%= ship.address %></td>
-					<td><%= ship.name %></td>
-					<td><%= link_to '編集する', edit_members_ship_path(ship) %></td>
-					<td>
-						<%= link_to '削除する', members_ship_path(ship), method: :delete,
-						data: {confirm: "本当に削除してもよろしいですか？"} %>
-					</td>
-				</tr>
+<div class="row">
+	<div class="col-xs-10 col-xs-offset-1">
+		<h4>　配送先登録 / 一覧　</h4>
+		<div>
+			<%= form_for @ship, url: '/members/ships' do |f| %>
+				<div class="">
+					<%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
+					<%= f.text_field :postal_code, class: "postal_code" %>
+				</div>
+				<div class="">
+					<%= f.label :address,"住所" %>
+					<%= f.text_field :address, class: "address" %>
+				</div>
+				<div class="">
+					<%= f.label :name,"宛名" %>
+					<%= f.text_field :name, class: "name" %>
+				</div>
+				<div class="">
+					<%= f.submit "登録する", class: "btn btn-success" %>
+				</div>
 			<% end %>
-		<% else %>
-		 <tr>
-		 	<td colspan="5">登録された配送先はありません</td>
-		 </tr>
-	 <% end %>
-	</tbody>
-</table>
+		</div>
+
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>郵便番号</th>
+					<th>住所</th>
+					<th>宛名</th>
+					<th colspan="2"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% if @ships.present? %>
+					<% @ships.each do |ship| %>
+						<tr>
+							<td><%= ship.postal_code.to_s.insert(3, "-") %></td>
+							<td><%= ship.address %></td>
+							<td><%= ship.name %></td>
+							<td><%= link_to '編集する', edit_members_ship_path(ship), class: "btn btn-primary" %></td>
+							<td>
+								<%= link_to '削除する', members_ship_path(ship), method: :delete,
+								data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+							</td>
+						</tr>
+					<% end %>
+				<% else %>
+				 <tr>
+				 	<td colspan="5">登録された配送先はありません</td>
+				 </tr>
+			 <% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-xs-1"></div>
+</div>
