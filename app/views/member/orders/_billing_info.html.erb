@@ -1,0 +1,16 @@
+<!-- recieves order -->
+
+<table>
+  <tr>
+    <td>商品合計</td>
+    <td><%= total_price(order).to_s(:delimited) %></td>
+  </tr>
+  <tr>
+    <td>配送料</td>
+    <td><%= order.postage %></td>
+  </tr>
+  <tr>
+    <td>ご請求額</td>
+    <td><%= order.billing_amount.to_s(:delimited) %></td>
+  </tr>
+</table>

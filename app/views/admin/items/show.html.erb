@@ -9,12 +9,14 @@
 		</div>
 
 		<div class = "col-md-8">
-			<label class = "item-name">商品名<%= @item.name %></label>
-			<label class = "item-explanation">商品説明<%= @item.explanation %></label>
-			<label class = "item-genre">ジャンル</label>
-			<label class = "item-price">税価格(税抜価格)<%= @item.price %></label>
-			<label class = "item-saled">販売ステータス<%= @item.is_saled %><!--税込価格が表示されるようにする--></label>
-			<%= f.submit　"編集する, edit_admin_item_path(@item.id)　%>
+			<lavel class = "item-name"><p>商品名<%= @item.name %></p></lavel>
+			<lavel class = "item-explanation"><p>商品説明<%= @item.explanation %></p></lavel>
+			<lavel class = "item-genre"><p>ジャンル<%= @item.name %></p></lavel>
+			<lavel class = "item-price">
+				<p>税込価格(税抜価格)<%= @item.price %></p></lavel>
+			<lavel class = "item-saled"><p>販売ステータス</p><%= @item.is_saled %></p></lavel>
+			
+			<%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-primary" %>
 		</div>
 	</div>
 </div>

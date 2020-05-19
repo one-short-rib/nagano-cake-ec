@@ -1,0 +1,9 @@
+<!-- recieves order -->
+
+  <div class="payment-method-buttons col-sm-offset-2 col-sm-10">
+
+        <%= f.radio_button :payment_method, :クレジットカード, checked: true %>
+        <%= f.label :payment_method, "クレジットカード" %><br>
+        <%= f.radio_button :payment_method, :銀行振込 %>
+        <%= f.label :payment_method, "銀行振込" %>
+  </div>
