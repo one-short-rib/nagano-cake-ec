@@ -9,9 +9,9 @@ module Member::OrdersHelper
 	end
 
 	def total_price(order)
-		cart_items = order.member.cart_items
+		order_items = order.order_items
 		total_price = 0
-		cart_items.each {|cart_item| total_price += subtotal_price(cart_item)}
+		order_items.each {|order_item| total_price += order_item.order_price*order_item.amount}
 		return total_price
 	end
 

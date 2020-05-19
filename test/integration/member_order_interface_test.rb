@@ -96,8 +96,8 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @order.address, response.body
     assert_match @order.items.first.name, response.body
     assert_match @order.billing_amount.to_s(:delimited), response.body
-    #assert_match @order.order_status, response.body
-    assert_select "form[action=?]", members_order_path(@order)
+    assert_match @order.order_status, response.body
+    assert_select "a[href=?]", members_order_path(@order)
   end
 
   test "show view" do
@@ -109,19 +109,18 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @order.postal_code, response.body
     assert_match @order.address, response.body
     assert_match @order.name, response.body
-    #assert_match @order.payment_method, response.body
-    #assert_match @order.order_status, response.body
+    assert_match @order.payment_method, response.body
+    assert_match @order.order_status, response.body
 
     assert_select "h5", "請求情報"
-    #assert_match total_price(@order).to_s, response.body
     assert_match @order.postage.to_s, response.body
-    assert_match @order.billing_amount.to_s, response.body
+    assert_match @order.billing_amount.to_s(:delimited), response.body
 
     assert_select "h5", "注文内容"
     order_item = @order.order_items.first
     assert_match order_item.item.name, response.body
     assert_match order_item.order_price.to_s, response.body
     assert_match order_item.amount.to_s, response.body
-    #assert_match subtotal(order_item), response.body
+    assert_match (order_item.order_price*order_item.amount).to_s(:delimited), response.body
   end
 end

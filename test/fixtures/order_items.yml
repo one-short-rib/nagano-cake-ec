@@ -4,4 +4,16 @@ order_item1:
   item: item1
   order: order1
   amount: 2
-  order_price: 130
+  order_price: 110
+
+order_item2:
+  item: item2
+  order: order2
+  amount: 3
+  order_price: 440
+
+order_item3:
+  item: item3
+  order: order2
+  amount: 4
+  order_price: 220
