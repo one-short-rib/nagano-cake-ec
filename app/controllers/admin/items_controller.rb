@@ -6,6 +6,7 @@ class Admin::ItemsController < ApplicationController
 
   #商品の新規作成
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to admin_item_path(@item.id)
@@ -41,6 +42,6 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :price, :item_image)
+    params.require(:item).permit(:name, :explanation, :price, :item_image, :genre, :is_saled)
   end
 end
