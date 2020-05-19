@@ -6,7 +6,6 @@ item1:
   explanation: "very yum"
   price: 98
   is_saled: true
-  item_image_id: picture
 
 # two:
 #   genre: two
