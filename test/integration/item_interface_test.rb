@@ -23,7 +23,7 @@ class ItemInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @genre.name, response.body
     assert_match @item.price.to_s(:delimited), response.body
     assert_match @item.name, response.body
-    #assert_select "input[text=?]", "number"
+    assert_select "input[type=?]", "number"
     #assert_select "submit[value=?]", "カートに入れる"
   end
 
