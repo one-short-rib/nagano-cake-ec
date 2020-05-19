@@ -31,9 +31,4 @@ class ItemTest < ActiveSupport::TestCase
     assert_not @item.valid?
   end
 
-  test "image should present" do
-    @item.item_image = nil
-    assert_not @item.valid?
-  end
-
 end
