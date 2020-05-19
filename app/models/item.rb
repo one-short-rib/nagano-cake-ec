@@ -12,5 +12,4 @@ class Item < ApplicationRecord
   validates :explanation, presence: true, length: { maximum: 255 }
   validates :price, presence: true
   validates :is_saled, presence: true
-  validates :item_image, presence: true
 end
