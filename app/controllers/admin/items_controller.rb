@@ -6,7 +6,6 @@ class Admin::ItemsController < ApplicationController
 
   #商品の新規作成
   def create
-    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to admin_item_path(@item.id)
