@@ -2,6 +2,15 @@
 <br>
 <br>
 <p>ジャンル</p>
-<%= f.text_field :name %>
-<!--有効・無効ポッチ-->
-<!--変更を保存するボタン-->
+<%= form_for(@genre, url: admin_genre_path) do |f| %>
+	<%= f.text_field :name %>
+	<div><!-- 有効・無効のポッチ -->
+		<% label :is_valid, "有効", value: true %>
+		<%= f.radio_button :is_valid, true %>有効
+	</div>
+	<div>
+		<% label :is_valid, "無効", value: false %>
+		<%= f.radio_button :is_valid, false %>無効
+	</div>
+	<%= f.submit '変更を保存する', class: "" %><!--変更を保存するボタン-->
+<% end %>
