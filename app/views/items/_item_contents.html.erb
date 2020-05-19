@@ -1,0 +1,10 @@
+<!-- recieves order_items -->
+
+<tr>
+  <% order_items.each do |order_item| %>
+    <td><%= order_item.item.name %></td>
+    <td><%= order_item.order_price %></td>
+    <td><%= order_item.amount %></td>
+    <td><%= subtotal_price(order_item) %></td>
+  <% end %>
+</tr>

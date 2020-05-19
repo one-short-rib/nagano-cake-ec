@@ -1,2 +1,19 @@
-<h1>Member::Orders#show</h1>
-<p>Find me in app/views/member/orders/show.html.erb</p>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>注文履歴詳細</h3>
+      <div class="order&billing-info">
+        <div class="order-info">
+          <h5>注文情報</h5>
+          <%= render 'member/orders/order_info', order: @order %>
+        </div>
+        <div class="billing-info">
+          <h5>請求情報</h5>
+          <%= render 'member/orders/billing_info', order: @order %>
+        </div>
+      </div>
+      <div class="order-contents">
+        <h5>注文内容</h5>
+        <%= render 'member/orders/order_contents', order_items: @order.order_items %>
+      </div>
+  </div>
+</div>

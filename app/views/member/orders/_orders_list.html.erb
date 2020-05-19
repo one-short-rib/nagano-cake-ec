@@ -1,0 +1,15 @@
+<!-- recieves orders -->
+
+<% orders.each do |order| %>
+    <tr>
+      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= order.postal_code %><br><%= order.address %></td>
+      <td><% order.items.each do |item| %>
+              <%= item.name %><br>
+          <% end %>
+      </td>
+      <td><%= "#{order.billing_amount.to_s(:delimited)}円" %></td>
+      <td><%= order.order_status %></td>
+      <td><%= button_to "表示する", members_order_path(order), method: :get %></td>
+    </tr>
+<% end %>

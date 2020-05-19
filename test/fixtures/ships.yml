@@ -1,6 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
+ship1:
+  member: member1
+  postal_code: "1122334"
+  address: "兵庫県岐阜市田所町1-6"
+  name: "配送してよ"
+
+ship2:
+  member: member2
+  postal_code: "1122344"
+  address: "沖縄県岐阜市田所町4-6"
+  name: "member2用"

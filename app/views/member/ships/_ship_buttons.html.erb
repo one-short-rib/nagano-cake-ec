@@ -1,0 +1,31 @@
+
+
+  <div class="ship-buttons col-sm-offset-2 col-sm-10">
+        <label>
+          <%= f.radio_button :choice, 0, checked: true %> ご自身の住所<br>
+          <%= "#{current_member.postal_code} #{current_member.address}" %><br>
+          <%= "#{current_member.last_name}#{current_member.first_name}" %>
+        </label><br>
+        <label>
+          <%= f.radio_button :choice, 1 %> 登録済み住所から選択<br>
+          <%= f.select :ship_id, current_member.ships.collect{|ship| ["#{ship.postal_code} #{ship.address} #{ship.name}", ship.id] } %>
+        </label><br>
+        <label>
+          <%= f.radio_button :choice, 2 %> 新しいお届け先<br>
+            <table>
+                  <tr>
+                    <td><%= f.label :ship_postal_code, "郵便番号(ハイフンなし)" %></td>
+                    <td><%= f.text_field :ship_postal_code %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :ship_address, "住所" %></td>
+                    <td><%= f.text_field :ship_address %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :ship_name, "宛名" %></td>
+                    <td><%= f.text_field :ship_name %></td>
+                  </tr>
+            </table>
+        </label><br>
+        <%= f.submit "確認画面へ進む", class:"btn btn-info" %>
+  </div>
