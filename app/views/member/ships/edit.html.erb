@@ -1,23 +1,29 @@
-<h1>Member::Ships#edit</h1>
-<p>Find me in app/views/member/ships/edit.html.erb</p>
-
-<h4>配送先編集</h4>
-<div>
-	<%= form_for @ship, url: "/members/ships/#{@ship.id}" do |f| %>
-		<div class="">
-			<%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
-			<%= f.text_field :postal_code, class: "postal_code" %>
+<div class="row">
+	<div class="col-xs-7 col-xs-offset-1">
+		<h4>配送先編集</h4>
+		<div>
+			<%= form_for @ship, url: "/members/ships/#{@ship.id}" do |f| %>
+				<div class="form_body">
+					<table>
+						<tr>
+							<td><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></td>
+							<td><%= f.text_field :postal_code, class: "postal_code" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label :address,"住所" %></td>
+							<td colspan="2"><%= f.text_field :address, class: "address" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label :name,"宛名" %></td>
+							<td><%= f.text_field :name, class: "name" %></td>
+						</tr>
+					</table>
+				</div>
+				<div class="action pull-right">
+					<%= f.submit "編集する", class: "btn btn-primary" %>
+				</div>
+			<% end %>
 		</div>
-		<div class="">
-			<%= f.label :address,"住所" %>
-			<%= f.text_field :address, class: "address" %>
-		</div>
-		<div class="">
-			<%= f.label :name,"宛名" %>
-			<%= f.text_field :name, class: "name" %>
-		</div>
-		<div class="">
-			<%= f.submit "編集する" %>
-		</div>
-	<% end %>
+	</div>
+	<div class="col-xs-4"></div>
 </div>
