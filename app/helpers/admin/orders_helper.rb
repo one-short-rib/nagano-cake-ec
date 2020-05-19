@@ -1,20 +1,19 @@
 module Admin::OrdersHelper
 
-	def sub_total(order_price)
-		order_price*order_item.amount
+	def sub_total(order_item) 
+		order_item.order_price*order_item.amount
 	end
 
-	def total_price(order_items)
+	def total
 		order_items = OrderItem.all
-		total_price = 0
+		total = 0
 		order_items.each do |order_item|
-			total_price += order_item.order_price
+			total += order_item.order_price
 		end
-		return total_price
+		return total
 	end
 
 	def total_billed_amount
-		@otal_price + order.postage
-		return totsl_billed_amount
+		total + @order.postage
 	end
 end
