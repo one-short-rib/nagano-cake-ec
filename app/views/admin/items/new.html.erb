@@ -5,7 +5,7 @@
 	</div>
 
 	<div class = "row">
-		<%= form_for(@item) do |f| %>
+		<%= form_for(@item, url:'/admin/items') do |f| %>
 			<div class = "col-md-4">
 				<div class = "field">
 					<%= f.attachment_field :item_image %>
@@ -20,13 +20,14 @@
 					<h4>商品説明<%= f.text_area :explanation %></h4>
 				</div>
 				<div class = "field">
-					<h4>ジャンル<%= f.select :genre, [["ケーキ","ケーキ"],["プリン","プリン"],["焼き菓子","焼き菓子"],["キャンディ","キャンディ"]], include_blank: "選択" %></h4>
+					<!--ネットのcollection_selectの書き方写経してみた。表示は問題なし-->
+					<h4>ジャンル<%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
 				</div>
 				<div class = "field">
 					<h4>税抜価格<%= f.text_field :price %>円</h4>
 				</div>
 				<div class = "field">
-					<h4>販売ステータス<%= f.select :is_saled, [["売り切れ","売り切れ"],["販売中","販売中"]], include_blank: "選択" %></h4>
+					<h4>販売ステータス<%= f.select :is_saled, [["売り切れ", false],["販売中", true]], include_blank: "選択" %></h4>
 				</div>
 				<%= f.submit "新規登録", class:"btn btn-primary" %>
 			</div>

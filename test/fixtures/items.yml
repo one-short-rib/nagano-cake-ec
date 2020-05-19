@@ -1,16 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 item1:
-  genre: genres(:genre1)
+  genre: genre1
   name: "pokky"
   explanation: "very yum"
   price: 98
   is_saled: true
+  item_image_id: nil
 
-# two:
-#   genre: two
-#   name: MyString
-#   explanation: MyText
-#   price: 1
-#   is_saled: false
-#   item_image_id: MyString
+item2:
+  genre: genre1
+  name: "カントリーマーム"
+  explanation: "しっとりクリーミー"
+  price: 380
+  is_saled: false
+  item_image_id: nil
+
+item3:
+  genre: genre2
+  name: "コアラのマーチ"
+  explanation: "サクサクとろーり"
+  price: 160
+  is_saled: true
+  item_image_id: nil

@@ -16,7 +16,7 @@
 					<h4>商品説明<%= f.text_area :explanation %></h4>
 				</div>
 				<div class = "field">
-					<h4>ジャンル<%= f.select :genre, [["ケーキ","ケーキ"],["プリン","プリン"],["焼き菓子","焼き菓子"],["キャンディ","キャンディ"]], include_blank:"選択" %></h4>
+					<h4>ジャンル<%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
 				</div>
 				<div class = "field">
 					<h4>税抜価格<%= f.text_field :price %></h4>
@@ -25,7 +25,7 @@
 					<h4>販売ステータス<%= f.select :is_saled, [["売り切れ","売り切れ"],["販売中","販売中"]] %></h4>
 				</div>
 				<div class = "action">
-					<%= f.submit "保存を変更" %>
+					<%= f.submit "保存を変更", class:"btn btn-primary" %>
 				</div>
 			</div>
 		<% end %>
