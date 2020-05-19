@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_034944) do
     t.string "explanation", null: false
     t.integer "price", null: false
     t.boolean "is_saled", default: true
-    t.string "item_image_id", null: false
+    t.string "item_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_items_on_genre_id"
