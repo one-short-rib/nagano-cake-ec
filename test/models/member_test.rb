@@ -85,12 +85,10 @@ class MemberTest < ActiveSupport::TestCase
     assert_not @member.valid?
   end
 
-  # test "postal_code should be 7 letters" do
-  #   @member.postal_code = "a"*6
-  #   assert_not @member.valid?
-  #   @member.postal_code = "a"*8
-  #   assert_not @member.valid?
-  # end
+  test "postal_code should be less than 8 letters" do
+    @member.postal_code = "a"*8
+    assert_not @member.valid?
+  end
 
   test "address should not be too long" do
     @member.address = "a"*256
