@@ -23,8 +23,13 @@
 								<td>
 									<%= member.email %>
 								</td>
-								<td>
-									<%= member.is_deleted %>
+								<td><!--状態-->
+									<% if member.is_deleted == true %>
+										退会済み
+									<% end %>
+									<% if member.is_deleted == false %>
+										有効
+									<% end %>
 								</td>
 							</tr>
 						<% end %>
