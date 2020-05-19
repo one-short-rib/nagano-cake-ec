@@ -3,7 +3,7 @@
     <%= render 'items/genres_box', genres: @genres %>
   </div>
   <div class="col-xs-10">
-    <h1>商品一覧</h1><span class="item-count">(全<%= @items.count %>件)</span>
+    <h1>商品一覧<span class="item-count">(全<%= @items.count %>件)</span></h1>
     <%= render 'items/item_index', items: @items %>
   </div>
 </div>
