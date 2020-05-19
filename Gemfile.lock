@@ -100,6 +100,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
+    faker (2.11.0)
+      i18n (>= 1.6, < 2)
     ffi (1.12.2)
     font-awesome-sass (5.4.1)
       sassc (>= 1.11)
@@ -309,6 +311,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  faker
   font-awesome-sass (~> 5.4.1)
   jbuilder (~> 2.5)
   jquery-rails
