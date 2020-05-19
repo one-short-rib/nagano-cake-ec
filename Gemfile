@@ -12,8 +12,9 @@ gem 'rubocop-airbnb'
 gem "pry-byebug"
 gem 'kaminari','~> 1.1.1'
 
-#勝手に追加、font-awesome
+#勝手に追加、font-awesome,faker
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'faker'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
