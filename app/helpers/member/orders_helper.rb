@@ -15,4 +15,14 @@ module Member::OrdersHelper
 		return total_price
 	end
 
+  def cart_to_order
+    order_items = []
+    current_member.cart_items.each do |cart_item|
+      order_items << OrderItem.new(item: cart_item.item,
+                                   amount: cart_item.amount,
+                                   order_price: tax_include(cart_item.item.price))
+    end
+    return order_items
+  end
+
 end

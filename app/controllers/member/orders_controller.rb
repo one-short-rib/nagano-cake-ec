@@ -13,42 +13,32 @@ class Member::OrdersController < ApplicationController
 
   def new
     @cart_items = current_member.cart_items
-    if current_member.cart_items.count != 0
-      @order = Order.new
-    else
-      #flash[:danger] = '商品を追加してください'
-      render 'member/cart_items/index'
-    end
+    current_member.cart_items.count != 0 ? @order = Order.new : (render 'member/cart_items/index')
   end
 
   def confirm
     @order = Order.new(member: current_member,
-                      payment_method: params[:order][:payment_method])
-    case params[:order][:choice]
-      when "0"
-           @order.set_address(current_member)
-      when "1"
-           @order.set_address(current_member.ships.find(params[:order][:ship_id]))
-      when "2"
+                       payment_method: params[:order][:payment_method])
+      case params[:order][:choice]
+        when "0"
+          @order.set_address(current_member)
+        when "1"
+          @order.set_address(current_member.ships.find(params[:order][:ship_id]))
+        when "2"
           ship = current_member.ships.new(postal_code: params[:order][:ship_postal_code],
                                           name: params[:order][:ship_name],
                                           address: params[:order][:ship_address])
-          @order.set_address(ship)
-    end
-    @order_items = []
-    current_member.cart_items.each do |cart_item|
-      @order_items << OrderItem.new(item: cart_item.item,
-                             amount: cart_item.amount,
-                             order_price: tax_include(cart_item.item.price))
-    end
+            @order.set_address(ship)
+      end
+        @order_items = cart_to_order
   end
 
   def create
     if current_member.orders.create(order_params)
-       current_member.cart_items.destroy_all
-       redirect_to thanks_members_orders_path
+      current_member.cart_items.destroy_all
+      redirect_to thanks_members_orders_path
     else
-       redirect_to members_cart_items_path
+      redirect_to members_cart_items_path
     end
   end
 
