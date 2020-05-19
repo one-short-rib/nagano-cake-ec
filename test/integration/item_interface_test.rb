@@ -11,7 +11,7 @@ class ItemInterfaceTest < ActionDispatch::IntegrationTest
     get items_path
     assert_select "h3", "ジャンル検索"
     assert_match @genre.name, response.body
-    assert_select "h1", "商品一覧"
+    assert_select "h1", "商品一覧(全#{Item.count}件)"
     assert_match Item.count.to_s, response.body
     assert_match @item.price.to_s(:delimited), response.body
     assert_match @item.name, response.body
@@ -23,8 +23,8 @@ class ItemInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @genre.name, response.body
     assert_match @item.price.to_s(:delimited), response.body
     assert_match @item.name, response.body
-    #assert_select "input[text=?]", "number"
-    #assert_select "submit[value=?]", "カートに入れる"
+    assert_select "input[type=?]", "number"
+    assert_select "input[value=?]", "カートに入れる"
   end
 
 end
