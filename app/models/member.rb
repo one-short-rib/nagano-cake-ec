@@ -14,7 +14,7 @@ class Member < ApplicationRecord
   validates	:last_name_kana, presence: true, length: {maximum: 10 }
   validates :first_name_kana,presence: true, length: {maximum: 10 }
   validates :phone_number, 	 presence: true, length: {maximum: 12, minimum: 10 }
-  validates :postal_code,    presence: true, length: {maximum: 10 }
+  validates :postal_code,    presence: true, length: {maximum: 7 }
   validates :address, 		   presence: true, length: {maximum: 255 }
   validates :email, 			   presence: true, length: {maximum: 255 }
 
