@@ -1,31 +1,36 @@
-<div>
-  <h5>会員の方はこちらからログイン</h5>
-  <div>
+<div class="row">
+  <div class="col-xs-12" >
+    <div class="page-title" >
+      <span>会員の方はこちらからログイン</span>
+    </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email,"メールアドレス" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="form-body">
+        <table>
+          <tr>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td> <%= f.label :password, "パスワード" %></td>
+            <td>
+              <%= f.password_field :password, autofocus: true, autocomplete: "current-password" %>
+            </td>
+          </tr>
+        </table>
+        <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %>
       </div>
-
-      <div class="field">
-        <%= f.label :password, "パスワード" %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
-
-
-      <div class="actions">
-        <%= f.submit "ログイン" %>
+      <div class="actions wide-btn">
+        <%= f.submit "ログイン", class: "btn btn-success center-block"  %>
       </div>
     <% end %>
+    <div class="another-link">
+      <div class="page-title">
+        <span>登録がまだお済みでない方</span>
+      </div>
+      <p>
+        <%= link_to "こちら", new_registration_path(resource_name) %>
+        から新規登録してください。
+      </p>
+    </div>
   </div>
 </div>
-<div>
-  <h5>登録がまだお済みでない方</h5>
-  <p>
-    <%= link_to "こちら", new_registration_path(resource_name) %>
-    から新規登録してください。
-  </p>
-</div>
-<%#= render "members/shared/links" %>
