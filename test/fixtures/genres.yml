@@ -3,3 +3,7 @@
 genre1:
   name: "snack"
   is_valid: true
+
+genre2:
+  name: "chocolate"
+  is_valid: true

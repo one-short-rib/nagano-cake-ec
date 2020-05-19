@@ -24,21 +24,26 @@
 @import "font-awesome";
 
 
-.nav{
-  height:100px;
+header{
+	height: 100px;
+	width: 100%;
+	color:white;
+	.navbar-left{
+		margin:0 20px;
+		font-size: 2em;
+		line-height: 2em;
+    display: inline-block;
+	}
+	.navbar-right{
+		margin-right:20px;
+	}
 }
 
-.logo{
- color:#FFFFFF;
- font-size:20px;
- padding-left:70px;
-}
-
-ul{
-padding-right:60px;
-}
-
-li{
-margin:0 5px;
-list-style:none;
+.body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.3em;
+  margin: 30px auto 30px;
 }

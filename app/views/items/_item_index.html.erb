@@ -2,8 +2,8 @@
 
 <% items.each do |item| %>
   <div class="item-box">
-    <%= attachment_image_tag item, :item_image, :fill, 50, 50 %>
-    <%= item.name %>
-    <%= item.price.to_s(:delimited) %>
+    <%= attachment_image_tag item, :item_image, format: 'jpg', fallback: "no_image.jpg", size: "250x200" %><br>
+    <%= link_to item.name, item_path(item) %><br>
+    <%= "¥#{item.price.to_s(:delimited)}" %>
   </div>
 <% end %>
