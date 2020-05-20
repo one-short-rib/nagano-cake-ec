@@ -31,4 +31,8 @@ class ItemTest < ActiveSupport::TestCase
     assert_not @item.valid?
   end
 
+  test "is_saled should be true for default" do
+    assert @item.is_saled
+  end
+
 end
