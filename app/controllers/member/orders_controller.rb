@@ -30,6 +30,7 @@ class Member::OrdersController < ApplicationController
                                           address: params[:order][:ship_address])
             @order.set_address(ship)
       end
+      @order.billing_amount = total_price(current_member.cart_items) + @order.postage
   end
 
   def create

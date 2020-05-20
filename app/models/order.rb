@@ -19,7 +19,6 @@ class Order < ApplicationRecord
       self.postal_code = key.postal_code
       self.address = key.address
       (key.class == Member)? self.name = key.last_name + key.first_name : self.name = key.name
-      self.billing_amount = total_price(self) + self.postage
   end
 
 end
