@@ -39,10 +39,8 @@ class OrderTest < ActiveSupport::TestCase
     assert_not @order.valid?
   end
 
-  test "postal_code should be 7 letters" do
+  test "postal_code should be less than 8 letters" do
     @order.postal_code = "0"*8
-    assert_not @order.valid?
-    @order.postal_code = "0"*6
     assert_not @order.valid?
   end
 

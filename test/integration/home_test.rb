@@ -16,7 +16,7 @@ class HomeTest < ActionDispatch::IntegrationTest
 
     test "about view" do
       get about_path
-      assert_select "h1", "Homes#about"
+      assert_select "h2", "このECサイトについて"
     end
 
 end
