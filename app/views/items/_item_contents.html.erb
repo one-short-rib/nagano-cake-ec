@@ -1,8 +1,9 @@
 <!-- recieves pending_items -->
 
 <% pending_items.each do |pending_item| %>
+  <% item = pending_item.item %>
   <tr>
-    <td><%= pending_item.item.name %></td>
+    <td><%= attachment_image_tag item, :item_image, format: 'jpg', fallback: "no_image.jpg", size: "100x60" %><%= pending_item.item.name %></td>
     <td><%= unit_price_in_tax(pending_item).to_s(:delimited) %></td>
     <td><%= pending_item.amount %></td>
     <td><%= subtotal_price(pending_item).to_s(:delimited) %></td>
