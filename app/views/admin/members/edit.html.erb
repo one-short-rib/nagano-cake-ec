@@ -43,12 +43,11 @@
 </div>
 <div class="bootstrap大きさ">
 	<label for="name">会員ステータス</label>
-	<div>
+	<div><!--有効・退会済みのポッチ-->
 		<% label :is_deleted, "有効", value: false %>
 		<%= f.radio_button :is_deleted, false %>有効
 	</div>
 	<div>
-		<!--有効・退会済みのポッチ-->
 		<% label :is_deleted, "退会済み", value: true %>
 		<%= f.radio_button :is_deleted, true %>退会済み
 	</div>
