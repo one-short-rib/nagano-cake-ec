@@ -17,8 +17,7 @@
 							<tr>
 								<td><%= member.id %></td>
 								<td>
-									<%= link_to member.last_name, admin_member_path(member.id) %>
-									<%= link_to member.first_name, admin_member_path(member.id) %>
+									<%= link_to full_name(member), admin_member_path(member.id) %>
 								</td>
 								<td>
 									<%= member.email %>

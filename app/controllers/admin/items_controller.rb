@@ -32,15 +32,15 @@ class Admin::ItemsController < ApplicationController
   #商品情報の変更・保存
   def update
     @item = Item.find(params[:id])
-    if @item.update
+    if @item.update(item_params)
       redirect_to admin_item_path(@item.id)
     else
-      render 'show'
+      render 'edit'
     end
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :price, :item_image, :genre, :is_saled)
+    params.require(:item).permit(:name, :explanation, :price, :item_image, :genre_id, :is_saled)
   end
 end

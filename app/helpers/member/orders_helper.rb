@@ -1,5 +1,5 @@
 module Member::OrdersHelper
-
+  
   def tax_include(price) #消費税をかける
 		(price*1.1).floor
 	end
