@@ -19,15 +19,13 @@ module Member::OrdersHelper
 	end
 
   def cart_to_order(order)
-    order_items = []
     current_member.cart_items.each do |cart_item|
-      order_items << OrderItem.create(item: cart_item.item,
-                                   order: order,
-                                   amount: cart_item.amount,
-                                   order_price: tax_include(cart_item.item.price))
+        OrderItem.create(item: cart_item.item,
+                         order: order,
+                         amount: cart_item.amount,
+                         order_price: tax_include(cart_item.item.price))
     end
     current_member.cart_items.destroy_all
-    return order_items
   end
 
 end
