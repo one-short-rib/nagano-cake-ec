@@ -3,26 +3,31 @@
     <div class="page-title" >
       <span>会員の方はこちらからログイン</span>
     </div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-body">
-        <table>
-          <tr>
-            <td><%= f.label :email, "メールアドレス" %></td>
-            <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-          <tr>
-            <td> <%= f.label :password, "パスワード" %></td>
-            <td>
-              <%= f.password_field :password, autofocus: true, autocomplete: "current-password" %>
-            </td>
-          </tr>
-        </table>
-        <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %>
-      </div>
-      <div class="actions wide-btn">
-        <%= f.submit "ログイン", class: "btn btn-success center-block"  %>
-      </div>
-    <% end %>
+    <div class="row">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-body login-form col-xs-10 col-xs-offset-1">
+          <table>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+              <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td> <%= f.label :password, "パスワード" %></td>
+              <td>
+                <%= f.password_field :password, autofocus: true, autocomplete: "current-password" %>
+              </td>
+            </tr>
+          </table>
+          <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: "pull-right" %>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="row">
+          <div class="actions wide-btn col-xs-12">
+            <%= f.submit "ログイン", class: "btn btn-success center-block"  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <div class="another-link">
       <div class="page-title">
         <span>登録がまだお済みでない方</span>

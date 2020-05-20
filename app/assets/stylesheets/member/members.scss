@@ -20,29 +20,38 @@
 	}
 }
 
-form{
+.form-body{
 	width:100%;
 	margin:20px 0;
 	table{
+		width:100%;
 		tr{
-			input{
-				width:200px;
-				height:40px;
-				font-size:1em;
-				border-radius:5px;
-				&#member_address{
-					width:100%;
-				}
-			}
 			td {
-			  padding-bottom: 7px;
-			  padding-left: 5px;
-			  padding-right: 5px;
+			  padding: 7px 10px;
 				text-align:center;
+				input{
+					width:100%;
+					max-width:600px;
+					height:40px;
+					font-size:1em;
+					border-radius:5px;
+					&#member_address{
+						max-width:100%
+					}
+				}
 			}
 			td:first-child{
 				text-align:left;
 			}
+		}
+	}
+	&.login-form{
+		td:first-child{
+			width:150px;
+		}
+		padding-left:20px;
+		input{
+			max-width:800px;
 		}
 	}
 }
@@ -55,7 +64,8 @@ label{
 }
 .wide-btn{
 	.btn{
-		padding:5px 30px;
-		display:inline-block;
+		padding:5px 80px;
+		width:30vw;
+		max-width:250px;
 	}
 }
