@@ -17,5 +17,6 @@ class Member < ApplicationRecord
   validates :postal_code,    presence: true, length: {maximum: 7 }
   validates :address, 		   presence: true, length: {maximum: 255 }
   validates :email, 			   presence: true, length: {maximum: 255 }
+  validates :is_deleted,     inclusion: [true, false]
 
 end
