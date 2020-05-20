@@ -99,5 +99,9 @@ class MemberTest < ActiveSupport::TestCase
     @member.email = "a"*256
     assert_not @member.valid?
   end
+  
+  test "is_deleted should be false for default" do
+    assert_not @member.is_deleted
+  end
 
 end
