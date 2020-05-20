@@ -28,10 +28,8 @@ class ShipTest < ActiveSupport::TestCase
     assert_not @ship.valid?
   end
 
-  test "postal_code should be 7 letters" do
+  test "postal_code should be less than 8 letters" do
     @ship.postal_code = "a"*8
-    assert_not @ship.valid?
-    @ship.postal_code = "a"*6
     assert_not @ship.valid?
   end
 
