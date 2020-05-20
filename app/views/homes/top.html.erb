@@ -3,8 +3,8 @@
     <%= render 'items/genres_box', genres: @genres %>
   </div>
   <div class="col-xs-10">
-    <div class="main-visual">
-      <div class="main-message">
+    <div class="main-visual" style="height:300px; position:relative;">
+      <div class="main-message" style="position:absolute; top:100px; left:150px;">
         <p>
           ようこそ、NaganoCakeへ！<br>
           このサイトは、ケーキ販売のECサイトになります。<br>
@@ -17,6 +17,6 @@
       <h2>オススメ商品</h2>
       <%= render 'items/item_index', items: @items %>
     </div>
-    <%= link_to "もっと見る>", items_path %>
+    <%= link_to "もっと見る>", items_path, class:"pull-right" %>
   </div>
 </div>
