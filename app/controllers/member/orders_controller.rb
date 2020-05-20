@@ -1,5 +1,4 @@
 class Member::OrdersController < ApplicationController
-  include Member::OrdersHelper
 
   before_action :to_confirm, only: [:show]
 
