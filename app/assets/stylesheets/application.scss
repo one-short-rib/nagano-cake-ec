@@ -23,6 +23,13 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+}
 
 header{
 	height: 70px;
@@ -39,12 +46,20 @@ header{
 	}
 	.navbar-right{
 		margin-right:20px;
-		p{
-			padding-top:15px;
-		}
 		a{
-
+			color:#008080;
+			&:hover{
+				background-color:#ffffaa;
+				color:#006060;
+				font-size:1.5em;
+			}
 		}
+	}
+	.welcom-name{
+		padding-top:15px;
+		margin-top:9px;
+		margin-left:50px;
+    display: inline-block;
 	}
 }
 
@@ -52,7 +67,5 @@ header{
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 1em;
-  line-height: 1.3em;
   margin: 30px auto 30px;
 }
