@@ -19,18 +19,9 @@ class Member::OrdersController < ApplicationController
   def confirm
     @order = Order.new(member: current_member,
                        payment_method: params[:order][:payment_method])
-      case params[:order][:choice]
-        when "0"
-          @order.set_address(current_member)
-        when "1"
-          @order.set_address(current_member.ships.find(params[:order][:ship_id]))
-        when "2"
-          ship = current_member.ships.new(postal_code: params[:order][:ship_postal_code],
-                                          name: params[:order][:ship_name],
-                                          address: params[:order][:ship_address])
-            @order.set_address(ship)
-      end
-      @order.billing_amount = total_price(current_member.cart_items) + @order.postage
+    @order.set_new_order(params[:order][:choice], params[:order][:ship_id],
+                  params[:order][:postal_code], params[:order][:name],
+                  params[:order][:ship_address], current_member)
   end
 
   def create
