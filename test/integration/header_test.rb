@@ -25,7 +25,8 @@ class HeaderTest < ActionDispatch::IntegrationTest
   end
 
   test "non-admin cannot see admin header" do
-    get admin_path
+    login_as(@member, :scope => nil)
+    get root_path
     assert_select "a[href=?]", admin_items_path, count: 0
     assert_select "a[href=?]", admin_members_path, count: 0
     assert_select "a[href=?]", admin_orders_path, count: 0
