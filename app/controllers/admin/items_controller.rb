@@ -31,7 +31,6 @@ class Admin::ItemsController < ApplicationController
 
   #商品情報の変更・保存
   def update
-    binding.pry
     @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to admin_item_path(@item.id)
