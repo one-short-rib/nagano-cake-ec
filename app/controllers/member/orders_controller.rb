@@ -30,11 +30,11 @@ class Member::OrdersController < ApplicationController
                                           address: params[:order][:ship_address])
             @order.set_address(ship)
       end
-        @order_items = cart_to_order
   end
 
   def create
     if current_member.orders.create(order_params)
+      cart_to_order
       current_member.cart_items.destroy_all
       redirect_to thanks_members_orders_path
     else
