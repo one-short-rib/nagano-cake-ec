@@ -21,8 +21,10 @@
 			</tr>
 			<tr>
 				<th>注文ステータス</th>
-				<td><%= select :order_status, :name, Order.order_statuses.keys.to_a %></td>
-				<td><%= button_to"更新", admin_order_path(@order.id), class:"btn btn-primary", method: :patch %></td>
+				<%= form_for @order, url:admin_order_path(@order.id) do |f| %>
+					<td><%= f.select :order_status, Order.order_statuses.keys %></td>
+					<td><%= f.submit "更新", class:"btn btn-primary" %></td>
+				<% end %>
 			</tr>
 		</table>
 	</div>
@@ -45,8 +47,10 @@
 					<td><%= order_item.order_price %></td>
 					<td><%= order_item.amount %></td>
 					<td><%= sub_total(order_item) %></td>
-					<td><%= select :making_status, :name, OrderItem.making_statuses.keys.to_a %></td>
-					<td><%= button_to"更新", admin_order_items_path, class:"btn btn-primary", method: :patch %></td>
+					<%= form_for(order_item, url: admin_order_items_path(order_item)) do |f| %>
+					<td><%= f.select :making_status, OrderItem.making_statuses.keys %></td>
+					<td><%= f.submit"更新", class:"btn btn-primary" %></td>
+					<% end %>
 				</tr>
 			<% end %>
 		</table>
