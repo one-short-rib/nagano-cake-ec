@@ -23,19 +23,43 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+}
 
 header{
-	height: 100px;
+	height: 70px;
 	width: 100%;
-	color:white;
+	color:#008080;
+	background-color:#FFFFCC;
 	.navbar-left{
-		margin:0 20px;
+		paddin:3px;
+		margin-top:5px;
+		margin-left:30px;
 		font-size: 2em;
 		line-height: 2em;
     display: inline-block;
 	}
 	.navbar-right{
 		margin-right:20px;
+		a{
+			color:#008080;
+			&:hover{
+				background-color:#ffffaa;
+				color:#006060;
+				font-size:1.5em;
+			}
+		}
+	}
+	.welcom-name{
+		padding-top:15px;
+		margin-top:9px;
+		margin-left:50px;
+    display: inline-block;
 	}
 }
 
@@ -43,7 +67,5 @@ header{
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 1em;
-  line-height: 1.3em;
   margin: 30px auto 30px;
 }
