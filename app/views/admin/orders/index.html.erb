@@ -17,7 +17,7 @@
 						<%= order.created_at.strftime('%Y/%m/%d') %>
 						<% end %>
 					</td>
-					<td><%= order.name %></td>
+					<td><%= full_name(order.member) %></td>
 					<td><%= order.billing_amount %></td>
 					<td><%= order.order_status %></td>
 				</tr>

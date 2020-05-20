@@ -1,33 +1,31 @@
-<div class = "container">
-	<!--エラーメッセージ入れる-->
-	<div class = "row">
-		<%= form_for(@item) do |f| %>
-			<div class = "col-md-4">
-				<div class = "field">
-					<%= f.attachment_field :item_image %>
-				</div>
+<!--エラーメッセージ入れる-->
+<div class = "row">
+	<%= form_for(@item, url: admin_item_path(@item)) do |f| %>
+		<div class = "col-md-4">
+			<div class = "field">
+				<%= f.attachment_field :item_image %>
 			</div>
+		</div>
 
-			<div class = "col-md-8">
-				<div class = "field">
-					<h4>商品名<%= f.text_field :name %></h4>
-				</div>
-				<div class = "field">
-					<h4>商品説明<%= f.text_area :explanation %></h4>
-				</div>
-				<div class = "field">
-					<h4>ジャンル<%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
-				</div>
-				<div class = "field">
-					<h4>税抜価格<%= f.text_field :price %></h4>
-				</div>
-				<div class = "field">
-					<h4>販売ステータス<%= f.select :is_saled, [["売り切れ","売り切れ"],["販売中","販売中"]] %></h4>
-				</div>
-				<div class = "action">
-					<%= f.submit "保存を変更", class:"btn btn-primary" %>
-				</div>
+		<div class = "col-md-8">
+			<div class = "field">
+				<h4>商品名<%= f.text_field :name %></h4>
 			</div>
-		<% end %>
-	</div>
+			<div class = "field">
+				<h4>商品説明<%= f.text_area :explanation %></h4>
+			</div>
+			<div class = "field">
+				<h4>ジャンル<%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
+			</div>
+			<div class = "field">
+				<h4>税抜価格<%= f.text_field :price %></h4>
+			</div>
+			<div class = "field">
+				<h4>販売ステータス<%= f.select :is_saled, [["販売停止中","false"],["販売中","true"]] %></h4>
+			</div>
+			<div class = "action">
+				<%= f.submit "保存を変更", class:"btn btn-primary", method: :patch %>
+			</div>
+		</div>
+	<% end %>
 </div>
