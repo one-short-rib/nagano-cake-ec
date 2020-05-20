@@ -66,8 +66,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                                                        payment_method: "クレジットカード"}}
     assert_select "h2", "注文情報確認"
     new_order = assigns(:order)
-    new_order_items = assigns(:order_items)
-    assert_match new_order_items.first.item.name, response.body
+    assert_match @member.cart_items.first.item.name, response.body
     assert_match new_order.billing_amount.to_s(:delimited), response.body
     assert_match new_order.payment_method, response.body
     assert_match new_order.address, response.body
