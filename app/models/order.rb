@@ -36,4 +36,13 @@ class Order < ApplicationRecord
     self.billing_amount = total_price(member.cart_items) + self.postage
   end
 
+  def cart_to_order(cart_items)
+    cart_items.each do |cart_item|
+        self.order_items.create(item: cart_item.item,
+                         amount: cart_item.amount,
+                         order_price: tax_include(cart_item.item.price))
+    end
+    cart_items.destroy_all
+  end
+
 end

@@ -13,12 +13,11 @@ class Member::OrdersController < ApplicationController
 
   def new
     @cart_items = current_member.cart_items
-    current_member.cart_items.count != 0 ? @order = Order.new : (render 'member/cart_items/index')
+    current_member.cart_items.present? ? @order = Order.new : (render 'member/cart_items/index')
   end
 
   def confirm
-    @order = Order.new(member: current_member,
-                       payment_method: params[:order][:payment_method])
+    @order = current_member.orders.new(payment_method: params[:order][:payment_method])
     @order.set_new_order(params[:order][:choice], params[:order][:ship_id],
                   params[:order][:postal_code], params[:order][:name],
                   params[:order][:ship_address], current_member)
@@ -26,7 +25,7 @@ class Member::OrdersController < ApplicationController
 
   def create
     if @order = current_member.orders.create(order_params)
-      cart_to_order(@order)
+      @order.cart_to_order(current_member.cart_items)
       redirect_to thanks_members_orders_path
     else
       redirect_to members_cart_items_path

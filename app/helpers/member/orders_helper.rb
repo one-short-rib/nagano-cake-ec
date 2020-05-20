@@ -18,14 +18,4 @@ module Member::OrdersHelper
 		return total_price
 	end
 
-  def cart_to_order(order)
-    current_member.cart_items.each do |cart_item|
-        OrderItem.create(item: cart_item.item,
-                         order: order,
-                         amount: cart_item.amount,
-                         order_price: tax_include(cart_item.item.price))
-    end
-    current_member.cart_items.destroy_all
-  end
-
 end
