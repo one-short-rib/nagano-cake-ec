@@ -11,5 +11,5 @@ class Item < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :explanation, presence: true, length: { maximum: 255 }
   validates :price, presence: true
-  validates :is_saled, presence: true
+  validates :is_saled, inclusion: [true, false]
 end
