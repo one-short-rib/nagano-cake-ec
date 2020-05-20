@@ -1,11 +1,11 @@
-<!-- recieves order_items -->
+<!-- recieves pending_items -->
 
-<table>
+<table class="table table-bordered">
   <tr>
     <td>商品</td>
     <td>単価（税込）</td>
     <td>個数</td>
     <td>小計</td>
   </tr>
-  <%= render 'items/item_contents', order_items: order_items %>
+  <%= render 'items/item_contents', pending_items: pending_items %>
 </table>

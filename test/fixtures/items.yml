@@ -2,24 +2,21 @@
 
 item1:
   genre: genre1
-  name: "pokky"
-  explanation: "very yum"
-  price: 98
+  name: "ポッキー"
+  explanation: "シェアハピ？"
+  price: 100
   is_saled: true
-  item_image_id: nil
 
 item2:
   genre: genre1
   name: "カントリーマーム"
   explanation: "しっとりクリーミー"
-  price: 380
+  price: 400
   is_saled: false
-  item_image_id: nil
 
 item3:
   genre: genre2
   name: "コアラのマーチ"
   explanation: "サクサクとろーり"
-  price: 160
+  price: 200
   is_saled: true
-  item_image_id: nil

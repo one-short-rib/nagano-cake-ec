@@ -3,7 +3,6 @@ require 'test_helper'
 class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
   include Warden::Test::Helpers
 
-
   def setup
     @order = orders(:order1)
     @member = members(:member1)
@@ -66,8 +65,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                                                        payment_method: "クレジットカード"}}
     assert_select "h2", "注文情報確認"
     new_order = assigns(:order)
-    new_order_items = assigns(:order_items)
-    assert_match new_order_items.first.item.name, response.body
+    assert_match @member.cart_items.first.item.name, response.body
     assert_match new_order.billing_amount.to_s(:delimited), response.body
     assert_match new_order.payment_method, response.body
     assert_match new_order.address, response.body
@@ -75,6 +73,9 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
   end
 
   test "create and thanks view" do
+    CartItem.create(member: @member,
+                    item: items(:item1),
+                    amount: 2)
     assert_difference 'Order.count', 1 do
     post members_orders_path, params: {order:{ postal_code: "7654321",
                                                address: "大阪府高野飯",
@@ -84,6 +85,8 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to thanks_members_orders_path
     assert_equal @member.cart_items.count, 0
+    new_order = assigns(:order)
+    assert_equal new_order.order_items.count, 1
     follow_redirect!
     assert_select "h2", "ご購入ありがとうございました！"
   end
@@ -96,8 +99,10 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @order.address, response.body
     assert_match @order.items.first.name, response.body
     assert_match @order.billing_amount.to_s(:delimited), response.body
-    #assert_match @order.order_status, response.body
-    assert_select "form[action=?]", members_order_path(@order)
+    assert_match @order.order_status, response.body
+    assert_select "a[href=?]", members_order_path(@order)
+    #他人の注文履歴
+    assert_no_match orders(:order3).billing_amount.to_s(:delimited), response.body
   end
 
   test "show view" do
@@ -109,19 +114,18 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @order.postal_code, response.body
     assert_match @order.address, response.body
     assert_match @order.name, response.body
-    #assert_match @order.payment_method, response.body
-    #assert_match @order.order_status, response.body
+    assert_match @order.payment_method, response.body
+    assert_match @order.order_status, response.body
 
     assert_select "h5", "請求情報"
-    #assert_match total_price(@order).to_s, response.body
     assert_match @order.postage.to_s, response.body
-    assert_match @order.billing_amount.to_s, response.body
+    assert_match @order.billing_amount.to_s(:delimited), response.body
 
     assert_select "h5", "注文内容"
     order_item = @order.order_items.first
     assert_match order_item.item.name, response.body
     assert_match order_item.order_price.to_s, response.body
     assert_match order_item.amount.to_s, response.body
-    #assert_match subtotal(order_item), response.body
+    assert_match (order_item.order_price*order_item.amount).to_s(:delimited), response.body
   end
 end

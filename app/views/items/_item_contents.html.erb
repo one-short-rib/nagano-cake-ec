@@ -1,10 +1,10 @@
-<!-- recieves order_items -->
+<!-- recieves pending_items -->
 
-<tr>
-  <% order_items.each do |order_item| %>
-    <td><%= order_item.item.name %></td>
-    <td><%= order_item.order_price %></td>
-    <td><%= order_item.amount %></td>
-    <td><%= subtotal_price(order_item) %></td>
-  <% end %>
-</tr>
+<% pending_items.each do |pending_item| %>
+  <tr>
+    <td><%= pending_item.item.name %></td>
+    <td><%= unit_price_in_tax(pending_item).to_s(:delimited) %></td>
+    <td><%= pending_item.amount %></td>
+    <td><%= subtotal_price(pending_item).to_s(:delimited) %></td>
+  </tr>
+<% end %>

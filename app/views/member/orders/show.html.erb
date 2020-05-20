@@ -1,19 +1,19 @@
 <div class="row">
-  <div class="col-xs-12">
     <h3>注文履歴詳細</h3>
       <div class="order&billing-info">
-        <div class="order-info">
+        <div class="order-info col-xs-5">
           <h5>注文情報</h5>
           <%= render 'member/orders/order_info', order: @order %>
         </div>
-        <div class="billing-info">
+        <div class="billing-info col-xs-3">
           <h5>請求情報</h5>
           <%= render 'member/orders/billing_info', order: @order %>
         </div>
       </div>
-      <div class="order-contents">
-        <h5>注文内容</h5>
-        <%= render 'member/orders/order_contents', order_items: @order.order_items %>
-      </div>
+</div>
+<div class="row">
+  <div class="order-contents col-xs-7">
+      <h5>注文内容</h5>
+      <%= render 'member/orders/order_contents', pending_items: @order.order_items %>
   </div>
 </div>
