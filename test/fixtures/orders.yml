@@ -4,7 +4,7 @@ order1:
   member: member1
   postal_code: 1234567
   address: "東京"
-  name: "次郎"
+  name: "太郎"
   billing_amount: 100
 
 # two:

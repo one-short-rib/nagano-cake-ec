@@ -1,5 +1,5 @@
 <h2>
-	<%= @member.last_name %><%= @member.first_name %>さんの会員詳細
+	<%= full_name(@member) %>さんの会員詳細
 </h2>
 <div class="bootstrap大きさ">
 	<label for="member_id">会員ID</label>
@@ -8,15 +8,13 @@
 <div class="bootstrap大きさ">
 	<label for="name">氏名</label>
 	<div class="" >
-		<%= @member.last_name %>
-		<%= @member.first_name %>
+		<%= full_name(@member) %>
 	</div>
 </div>
 <div class="bootstrap大きさ">
 	<label for="name">フリガナ</label>
 	<div class="" >
-		<%= @member.last_name_kana %>
-		<%= @member.first_name_kana %>
+		<%= full_name_kana(@member) %>
 	</div>
 </div>
 <div class="bootstrap大きさ">
