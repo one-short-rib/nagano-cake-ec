@@ -98,6 +98,8 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @order.billing_amount.to_s(:delimited), response.body
     assert_match @order.order_status, response.body
     assert_select "a[href=?]", members_order_path(@order)
+    #他人の注文履歴
+    assert_no_match orders(:order3).billing_amount.to_s(:delimited), response.body
   end
 
   test "show view" do

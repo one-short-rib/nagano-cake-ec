@@ -4,7 +4,7 @@ class Member::OrdersController < ApplicationController
   before_action :to_confirm, only: [:show]
 
   def index
-    @orders = Order.all
+    @orders = current_member.orders
   end
 
   def show

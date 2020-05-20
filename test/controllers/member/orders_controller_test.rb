@@ -3,9 +3,12 @@ require 'test_helper'
 class Member::OrdersControllerTest < ActionDispatch::IntegrationTest
   include Warden::Test::Helpers
 
+  def setup
+    @member = members(:member1)
+    login_as(@member, :scope => :member)
+  end
+
   test "should get new" do
-    member = members(:member2)
-    login_as(member, :scope => :member)
     get new_members_order_path
     assert_response :success
   end
@@ -21,8 +24,6 @@ class Member::OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get confirm" do
-    member = members(:member2)
-    login_as(member, :scope => :member)
     post confirm_members_orders_path, params: {order:{ choice: "0",
                                                payment_method: "クレジットカード"}}
     assert_response :success
