@@ -76,15 +76,18 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     CartItem.create(member: @member,
                     item: items(:item1),
                     amount: 2)
-    assert_difference 'Order.count', 1 do
-    post members_orders_path, params: {order:{ postal_code: "7654321",
-                                               address: "大阪府高野飯",
-                                               name: "三五郎",
-                                               billing_amount: 100,
-                                               payment_method: "クレジットカード"}}
+    assert_difference 'CartItem.count', -1 do #member1がcart_item1個の前提
+      assert_difference 'Order.count', 1 do
+        assert_difference 'OrderItem.count', 1 do
+          post members_orders_path, params: {order:{ postal_code: "7654321",
+                                                 address: "大阪府高野飯",
+                                                 name: "三五郎",
+                                                 billing_amount: 100,
+                                                 payment_method: "クレジットカード"}}
+        end
+      end
     end
     assert_redirected_to thanks_members_orders_path
-    assert_equal @member.cart_items.count, 0
     new_order = assigns(:order)
     assert_equal new_order.order_items.count, 1
     follow_redirect!
