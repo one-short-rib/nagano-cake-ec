@@ -1,8 +1,8 @@
 module Admin::OrdersHelper
 
-	def sub_total(order_item)
-		order_item.order_price*order_item.amount
-	end
+	# def sub_total(order_item)
+	# 	order_item.order_price*order_item.amount
+	# end
 
 	#注文個数かぞえる
 	def total_count(count_order)

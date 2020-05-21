@@ -20,10 +20,6 @@ module ApplicationHelper
       unit_price_in_tax(pending_item)*pending_item.amount
 	end
 
-	# def subtotal_price(item)
-	# 	tax_include(item.item.price)*item.amount
-	# end
-
 	def total_price(pending_items)
 			total_price = 0
 			pending_items.each do |pending_item|

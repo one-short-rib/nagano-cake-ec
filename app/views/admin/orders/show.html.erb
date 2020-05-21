@@ -46,7 +46,7 @@
 					<td><%= order_item.item.name %></td>
 					<td><%= order_item.order_price %></td>
 					<td><%= order_item.amount %></td>
-					<td><%= sub_total(order_item) %></td>
+					<td><%= subtotal_price(order_item) %></td>
 					<%= form_for(order_item, url: admin_order_items_path(order_item)) do |f| %>
 					<td><%= f.select :making_status, OrderItem.making_statuses.keys %></td>
 					<td><%= f.submit"更新", class:"btn btn-primary" %></td>
