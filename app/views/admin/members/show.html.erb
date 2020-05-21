@@ -1,49 +1,55 @@
 <% provide(:title, "会員詳細") %>
-<h2>
-	<%= full_name(@member) %>さんの会員詳細
-</h2>
-<div class="bootstrap大きさ">
-	<label for="member_id">会員ID</label>
-	<div class="" ><%= @member.id %></div>
-</div>
-<div class="bootstrap大きさ">
-	<label for="name">氏名</label>
-	<div class="" >
-		<%= full_name(@member) %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h4>
+				<span class="title"><%= full_name(@member) %>さんの会員詳細</span>
+			</h4>
+		</div>
+		<div class="col-xs-5">
+			<table class="table">
+				<tr>
+					<th>会員ID</th>
+					<td><%= @member.id %>
+						<% if @member.is_deleted == true %>
+							<span class="exit">退会済み</span>
+						<% end %>
+						<% if @member.is_deleted == false %>
+							<span class="effectiveness">有効会員</span>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<th>氏名</th>
+					<td><%= full_name(@member) %></td>
+				</tr>
+				<tr>
+					<th>フリガナ</th>
+					<td><%= full_name_kana(@member) %></td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= @member.postal_code %></td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td><%= @member.address %></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td><%= @member.phone_number %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @member.email %></td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="col-xs-8">
+			<%= link_to "編集する", edit_admin_member_path(@member.id), class: "btn btn-primary btn-sm" %>
+			<%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary btn-sm" %>
+			<!--注文履歴一覧を見るボタン-->
+		</div>
 	</div>
-</div>
-<div class="bootstrap大きさ">
-	<label for="name">フリガナ</label>
-	<div class="" >
-		<%= full_name_kana(@member) %>
-	</div>
-</div>
-<div class="bootstrap大きさ">
-	<label for="name">郵便番号</label>
-	<div class="" >
-		<%= @member.postal_code %>
-	</div>
-</div>
-<div class="bootstrap大きさ">
-	<label for="name">住所</label>
-	<div class="" >
-		<%= @member.address %>
-	</div>
-</div>
-<div class="bootstrap大きさ">
-	<label for="name">電話番号</label>
-	<div class="" >
-		<%= @member.phone_number %>
-	</div>
-</div>
-<div class="bootstrap大きさ">
-	<label for="name">メールアドレス</label>
-	<div class="" >
-		<%= @member.email %>
-	</div>
-</div>
-<div class="bootstrapレイアウト">
-	<%= link_to "編集する", edit_admin_member_path(@member.id), class: "" %>
-	<%= link_to "注文履歴一覧を見る", admin_orders_path, class: "" %>
-	<!--注文履歴一覧を見るボタン-->
 </div>
