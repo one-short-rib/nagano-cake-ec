@@ -45,7 +45,7 @@
 					<td><%= order_item.item.name %></td>
 					<td><%= order_item.order_price %></td>
 					<td><%= order_item.amount %></td>
-					<td><%= sub_total(order_item) %></td>
+					<td><%= subtotal_price(order_item) %></td>
 					<%= form_for(order_item, url: admin_order_items_path(order_item)) do |f| %>
 					<td><%= f.select :making_status, OrderItem.making_statuses.keys %></td>
 					<td><%= f.submit"更新", class:"btn btn-primary" %></td>
@@ -60,7 +60,7 @@
 		<table class = "table table-hover">
 			<tr>
 				<th>商品合計</th>
-				<td><%= total(@order.order_items) %></td>
+				<td><%= total_price(@order.order_items) %></td>
 			</tr>
 			<tr>
 				<th>送料</th>
@@ -68,8 +68,7 @@
 			</tr>
 			<tr>
 				<th>請求額合計</th>
-				<td><%= @order.billing_amount + @order.postage %></td>
+				<td><%= @order.billing_amount %></td>
 			</tr>
 		</table>
 	</div>
-	<div class = "col-md-1"></div>
