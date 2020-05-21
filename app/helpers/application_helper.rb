@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+	def full_title(title = "", admin = "")
+		if admin.blank?
+			title.blank? ? "ながのCAKE" : "ながのCAKE  | #{title}"
+		else
+			title.blank? ? "(管理者)ながのCAKE" : "(管理者)ながのCAKE  | #{title}"
+		end
+	end
+
 	def full_name(member)
 		member.last_name+member.first_name
 	end
