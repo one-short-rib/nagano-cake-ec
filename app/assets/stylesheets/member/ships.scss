@@ -28,3 +28,16 @@
 		}
 	}
 }
+.ships-index{
+	table{
+		width:100%;
+		tr{
+			td:nth-child(4){
+				text-align:center;
+				.btn-primary{
+					margin-right:15px;
+				}
+			}
+		}
+	}
+}
