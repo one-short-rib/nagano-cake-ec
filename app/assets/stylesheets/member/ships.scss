@@ -1,3 +1,30 @@
 // Place all the styles related to the member::ships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.ship-form{
+	width:100%;
+	margin:20px 0;
+	table{
+		width:100%;
+		tr{
+			td {
+				input{
+					// width:100%;
+					max-width:600px;
+					height:40px;
+					font-size:1em;
+					border-radius:5px;
+					&#ship_address{
+						width:100%
+					}
+				}
+			}
+			td:first-child{
+				text-align:left;
+				width:200px;
+			}
+		}
+	}
+}
