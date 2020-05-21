@@ -54,6 +54,13 @@ header{
 			}
 		}
 	}
+	.search-form {
+		position:fixed;
+		top:60px;
+		right:30px;
+		width:40%;
+		max-width:400px;
+	}
 	.welcom-name{
 		padding-top:15px;
 		margin-top:9px;
