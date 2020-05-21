@@ -17,11 +17,12 @@
 					<tr>
 						<td><%= f.label :name,"宛名" %></td>
 						<td><%= f.text_field :name, class: "name" %></td>
+						<td></td>
+						<td>
+							<%= f.submit "登録する", class: "btn btn-success", id: "ship-submit" %>
+						</td>
 					</tr>
 				</table>
-				<div class="action pull-right">
-					<%= f.submit "登録する", class: "btn btn-success" %>
-				</div>
 			</div>
 		<% end %>
 		<!-- ships一覧 -->
