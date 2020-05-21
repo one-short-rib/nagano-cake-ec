@@ -23,7 +23,7 @@ class Member::OrdersController < ApplicationController
   def create
     if @order = current_member.orders.create(order_params)
       @order.cart_to_order(current_member.cart_items)
-      current_member.ships.create(ship_params) if params[:order][:new_ship?]
+      current_member.ships.create(ship_params) if params[:order][:new_ship]
       redirect_to thanks_members_orders_path
     else
       redirect_to members_cart_items_path
