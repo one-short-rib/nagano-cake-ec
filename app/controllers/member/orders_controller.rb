@@ -19,7 +19,7 @@ class Member::OrdersController < ApplicationController
     @order = current_member.orders.new(payment_method: params[:order][:payment_method])
     @order.set_new_order(params[:order][:choice], params[:order][:ship_id],
                   params[:order][:postal_code], params[:order][:name],
-                  params[:order][:ship_address], current_member)
+                  params[:order][:ship_address])
   end
 
   def create

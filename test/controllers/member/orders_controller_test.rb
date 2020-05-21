@@ -4,7 +4,7 @@ class Member::OrdersControllerTest < ActionDispatch::IntegrationTest
   include Warden::Test::Helpers
 
   def setup
-    @member = members(:member1)
+    @member = members(:member2)
     login_as(@member, :scope => :member)
   end
 
