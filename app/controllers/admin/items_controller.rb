@@ -16,7 +16,7 @@ class Admin::ItemsController < ApplicationController
 
   #admin用の商品一覧表示
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
   end
 
   #admin用商品詳細表示

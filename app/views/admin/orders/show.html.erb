@@ -61,7 +61,7 @@
 		<table class = "table table-hover">
 			<tr>
 				<th>商品合計</th>
-				<td><%= total %></td>
+				<td><%= total(@order.order_items) %></td>
 			</tr>
 			<tr>
 				<th>送料</th>
@@ -69,7 +69,7 @@
 			</tr>
 			<tr>
 				<th>請求額合計</th>
-				<td><%= total_billed_amount %></td>
+				<td><%= @order.billing_amount + @order.postage %></td>
 			</tr>
 		</table>
 	</div>
