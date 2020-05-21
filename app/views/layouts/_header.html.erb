@@ -6,7 +6,10 @@
           </nav>
           <!-- 管理者様ヘッダー -->
           <% if admin_signed_in? %>
-            <style>header{height:110px;}</style>
+            <style>
+              header{height:110px;}
+              .body{padding-top:110px;}
+            </style>
             <ul class = "nav navbar-nav navbar-right">
               <li><%= link_to '商品一覧', admin_items_path, class:"btn navbar-btn" %></li>
               <li><%= link_to '会員一覧', admin_members_path, class:"btn navbar-btn" %></li>
