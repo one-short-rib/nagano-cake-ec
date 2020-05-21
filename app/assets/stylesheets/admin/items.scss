@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+/*admin-index*/
 .btn-radius{
   height:50px;
   width:50px;
@@ -11,3 +11,24 @@
   border-radius:50%;
   text-align:center;
 }
+
+
+thead{
+  background-color:#DDDDDD;
+}
+
+/*admin-index*/
+
+/*admin-new*/
+dl dt{
+  width: 165px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+dl dd{
+  padding:10px 0;
+}
+
+/*admin-new*/

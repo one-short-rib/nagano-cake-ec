@@ -4,16 +4,28 @@ module Admin::OrdersHelper
 		order_item.order_price*order_item.amount
 	end
 
-	def total
-		order_items = OrderItem.all
+	#注文個数かぞえる
+	def total_count(count_order)
+		count = 0
+		count_order.each do |item|
+			count += item.amount
+		end
+		return count
+	end
+	
+	#商品合計を求める
+	def total(order_items)
+		items = order_items
 		total = 0
-		order_items.each do |order_item|
-			total += order_item.order_price
+		items.each do |item|
+			total += item.order_price*item.amount
 		end
 		return total
 	end
-
-	def total_billed_amount
-		total + @order.postage
-	end
+	
+	#いらないかも
+	#def total_billed_amount
+		#total = total
+		#total + @order.postage
+	#end
 end

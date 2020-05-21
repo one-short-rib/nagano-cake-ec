@@ -7,3 +7,15 @@ genre1:
 genre2:
   name: "chocolate"
   is_valid: true
+
+genre3:
+  name: "sweets"
+  is_valid: true
+
+genre4:
+  name: "organic"
+  is_valid: true
+
+genre5:
+  name: "煎餅"
+  is_valid: true
