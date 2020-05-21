@@ -1,29 +1,29 @@
 <div class="row">
-	<div class="col-xs-7 col-xs-offset-1">
-		<h4>配送先編集</h4>
-		<div>
-			<%= form_for @ship, url: "/members/ships/#{@ship.id}" do |f| %>
-				<div class="form_body">
-					<table>
-						<tr>
-							<td><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></td>
-							<td><%= f.text_field :postal_code, class: "postal_code" %></td>
-						</tr>
-						<tr>
-							<td><%= f.label :address,"住所" %></td>
-							<td colspan="2"><%= f.text_field :address, class: "address" %></td>
-						</tr>
-						<tr>
-							<td><%= f.label :name,"宛名" %></td>
-							<td><%= f.text_field :name, class: "name" %></td>
-						</tr>
-					</table>
-				</div>
-				<div class="action pull-right">
-					<%= f.submit "編集する", class: "btn btn-primary" %>
-				</div>
-			<% end %>
+  <div class="col-xs-12" >
+		<div class="page-title">
+			<span>配送先編集</span>
 		</div>
+		<%= form_for @ship, url: "/members/ships/#{@ship.id}" do |f| %>
+			<div class="ship-form">
+			<table>
+				<tr>
+					<td><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></td>
+					<td><%= f.text_field :postal_code, class: "postal_code" %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :address,"住所" %></td>
+					<td colspan="2"><%= f.text_field :address, class: "address" %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :name,"宛名" %></td>
+					<td><%= f.text_field :name, class: "name" %></td>
+					<td></td>
+					<td>
+						<%= f.submit "編集する", class: "btn btn-primary", id: "ship-submit" %>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<% end %>
 	</div>
-	<div class="col-xs-4"></div>
 </div>

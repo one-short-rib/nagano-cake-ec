@@ -105,6 +105,13 @@ header{
 	}
 }
 
-td{
+label{
+	font-weight:normal;
+}
+
+td,th{
 	padding: 7px 10px;
+}
+th{
+	background-color:#eee;
 }
