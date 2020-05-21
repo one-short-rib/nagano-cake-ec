@@ -12,9 +12,17 @@ module ApplicationHelper
 		(price*1.1).floor
 	end
 
-	def subtotal_price(item)
-		tax_include(item.item.price)*item.amount
+	def unit_price_in_tax(pending_item) #税込単価を出す
+    pending_item.class == OrderItem ? pending_item.order_price : tax_include(pending_item.item.price)
+  end
+
+	def subtotal_price(pending_item) #同商品の小計を出す
+      unit_price_in_tax(pending_item)*pending_item.amount
 	end
+
+	# def subtotal_price(item)
+	# 	tax_include(item.item.price)*item.amount
+	# end
 
 	def cart_total_price(cart_items)
 		total_price = 0
