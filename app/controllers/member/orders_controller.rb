@@ -21,6 +21,7 @@ class Member::OrdersController < ApplicationController
   end
 
   def create
+    binding.pry
     if @order = current_member.orders.create(order_params)
       @order.cart_to_order(current_member.cart_items)
       current_member.ships.create(ship_params) if params[:order][:new_ship]
@@ -42,7 +43,7 @@ class Member::OrdersController < ApplicationController
       def confirm_params
         params.require(:order).permit(:postal_code, :address, :name,
            :payment_method, :billing_amount, :ship_id, :ship_postal_code,
-           :ship_name, :ship_address, :choice, :new_ship?)
+           :ship_name, :ship_address, :choice, :new_ship)
       end
 
       def order_params

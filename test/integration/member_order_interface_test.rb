@@ -110,7 +110,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                                                    name: "三五郎",
                                                    billing_amount: 100,
                                                    payment_method: "クレジットカード",
-                                                   new_ship?: true}}
+                                                   new_ship: true}}
           end
         end
       end
