@@ -1,4 +1,4 @@
-<!-- recieves order -->
+<!-- recieves order new_ship -->
 
 <%= form_with model: order, url: members_orders_path, local: true do |f| %>
     <%= f.hidden_field :postal_code %>
@@ -6,6 +6,6 @@
     <%= f.hidden_field :name %>
     <%= f.hidden_field :payment_method %>
     <%= f.hidden_field :billing_amount %>
-    <%= f.hidden_field :new_ship?, value: "1" %>
+    <%= f.hidden_field :new_ship?, value: new_ship %>
     <%= f.submit "購入を確定する", class:"btn btn-success center-block" %>
 <% end %>

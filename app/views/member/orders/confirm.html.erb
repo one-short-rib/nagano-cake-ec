@@ -24,7 +24,7 @@
         <td><%= "#{@order.postal_code} #{@order.address} \n #{@order.name}" %></td>
       </tr>
     </table>
-    <%= render 'member/orders/confirmation_button', order: @order %>
+    <%= render 'member/orders/confirmation_button', order: @order, new_ship: @new_ship %>
   </div>
 
 </div>

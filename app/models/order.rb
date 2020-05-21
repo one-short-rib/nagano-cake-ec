@@ -22,18 +22,21 @@ class Order < ApplicationRecord
   end
 
   def set_new_order(params)
+    new_ship = false
     case params[:choice]
       when "0"
         self.set_address(self.member)
       when "1"
         self.set_address(self.member.ships.find(params[:ship_id]))
       when "2"
+        new_ship = true
         ship = self.member.ships.new(postal_code: params[:ship_postal_code],
                                         name: params[:ship_name],
                                         address: params[:ship_address])
           self.set_address(ship)
     end
     self.billing_amount = total_price(self.member.cart_items) + self.postage
+    return new_ship
   end
 
   def cart_to_order(cart_items)
