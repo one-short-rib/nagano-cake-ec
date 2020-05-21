@@ -43,17 +43,18 @@
 			}
 			td:first-child{
 				text-align:left;
+				min-width:200px;
 			}
 		}
 	}
-	&.login-form{
-		td:first-child{
-			width:150px;
-		}
-		padding-left:20px;
-		input{
-			max-width:800px;
-		}
+}
+#login-form{
+	td:first-child{
+		width:150px;
+	}
+	padding-left:20px;
+	input{
+		max-width:800px;
 	}
 }
 
@@ -84,6 +85,12 @@ label{
 			}
 		}
 	}
+}
+
+//　編集ページ
+#exit{
+	fnt-size:0.8em;
+	margin-left:80%;
 }
 
 // 退会確認ページ
