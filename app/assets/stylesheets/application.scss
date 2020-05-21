@@ -51,19 +51,25 @@ header{
 			&:hover{
 				background-color:#ffffaa;
 				color:#006060;
-				font-size:1.5em;
 			}
 		}
+	}
+	.search-form {
+		position:fixed;
+		top:60px;
+		right:30px;
+		width:40%;
+		max-width:400px;
 	}
 	.welcom-name{
 		padding-top:15px;
 		margin-top:9px;
-		margin-left:50px;
     display: inline-block;
 	}
 }
 
 .body {
+	padding-top:70px;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
