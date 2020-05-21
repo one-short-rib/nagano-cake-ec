@@ -3,14 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*admin-index*/
-.btn-radius{
-  height:50px;
-  width:50px;
-  display:block;
-  border:1px solid #000000;
-  border-radius:50%;
-  text-align:center;
+
+/*ネットコピペ*/
+.btn-circle-3d-dent {
+  display: inline-block;
+  text-decoration: none;
+  background: #5dc3d0;
+  color: rgb(82, 142, 150);
+  width: 40px;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: inset 0px 3px 0 rgba(255,255,255,0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  border-bottom: solid 3px #549fa9;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.65);
+  transition: .4s;
+  margin-bottom:10px;
 }
+
+.btn-circle-3d-dent:active {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+  border-bottom: none;
+}
+/*ネットコピペ*/
+
 
 
 thead{
@@ -30,5 +52,4 @@ dl dt{
 dl dd{
   padding:10px 0;
 }
-
 /*admin-new*/
