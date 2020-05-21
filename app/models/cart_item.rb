@@ -6,4 +6,5 @@ class CartItem < ApplicationRecord
 	validates :member_id, presence: true
 	validates :item_id, presence: true
 	validates :amount, presence: true
+
 end

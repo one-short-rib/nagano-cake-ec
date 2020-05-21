@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  include Member::OrdersHelper
+  include ApplicationHelper
 
   has_many :order_items, dependent: :destroy
   #中間テーブルで参照したいがためにthrough追加
@@ -18,22 +18,22 @@ class Order < ApplicationRecord
   def set_address(key)
       self.postal_code = key.postal_code
       self.address = key.address
-      (key.class == Member)? self.name = key.last_name + key.first_name : self.name = key.name
+      self.name = (key.class == Member)? full_name(key) : key.name
   end
 
-  def set_new_order(choice, ship_id, postal_code, name, address, member)
+  def set_new_order(choice, ship_id, postal_code, name, address)
     case choice
       when "0"
-        self.set_address(member)
+        self.set_address(self.member)
       when "1"
-        self.set_address(member.ships.find(ship_id))
+        self.set_address(self.member.ships.find(ship_id))
       when "2"
-        ship = member.ships.new(postal_code: postal_code,
+        ship = self.member.ships.new(postal_code: postal_code,
                                         name: name,
                                         address: address)
           self.set_address(ship)
     end
-    self.billing_amount = total_price(member.cart_items) + self.postage
+    self.billing_amount = total_price(self.member.cart_items) + self.postage
   end
 
   def cart_to_order(cart_items)
