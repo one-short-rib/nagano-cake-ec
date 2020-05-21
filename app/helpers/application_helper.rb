@@ -4,7 +4,7 @@ module ApplicationHelper
 		if admin.blank?
 			title.blank? ? "ながのCAKE" : "ながのCAKE  | #{title}"
 		else
-			title.blank? ? "(管理者)ながのCAKE" : "(管理者)ながのCAKE  | #{title}"
+			title.blank? ? "(管理者)ながのCAKE" : "(管理者) #{title}"
 		end
 	end
 
