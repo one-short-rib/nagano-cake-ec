@@ -2,7 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+/*注文一覧ページ*/
 thead{
   background-color:#DDDDDD;
 }
+
+/*ここまで*/
+
+
+/*注文詳細ページ*/
+.head-box{
+    table{
+    th{
+	    padding:10px 20px 10px 0px;
+	}
+	td{
+	    padding:10px 0;
+	}
+    }
+}
+
+.btn-push{
+    margin-left:50px;
+}
+
+
+.left-box{
+	margin-top:30px;
+	table{
+	th{
+	    padding:10px 0;
+	    background-color:#DDDDDD;
+	}
+	td{
+	    padding:5px 0;
+	}
+	}
+}
+
+.right-box{
+    margin-top:80px;
+	font-size:20px;
+	table{
+		th{
+		  padding:10px 40px;
+		}
+    }
+}
+
+/*ここまで*/
