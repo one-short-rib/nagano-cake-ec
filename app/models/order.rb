@@ -18,7 +18,7 @@ class Order < ApplicationRecord
   def set_address(key)
       self.postal_code = key.postal_code
       self.address = key.address
-      (key.class == Member)? self.name = key.last_name + key.first_name : self.name = key.name
+      self.name = (key.class == Member)? full_name(key) : key.name
   end
 
   def set_new_order(choice, ship_id, postal_code, name, address)
