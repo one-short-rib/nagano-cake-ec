@@ -109,6 +109,9 @@ label{
 	font-weight:normal;
 }
 
-td{
+td,th{
 	padding: 7px 10px;
+}
+th{
+	background-color:#eee;
 }
