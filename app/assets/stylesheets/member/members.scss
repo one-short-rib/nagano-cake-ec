@@ -3,15 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 会員登録ページ
-.page-title{
+.page-guide{
 	span{
 		font-size:1.5em;
     display: inline-block;
     line-height:100%;
     padding:2px 20px;
-  	background:lightgray;
+  	background:#eee;
+  	position:relative;
+  	left:30px;
 		}
-	margin: 0 0 20px 10px;
+	margin: 10px 0 20px;
 }
 
 .another-link{
@@ -20,14 +22,13 @@
 	}
 }
 
-.form-body{
+.member-form{
 	width:100%;
 	margin:20px 0;
 	table{
 		width:100%;
 		tr{
 			td {
-			  padding: 7px 10px;
 				text-align:center;
 				input{
 					width:100%;
@@ -42,17 +43,21 @@
 			}
 			td:first-child{
 				text-align:left;
+				min-width:200px;
+			}
+			td:nth-child(2),td:nth-child(4){
+				min-width: 70px;
 			}
 		}
 	}
-	&.login-form{
-		td:first-child{
-			width:150px;
-		}
-		padding-left:20px;
-		input{
-			max-width:800px;
-		}
+}
+#login-form{
+	td:first-child{
+		width:150px;
+	}
+	padding-left:20px;
+	input{
+		max-width:800px;
 	}
 }
 
@@ -68,4 +73,39 @@ label{
 		width:30vw;
 		max-width:250px;
 	}
+}
+
+// マイページ
+
+.member-info{
+	margin:20px 0;
+	table{
+		width:100%;
+		tr{
+			td:first-child{
+				width:20%;
+				background-color:#eee;
+			}
+		}
+	}
+}
+
+//　編集ページ
+#exit{
+	font-size:0.8em;
+	margin-left:80%;
+}
+
+// 退会確認ページ
+
+.caution{
+	text-align:center;
+	padding:10px;
+	margin-bottom:20px;
+	.caution-text{
+		margin-top:20px;
+	}
+}
+.which-one{
+	justify-content:space-evenly;
 }

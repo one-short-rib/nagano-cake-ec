@@ -69,3 +69,42 @@ header{
   font-family: verdana, arial, helvetica, sans-serif;
   margin: 30px auto 30px;
 }
+
+.page-title{
+	span{
+    padding:2px 20px;
+		font-size:1.8em;
+    line-height:100%;
+    display: inline-block;
+    background:#eee;
+  	position:relative;
+  	left:30px;
+		}
+	margin: 10px 0 20px;
+}
+
+.info-title{
+	font-size:1.3em;
+	font-weight:bold;
+}
+
+.link-box{
+	width:100%;
+	max-width:500px;
+	display:flex;
+	align-items: center;
+	span{
+		width:150px;
+		padding:15px;
+	}
+	.btn{
+		display:block;
+		padding:7px 30px;
+		margin-right:20px;
+		line-height:20px;
+	}
+}
+
+td{
+	padding: 7px 10px;
+}

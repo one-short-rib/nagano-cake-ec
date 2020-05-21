@@ -1,6 +1,7 @@
 <% provide(:title, "退会ページ") %>
 <div class="row">
-	<div class="col-xs-4 col-xs-offset-4 caution">
+	<div class="col-xs-12">
+		<div class="caution center-block">
 		<h3>本当に退会しますか？</h3>
 		<p class="caution-text">
 			退会すると、会員登録情報や<br>
@@ -8,11 +9,14 @@
 			退会する場合は、「退会する」をクリックしてください。
 		</p>
 	</div>
-	<div class="col-xs-4"></div>
+	</div>
+
 	<div class="row">
-		<div class="col-xs-4 col-xs-offset-4 clearfix">
-			<%= link_to "退会しない", members_path, class: "btn btn-primary pull-left" %>
-			<%= link_to "退会する", is_deleted_members_path, method: :patch, class: "btn btn-danger pull-right" %>
+		<div class="col-xs-4 col-xs-offset-4">
+			<div class="link-box center-block which-one">
+				<%= link_to "退会しない", members_path, class: "btn btn-primary" %>
+				<%= link_to "退会する", is_deleted_members_path, method: :patch, class: "btn btn-danger" %>
+			</div>
 		</div>
 		<div class="col-xs-4"></div>
 	</div>
