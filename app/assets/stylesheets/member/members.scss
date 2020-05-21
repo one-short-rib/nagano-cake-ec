@@ -9,7 +9,7 @@
     display: inline-block;
     line-height:100%;
     padding:2px 20px;
-  	background:lightgray;
+  	background:#eee;
   	position:relative;
   	left:30px;
 		}
@@ -72,40 +72,6 @@ label{
 }
 
 // マイページ
-.page-title{
-	span{
-    padding:2px 20px;
-		font-size:1.8em;
-    line-height:100%;
-    display: inline-block;
-    background:lightgray;
-  	position:relative;
-  	left:30px;
-		}
-	margin: 10px 0 20px;
-}
-.info-title{
-	span{
-		font-size:1.3em;
-		font-weight:bold;
-	}
-}
-
-.link-box{
-	width:100%;
-	max-width:500px;
-	display:flex;
-	align-items: center;
-	span{
-		width:150px;
-		padding:15px;
-	}
-	a{
-		display:block;
-		padding:7px 30px;
-		margin-right:20px;
-	}
-}
 
 .member-info{
 	margin:20px 0;
