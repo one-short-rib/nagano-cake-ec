@@ -1,5 +1,2 @@
 module Member::CartItemsHelper
-
-
-
 end
