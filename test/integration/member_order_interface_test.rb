@@ -45,11 +45,13 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     new_order = assigns(:order)
     assert_equal new_order.address, @member.ships.first.address
     #配送先の追加を選択
-    post confirm_members_orders_path, params: {order:{ choice: "2",
+    assert_difference 'Ship.count', 1 do
+        post confirm_members_orders_path, params: {order:{ choice: "2",
                                                payment_method: "クレジットカード",
                                                ship_postal_code: "7654321",
                                                ship_address: "example_new_address",
                                                ship_name: "example_new_name"}}
+    end
     new_order = assigns(:order)
     new_ship = @member.ships.new(postal_code: "7654321",
                                  address: "example_new_address",

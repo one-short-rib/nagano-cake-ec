@@ -28,7 +28,7 @@ class Order < ApplicationRecord
       when "1"
         self.set_address(self.member.ships.find(ship_id))
       when "2"
-        ship = self.member.ships.new(postal_code: postal_code,
+        ship = self.member.ships.create(postal_code: postal_code,
                                         name: name,
                                         address: address)
           self.set_address(ship)

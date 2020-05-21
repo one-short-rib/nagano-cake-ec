@@ -18,7 +18,7 @@ class Member::OrdersController < ApplicationController
   def confirm
     @order = current_member.orders.new(payment_method: params[:order][:payment_method])
     @order.set_new_order(params[:order][:choice], params[:order][:ship_id],
-                  params[:order][:postal_code], params[:order][:name],
+                  params[:order][:ship_postal_code], params[:order][:ship_name],
                   params[:order][:ship_address])
   end
 
@@ -41,7 +41,9 @@ class Member::OrdersController < ApplicationController
       end
 
       def order_params
-        params.require(:order).permit(:postal_code, :address, :name, :payment_method, :billing_amount)
+        params.require(:order).permit(:postal_code, :address, :name,
+           :payment_method, :billing_amount
+            )
       end
 
 end
