@@ -19,7 +19,30 @@ class Order < ApplicationRecord
       self.postal_code = key.postal_code
       self.address = key.address
       (key.class == Member)? self.name = key.last_name + key.first_name : self.name = key.name
-      self.billing_amount = total_price(self) + self.postage
+  end
+
+  def set_new_order(choice, ship_id, postal_code, name, address, member)
+    case choice
+      when "0"
+        self.set_address(member)
+      when "1"
+        self.set_address(member.ships.find(ship_id))
+      when "2"
+        ship = member.ships.new(postal_code: postal_code,
+                                        name: name,
+                                        address: address)
+          self.set_address(ship)
+    end
+    self.billing_amount = total_price(member.cart_items) + self.postage
+  end
+
+  def cart_to_order(cart_items)
+    cart_items.each do |cart_item|
+        self.order_items.create(item: cart_item.item,
+                         amount: cart_item.amount,
+                         order_price: tax_include(cart_item.item.price))
+    end
+    cart_items.destroy_all
   end
 
 end

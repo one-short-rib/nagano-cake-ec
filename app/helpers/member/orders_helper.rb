@@ -1,5 +1,5 @@
 module Member::OrdersHelper
-  
+
   def tax_include(price) #消費税をかける
 		(price*1.1).floor
 	end
@@ -12,23 +12,10 @@ module Member::OrdersHelper
       unit_price_in_tax(pending_item)*pending_item.amount
 	end
 
-	def total_price(order)
-		order_items = order.order_items
+	def total_price(cart_items)
 		total_price = 0
-		order_items.each {|order_item| total_price += order_item.order_price*order_item.amount}
+		cart_items.each {|cart_item| total_price += subtotal_price(cart_item)}
 		return total_price
 	end
-
-  def cart_to_order(order)
-    order_items = []
-    current_member.cart_items.each do |cart_item|
-      order_items << OrderItem.create(item: cart_item.item,
-                                   order: order,
-                                   amount: cart_item.amount,
-                                   order_price: tax_include(cart_item.item.price))
-    end
-    current_member.cart_items.destroy_all
-    return order_items
-  end
 
 end
