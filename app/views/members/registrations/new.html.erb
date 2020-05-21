@@ -5,7 +5,7 @@
     </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "members/shared/error_messages", resource: resource %>
-      <div class="form-body">
+      <div class="member-form">
         <table>
           <tr>
             <td><%= f.label :last_name, "名前" %></td>
