@@ -21,16 +21,16 @@ class Order < ApplicationRecord
       self.name = (key.class == Member)? full_name(key) : key.name
   end
 
-  def set_new_order(choice, ship_id, postal_code, name, address)
-    case choice
+  def set_new_order(params)
+    case params[:choice]
       when "0"
         self.set_address(self.member)
       when "1"
-        self.set_address(self.member.ships.find(ship_id))
+        self.set_address(self.member.ships.find(params[:ship_id]))
       when "2"
-        ship = self.member.ships.create(postal_code: postal_code,
-                                        name: name,
-                                        address: address)
+        ship = self.member.ships.create(postal_code: params[:ship_postal_code],
+                                        name: params[:ship_name],
+                                        address: params[:ship_address])
           self.set_address(ship)
     end
     self.billing_amount = total_price(self.member.cart_items) + self.postage
