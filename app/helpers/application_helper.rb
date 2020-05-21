@@ -24,11 +24,11 @@ module ApplicationHelper
 	# 	tax_include(item.item.price)*item.amount
 	# end
 
-	def cart_total_price(cart_items)
-		total_price = 0
-		cart_items.each do |cart_item|
-			total_price += subtotal_price(cart_item)
-		end
+	def total_price(pending_items)
+			total_price = 0
+			pending_items.each do |pending_item|
+				total_price += subtotal_price(pending_item)
+			end
 		return total_price
 	end
 

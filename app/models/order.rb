@@ -33,7 +33,7 @@ class Order < ApplicationRecord
                                         address: address)
           self.set_address(ship)
     end
-    self.billing_amount = cart_total_price(self.member.cart_items) + self.postage
+    self.billing_amount = total_price(self.member.cart_items) + self.postage
   end
 
   def cart_to_order(cart_items)

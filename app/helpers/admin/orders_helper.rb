@@ -1,6 +1,6 @@
 module Admin::OrdersHelper
 
-	def sub_total(order_item) 
+	def sub_total(order_item)
 		order_item.order_price*order_item.amount
 	end
 
@@ -12,17 +12,17 @@ module Admin::OrdersHelper
 		end
 		return count
 	end
-	
+
 	#商品合計を求める
-	def total(order_items)
-		items = order_items
-		total = 0
-		items.each do |item|
-			total += item.order_price*item.amount
-		end
-		return total
-	end
-	
+	# def total(order_items)
+	# 	items = order_items
+	# 	total = 0
+	# 	items.each do |item|
+	# 		total += item.order_price*item.amount
+	# 	end
+	# 	return total
+	# end
+
 	#いらないかも
 	#def total_billed_amount
 		#total = total
