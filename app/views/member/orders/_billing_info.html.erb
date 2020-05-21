@@ -3,7 +3,7 @@
 <table class="table table-bordered">
   <tr>
     <td>商品合計</td>
-    <td><%= total_price(current_member.cart_items).to_s(:delimited) %></td>
+    <td><%= cart_total_price(current_member.cart_items).to_s(:delimited) %></td>
   </tr>
   <tr>
     <td>配送料</td>
