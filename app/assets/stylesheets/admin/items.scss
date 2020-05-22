@@ -41,7 +41,7 @@ thead{
 
 /*admin-index*/
 
-/*admin-new*/
+/*admin-new/show*/
 dl dt{
   width: 165px;
   padding:10px 0;
@@ -51,5 +51,19 @@ dl dt{
 
 dl dd{
   padding:10px 0;
+}
+
+.field{
+  padding-left:50px;
+}
+
+.btn-down{
+  padding-top:250px;
+  line-height:50px;
+  font-size:30px;
+}
+
+.show-heading{
+  padding-left:150px;
 }
 /*admin-new*/

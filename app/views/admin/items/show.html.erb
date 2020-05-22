@@ -1,33 +1,53 @@
-<div class = "container">
-	<!--エラーメッセージ入れる-->
-	<div class = "row">
-		<div class = "col-md-4">
-			<div class = "field">
-				<%= attachment_image_tag @item, :item_image, :fill, 100, 60, format:'jpeg', class:"item-img", fallback:"no_image.jpg" %>
-				<!--no_imageのjpeg入れたassetに-->
-			</div>
-		</div>
+<!--エラーメッセージ入れる-->
+<div class = "row">
+	<div class = "show-heading">
+		<h3>商品詳細</h3>
+	</div>
+</div>
 
-		<div class = "col-md-8">
+<div class = "row">
+	<div class = "col-md-3">
+		<div class = "field">
+			<%= attachment_image_tag @item, :item_image, :fill, 100, 60, format:'jpeg', class:"item-img", fallback:"no_image.jpg" %>
+			<!--no_imageのjpeg入れたassetに-->
+		</div>
+	</div>
+
+	<div class = "col-md-6">
+		<div class = "item-show">
 			<dl>
-				<dt class = "item-name">商品名</dt>
-				<dd><%= @item.name %></dd>
-				<dt class = "item-explanation">商品説明</dt>
-				<dd><%= @item.explanation %></dd>
-				<dt class = "item-genre">ジャンル</dt>
-				<dd><%= @item.genre.name %></dd>
-				<dt class = "item-price">税込価格(税抜価格)</dt>
-				<dd><%= @item.price %></dd>
-				<dt class = "item-saled">販売ステータス</dt>
-				<dd>
-					<% if @item.is_saled == false %>
-						<p>販売停止中</p>
-					<% else %>
-					    <p>販売中</p>
-					<% end %>
-				</dd>
+				<div class = "field">
+					<dt>商品名</dt>
+					<dd><%= @item.name %></dd>
+				</div>
+				<div class = "field">
+					<dt>商品説明</dt>
+					<dd><%= @item.explanation %></dd>
+				</div>
+				<div class = "field">
+					<dt>ジャンル</dt>
+					<dd><%= @item.genre.name %></dd>
+				</div>
+				<div class = "field">
+					<dt>税込価格(税抜価格)</dt>
+					<dd><%= @item.price %></dd>
+				</div>
+				<div class = "field">
+					<dt>販売ステータス</dt>
+					<dd>
+						<% if @item.is_saled == false %>
+							<p>販売停止中</p>
+						<% else %>
+						    <p>販売中</p>
+						<% end %>
+					</dd>
+				</div>
 			</dl>
-			<%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-primary" %>
+		</div>
+	</div>
+	<div class = "col-md-2">
+		<div class = "btn-down">
+			<%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-primary", style:"width:150px;height:50px;font-size:17px;line-height:50px;font-weight:bold;" %>
 		</div>
 	</div>
 </div>
