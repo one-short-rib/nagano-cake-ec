@@ -127,4 +127,7 @@ th{
 
 .no-border tr{
     border: none;
+    td{
+        border:none !important;
+    }
 }

@@ -1,30 +1,32 @@
 <% provide(:title, "注文確認") %>
 <div class="row">
-  <h2>注文情報確認</h2>
-  <div class="order-tables">
-    <div class="order-contents col-xs-7">
-      <table class="table table-bordered">
-      <%= render 'member/orders/order_contents', pending_items: current_member.cart_items %>
-      </table>
+    <div class="page-title">
+        <span>注文情報確認</span>
     </div>
-    <div class="billing-info col-xs-3">
-      <%= render 'member/orders/billing_info', order: @order %>
-    </div>
-  </div>
+    <div class="order-tables">
+        <div class="order-contents col-xs-7">
+          <%= render 'member/orders/order_contents', pending_items: current_member.cart_items %>
+        </div>
+        <div class="billing-info col-xs-3">
+          <%= render 'member/orders/billing_info', order: @order %>
+        </div>
+     </div>
 </div>
 <div class="row">
-  <div class="shipping-info col-xs-7">
-    <table class="table">
-      <tr>
-        <td>支払方法</td>
-        <td><%= @order.payment_method %></td>
-      </tr>
-      <tr>
-        <td>お届け先</td>
-        <td><%= "#{@order.postal_code} #{@order.address} \n #{@order.name}" %></td>
-      </tr>
-    </table>
-    <%= render 'member/orders/confirmation_button', order: @order %>
-  </div>
+     <div class="shipping-info col-xs-7">
+        <table class="table no-border">
+          <tr>
+            <td class="info-title">支払方法</td>
+            <td><%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <td class="info-title">お届け先</td>
+            <td><%= "#{@order.postal_code} #{@order.address} \n #{@order.name}" %></td>
+          </tr>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <%= render 'member/orders/confirmation_button', order: @order %>
+    </div>
 
 </div>
