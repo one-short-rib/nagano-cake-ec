@@ -2,15 +2,15 @@
 
 <table class="table table-bordered">
   <tr>
-    <td>商品合計</td>
+    <th>商品合計</th>
     <td><%= total_price(current_member.cart_items).to_s(:delimited) %></td>
   </tr>
   <tr>
-    <td>配送料</td>
+    <th>配送料</th>
     <td><%= order.postage %></td>
   </tr>
   <tr>
-    <td>ご請求額</td>
+    <th>ご請求額</th>
     <td><%= order.billing_amount.to_s(:delimited) %></td>
   </tr>
 </table>

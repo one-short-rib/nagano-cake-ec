@@ -2,11 +2,11 @@
 
 <table class="table table-bordered">
   <tr>
-    <td>注文日</td>
+    <th>注文日</th>
     <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
   </tr>
   <tr>
-    <td>配送先</td>
+    <th>配送先</th>
     <td>
       <%= order.postal_code %><br>
       <%= order.address %><br>
@@ -14,11 +14,11 @@
     </td>
   </tr>
   <tr>
-    <td>支払方法</td>
+    <th>支払方法</th>
     <td><%= order.payment_method %></td>
   </tr>
   <tr>
-    <td>ステータス</td>
+    <th>ステータス</th>
     <td><%= order.order_status %></td>
   </tr>
 </table>
