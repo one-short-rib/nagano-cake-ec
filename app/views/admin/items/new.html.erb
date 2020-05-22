@@ -1,6 +1,9 @@
+<% provide(:title, "商品登録") %>
 <!--エラーメッセージ入れる-->
 <div class = "row">
-	<h2>商品新規登録</h2>
+	<div class = "new-heading">
+		<h3>商品新規登録</h3>
+	</div>
 </div>
 
 <div class = "row">
@@ -42,6 +45,6 @@
 			<div class = "btn-down">
 				<%= f.submit "新規登録", class:"btn btn-primary", style:"width:150px;height:50px;font-size:17px;font-weight:bold;" %>
 			</div>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
 </div>

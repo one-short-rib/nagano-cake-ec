@@ -3,12 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*注文一覧ページ*/
-thead{
+admin-order-table th{
   background-color:#DDDDDD;
 }
 
 /*ここまで*/
-
 
 /*注文詳細ページ*/
 .head-box{
@@ -42,10 +41,12 @@ thead{
 
 .right-box{
     margin-top:80px;
-	font-size:20px;
 	table{
 		th{
 		  padding:10px 40px;
+		}
+		td{
+		font-size:20px;
 		}
     }
 }

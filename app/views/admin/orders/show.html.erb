@@ -1,3 +1,4 @@
+<% provide(:title, "注文詳細") %>
 <div class = "row">
 	<div class = "head-box">
 		<div class = "col-md-8 col-md-offset-1">
@@ -54,7 +55,7 @@
 						<td><%= order_item.item.name %></td>
 						<td><%= order_item.order_price %></td>
 						<td><%= order_item.amount %></td>
-						<td><%= sub_total(order_item) %></td>
+						<td><%= subtotal_price(order_item) %></td>
 						<%= form_for(order_item, url: admin_order_items_path(order_item)) do |f| %>
 						<td><%= f.select :making_status, OrderItem.making_statuses.keys %></td>
 						<td><%= f.submit"更新", class:"btn btn-primary" %></td>
@@ -70,7 +71,7 @@
 			<table>
 				<tr>
 					<th>商品合計</th>
-					<td><%= total(@order.order_items) %>円</td>
+					<td><%= total_price(@order.order_items) %>円</td>
 				</tr>
 				<tr>
 					<th>送料</th>
@@ -84,3 +85,4 @@
 		</div>
 	</div>
 </div>
+

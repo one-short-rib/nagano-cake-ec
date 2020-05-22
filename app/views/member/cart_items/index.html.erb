@@ -1,3 +1,4 @@
+<% provide(:title, "カート") %>
 <% if @cart_items.present? %>
 <!-- ナビバーで -->
 <div class="row">
@@ -29,7 +30,7 @@
 						<%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
 				</td>
 				<th>合計金額</th>
-				<td><%= cart_total_price %></td>
+				<td><%= total_price(@cart_items) %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -48,4 +49,3 @@
 	<%= link_to '買い物を続ける', items_path, class: "btn btn-primary"  %>
 </div>
 <% end %>
-

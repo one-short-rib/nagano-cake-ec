@@ -51,21 +51,73 @@ header{
 			&:hover{
 				background-color:#ffffaa;
 				color:#006060;
-				font-size:1.5em;
 			}
 		}
+	}
+	.search-form {
+		position:fixed;
+		top:60px;
+		right:30px;
+		width:40%;
+		max-width:400px;
 	}
 	.welcom-name{
 		padding-top:15px;
 		margin-top:9px;
-		margin-left:50px;
     display: inline-block;
 	}
 }
 
 .body {
+	padding-top:70px;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   margin: 30px auto 30px;
+}
+
+.page-title{
+	span{
+    padding:2px 20px;
+		font-size:1.8em;
+    line-height:100%;
+    display: inline-block;
+    background:#eee;
+  	position:relative;
+  	left:30px;
+		}
+	margin: 10px 0 20px;
+}
+
+.info-title{
+	font-size:1.3em;
+	font-weight:bold;
+}
+
+.link-box{
+	width:100%;
+	max-width:500px;
+	display:flex;
+	align-items: center;
+	span{
+		width:150px;
+		padding:15px;
+	}
+	.btn{
+		display:block;
+		padding:7px 30px;
+		margin-right:20px;
+		line-height:20px;
+	}
+}
+
+label{
+	font-weight:normal;
+}
+
+td,th{
+	padding: 7px 10px;
+}
+th{
+	background-color:#eee;
 }

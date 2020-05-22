@@ -1,39 +1,44 @@
 <div class = "conrainer">
       <div class = "row">
-        <header class = "nav navbar-fluid">
+        <header class = "nav navbar-fluid navbar-fixed-top">
           <nav class = "nav navbar-nav navbar-left">
             <span class = "logo"><i class="fas fa-store"></i>Nagano cake</span>
           </nav>
-          <% if member_signed_in? %>
-            <nav class = "nav navbar-nav">
-              <span class="welcom-name">
-                ようこそ、<%= full_name(current_member) %>さん！
-              </span>
-            </nav>
-            <% end %>
-          <nav>
+          <!-- 管理者様ヘッダー -->
+          <% if admin_signed_in? %>
+            <style>
+              header{height:110px;}
+              .body{padding-top:110px;}
+            </style>
             <ul class = "nav navbar-nav navbar-right">
-              <!-- 管理者様ヘッダー -->
-              <% if admin_signed_in? %>
-                <li><%= link_to '商品一覧', admin_items_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to '会員一覧', admin_members_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to '注文履歴一覧', admin_orders_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to 'ジャンル一覧', admin_genres_path, class:"btn navbar-btn"  %></li>
-                <li><%= link_to 'ログアウト', destroy_admin_session_path, class:"btn navbar-btn", method: :delete %></li>
-                <!-- 会員用ヘッダー -->
-              <% elsif member_signed_in? %>
-                <li><%= link_to 'マイページ', members_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to '商品一覧', items_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to 'カート', members_cart_items_path, class:"btn navbar-btn"  %></li>
-                <li><%= link_to 'ログアウト', destroy_member_session_path, class:"btn navbar-btn", method: :delete %></li>
-                <!-- 未登録顧客用ヘッダー -->
-              <% else %>
-                <li><%= link_to '商品一覧', items_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to '新規登録', new_member_registration_path, class:"btn navbar-btn" %></li>
-                <li><%= link_to 'ログイン', new_member_session_path, class:"btn navbar-btn"  %></li>
-              <% end %>
+              <li><%= link_to '商品一覧', admin_items_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to '会員一覧', admin_members_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to '注文履歴一覧', admin_orders_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to 'ジャンル一覧', admin_genres_path, class:"btn navbar-btn"  %></li>
+              <li><%= link_to 'ログアウト', destroy_admin_session_path, class:"btn navbar-btn", method: :delete %></li>
             </ul>
-          </nav>
+            <%= render 'layouts/admin_search' %>
+          <!-- 会員用ヘッダー -->
+          <% elsif member_signed_in? %>
+            <ul class = "nav navbar-nav navbar-right">
+              <li>
+                <span class="welcom-name">
+                  ようこそ、<%= full_name(current_member) %>さん！
+                </span>
+              </li>
+              <li><%= link_to 'マイページ', members_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to '商品一覧', items_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to 'カート', members_cart_items_path, class:"btn navbar-btn"  %></li>
+              <li><%= link_to 'ログアウト', destroy_member_session_path, class:"btn navbar-btn", method: :delete %></li>
+            </ul>
+          <!-- 未登録顧客用ヘッダー -->
+          <% else %>
+            <ul class = "nav navbar-nav navbar-right">
+              <li><%= link_to '商品一覧', items_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to '新規登録', new_member_registration_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to 'ログイン', new_member_session_path, class:"btn navbar-btn"  %></li>
+            </ul>
+          <% end %>
         </header>
       </div>
     </div>

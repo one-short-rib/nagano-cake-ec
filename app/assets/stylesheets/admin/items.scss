@@ -16,6 +16,18 @@ dl dd{
   padding:10px 0;
 }
 
+.show-heading, .new-heading{
+  padding-left:150px;
+  h3{
+    height:40px;
+    width:150px;
+    text-align:center;
+    padding-top:5px;
+    border:3px solid #006060;
+    background-color:#FFFFCC;
+  }
+}
+
 /*---common---*/
 
 
@@ -51,34 +63,19 @@ dl dd{
 /*ネットコピペ*/
 
 
-
-thead{
-  background-color:#DDDDDD;
-}
-
 /*---admin-item-index---*/
 
 /*---admin-item-new---*/
+
 .btn-down{
   padding-top:250px;
 }
+
 
 /*---admin-item-new---*/
 
 /*---admin-item-show---*/
 
-h3{
-  height:40px;
-  width:150px;
-  text-align:center;
-  padding-top:5px;
-  border:3px solid #006060;
-  background-color:#FFFFCC;
-}
-
-.show-heading{
-  padding-left:150px;
-}
 
 .item-show-img{
   padding-left:20px
