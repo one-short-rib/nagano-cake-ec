@@ -11,4 +11,5 @@ class AdminOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_template 'admin/orders/show'
     assert_match @order.billing_amount.to_s, response.body
   end
+  
 end

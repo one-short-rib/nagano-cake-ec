@@ -19,9 +19,6 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                     amount: 2)
     get new_members_order_path
     assert_template "member/orders/new"
-    assert_select "h2", "注文情報入力"
-    assert_select "h3", "支払方法"
-    assert_select "h3", "お届け先"
     #payment_methodがクレジットカード
     post confirm_members_orders_path, params: {order:{ choice: "0",
                                                payment_method: "クレジットカード"}}
@@ -65,7 +62,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
                     amount: 2)
     post confirm_members_orders_path, params: {order:{ choice: "0",
                                                        payment_method: "クレジットカード"}}
-    assert_select "h2", "注文情報確認"
+    assert_template 'member/orders/confirm'
     new_order = assigns(:order)
     assert_match @member.cart_items.first.item.name, response.body
     assert_match new_order.billing_amount.to_s(:delimited), response.body
@@ -98,7 +95,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
 
   test "index view" do
     get members_orders_path
-    assert_select "h3", "注文履歴一覧"
+    assert_template 'member/orders/index'
     assert_match @order.created_at.strftime('%Y/%m/%d').to_s, response.body
     assert_match @order.postal_code, response.body
     assert_match @order.address, response.body
@@ -112,9 +109,7 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
 
   test "show view" do
     get members_order_path(@order)
-    assert_select "h3", "注文履歴詳細"
-
-    assert_select "h5", "注文情報"
+    assert_template 'member/orders/show'
     assert_match @order.created_at.strftime('%Y/%m/%d'), response.body
     assert_match @order.postal_code, response.body
     assert_match @order.address, response.body
@@ -122,11 +117,9 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     assert_match @order.payment_method, response.body
     assert_match @order.order_status, response.body
 
-    assert_select "h5", "請求情報"
     assert_match @order.postage.to_s, response.body
     assert_match @order.billing_amount.to_s(:delimited), response.body
 
-    assert_select "h5", "注文内容"
     order_item = @order.order_items.first
     assert_match order_item.item.name, response.body
     assert_match order_item.order_price.to_s, response.body
