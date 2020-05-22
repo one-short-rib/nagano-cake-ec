@@ -15,22 +15,24 @@
 
         <label>
           <%= f.radio_button :choice, 2 %> 新しいお届け先<br>
-            <table>
-                  <tr>
-                    <td><%= f.label :ship_postal_code, "郵便番号(ハイフンなし)" %></td>
-                    <td><%= f.text_field :ship_postal_code %></td>
-                  </tr>
-                  <tr>
-                    <td><%= f.label :ship_address, "住所" %></td>
-                    <td><%= f.text_field :ship_address %></td>
-                  </tr>
-                  <tr>
-                    <td><%= f.label :ship_name, "宛名" %></td>
-                    <td><%= f.text_field :ship_name %></td>
-                  </tr>
-            </table>
+            <div class="ship-form">
+                <table>
+                      <tr>
+                        <td><%= f.label :ship_postal_code, "郵便番号(ハイフンなし)" %></td>
+                        <td><%= f.text_field :ship_postal_code %></td>
+                      </tr>
+                      <tr>
+                        <td><%= f.label :ship_address, "住所" %></td>
+                        <td><%= f.text_field :ship_address, id:"ship_address" %></td>
+                      </tr>
+                      <tr>
+                        <td><%= f.label :ship_name, "宛名" %></td>
+                        <td><%= f.text_field :ship_name %></td>
+                      </tr>
+                </table>
+            </div>
         </label><br>
-        <%= f.submit "確認画面へ進む", class:"btn btn-info" %>
+        <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
   </div>
 
   <!-- <div class="dropdown">
