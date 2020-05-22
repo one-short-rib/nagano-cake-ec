@@ -3,23 +3,14 @@
   <div class="ship-buttons col-xs-offset-1 col-sm-10">
           <%= f.radio_button :choice, 0, checked: true %>
           <%= f.label "ご自身の住所" %>
-          <p><%= "#{current_member.postal_code} #{current_member.address}" %></p>
-          <p><%= "#{current_member.last_name}#{current_member.first_name}" %></p>
+          <p><%= "#{full_address(current_member)}" %></p>
+          <p><%= "#{full_name(current_member)}" %></p>
 
           <%= f.radio_button :choice, 1 %>
           <%= f.label "登録済み住所から選択" %>
-          <!-- <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div> -->
           <div class="col-xs-offset-1">
-            <%= f.select :ship_id, current_member.ships.collect{|ship| ["#{ship.postal_code} #{ship.address} #{ship.name}", ship.id]} %>
+            <%= f.select :ship_id, current_member.ships.collect{
+                |ship| ["#{full_address(ship)} #{ship.name}", ship.id]} %>
           </div>
 
         <label>
@@ -42,9 +33,13 @@
         <%= f.submit "確認画面へ進む", class:"btn btn-info" %>
   </div>
 
-  <script>
-      $(document).on('turbolinks:load', function() {
-    alert();
-});
-
-  </script>
+  <!-- <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <%# current_member.ships.each do |ship| %>
+            <li role="presentation"><%#= "#{ship.postal_code} #{ship.address} #{ship.name}" %></li>
+        <%# end %>
+    </ul>
+  </div> -->
