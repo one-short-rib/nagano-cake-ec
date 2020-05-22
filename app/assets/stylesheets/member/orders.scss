@@ -3,13 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .order-info-new{
-  .info-title{
-    line-height: 50px;
-  }
-  .shipping-new{
-    margin-top: 30px;
-    .ship-buttons p{
-        text-indent: 2em;
+      .info-title{
+        line-height: 50px;
+      }
+      .radio{
+          width: 1.3em;
+          height: 1.3em;
+          display: inline;
+      }
+      .payment-new{
+          label{
+              font-size: 1.3em;
+          }
+      }
+      .shipping-new{
+        margin-top: 30px;
+        .ship-buttons {
+            p{
+                text-indent: 2em;
+            }
+            .radio-button{
+                margin-bottom: 20px;
+                .radio-choice{
+                    font-size: 1.3em;
+                }
+            }
+            select{
+                height: 40px;
+                width: 80%
+            }
+        }
     }
-  }
 }
