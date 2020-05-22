@@ -33,10 +33,8 @@ module ApplicationHelper
 	end
 
 	def total_price(pending_items)
-			total_price = 0
-			pending_items.each do |pending_item|
-				total_price += subtotal_price(pending_item)
-			end
+		total_price = 0
+		pending_items.each { |pending_item| total_price += subtotal_price(pending_item)}
 		return total_price
 	end
 
