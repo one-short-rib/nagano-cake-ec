@@ -9,7 +9,7 @@ class ItemInterfaceTest < ActionDispatch::IntegrationTest
 
   test "item idex view" do
     get items_path
-    assert_select "h3", "ジャンル検索"
+    assert_template 'items/index'
     assert_match @genre.name, response.body
     assert_select "h1", "商品一覧(全#{Item.count}件)"
     assert_match Item.count.to_s, response.body
@@ -19,7 +19,7 @@ class ItemInterfaceTest < ActionDispatch::IntegrationTest
 
   test "item show view" do
     get item_path(@item)
-    assert_select "h3", "ジャンル検索"
+    assert_template 'items/show'
     assert_match @genre.name, response.body
     assert_match @item.price.to_s(:delimited), response.body
     assert_match @item.name, response.body

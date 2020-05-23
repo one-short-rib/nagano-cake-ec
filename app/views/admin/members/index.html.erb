@@ -1,9 +1,13 @@
 <% provide(:title, "会員一覧") %>
 <div class = "container">
 	<div class="row">
-		<div class="col-md-offset-2 col-md-8">
-			<h2>会員一覧</h2>
-			<table class="table table-hover">
+		<div class="col-xs-9">
+			<h4>
+				<span class="title">会員一覧</span>
+			</h4>
+		</div>
+		<div class="members-index">
+			<table class="table">
 				<thead>
 					<tr>
 						<th>会員ID</th>
@@ -25,7 +29,7 @@
 								</td>
 								<td><!--状態-->
 									<% if member.is_deleted == true %>
-										退会済み
+										退会済
 									<% end %>
 									<% if member.is_deleted == false %>
 										有効
@@ -36,3 +40,6 @@
 					<% end %>
 				</tbody>
 			</table>
+		</div>
+	</div>
+</div>

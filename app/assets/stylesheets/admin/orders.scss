@@ -2,8 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-thead{
+/*注文一覧ページ*/
+admin-order-table th{
   background-color:#DDDDDD;
 }
 
+/*ここまで*/
+
+/*注文詳細ページ*/
+.head-box{
+    table{
+    th{
+	    padding:10px 20px 10px 0px;
+	}
+	td{
+	    padding:10px 0;
+	}
+    }
+}
+
+.btn-push{
+    margin-left:50px;
+}
+
+
+.left-box{
+	margin-top:30px;
+	table{
+	th{
+	    padding:10px 0;
+	    background-color:#DDDDDD;
+	}
+	td{
+	    padding:5px 0;
+	}
+	}
+}
+
+.right-box{
+    margin-top:80px;
+	table{
+		th{
+		  padding:10px 40px;
+		}
+		td{
+		font-size:20px;
+		}
+    }
+}
+
+/*ここまで*/
