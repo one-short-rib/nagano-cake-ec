@@ -2,14 +2,14 @@
 <div class = "container">
 	<div class="row">
 		<div class="col-xs-9">
-			<h4>
+			<h4 class="admin-title">
 				<span class="title">会員一覧</span>
 			</h4>
 		</div>
 		<div class="members-index">
-			<table class="table">
+			<table class="table list">
 				<thead>
-					<tr>
+					<tr class="genre-info">
 						<th>会員ID</th>
 						<th>氏名</th>
 						<th>メールアドレス</th>
@@ -19,7 +19,7 @@
 				<tbody>
 					<% if present? %>
 						<% @members.each do |member| %>
-							<tr>
+							<tr class="genre-info2">
 								<td><%= member.id %></td>
 								<td>
 									<%= link_to full_name(member), admin_member_path(member.id) %>
