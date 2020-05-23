@@ -2,11 +2,13 @@
 
 <div class="genres-box">
   <div class="genres-box-title">
-    <h3>ジャンル検索</h3>
+    <h4>ジャンル検索</h4>
   </div>
   <div class="genres_list">
-    <% genres.each do |genre| %>
-        <%= genre.name %>
-    <% end %>
+    <ul>
+        <% genres.each do |genre| %>
+            <li><%= genre.name %></li>
+        <% end %>
+    </ul>
   </div>
 </div>
