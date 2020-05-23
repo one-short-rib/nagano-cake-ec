@@ -2,9 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*admin-index*/
 
-/*ネットコピペ*/
+/*---common---*/
+
+dl dt{
+  width: 165px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+dl dd{
+  padding:10px 0;
+}
+
+.show-heading, .new-heading{
+  padding-left:150px;
+  h3{
+    height:40px;
+    width:150px;
+    text-align:center;
+    padding-top:5px;
+    border:3px solid #006060;
+    background-color:#FFFFCC;
+  }
+}
+
+/*---common---*/
+
+
+/*---admin-item-index---*/
+
+/*ネットコピペ,丸ボタン*/
 .btn-circle-3d-dent {
   display: inline-block;
   text-decoration: none;
@@ -34,22 +63,32 @@
 /*ネットコピペ*/
 
 
+/*---admin-item-index---*/
 
-thead{
-  background-color:#DDDDDD;
+/*---admin-item-new---*/
+
+.btn-down{
+  padding-top:250px;
 }
 
-/*admin-index*/
 
-/*admin-new*/
-dl dt{
-  width: 165px;
-  padding:10px 0;
-  float:left;
-  clear:both;
+/*---admin-item-new---*/
+
+/*---admin-item-show---*/
+
+
+.item-show-img{
+  padding-left:20px
 }
 
-dl dd{
-  padding:10px 0;
+.item-show-menu{
+  padding-left:150px;
+  dd{
+  font-size:20px;
+  }
 }
+
+/*---admin-item-show---*/
+
+
 /*admin-new*/
