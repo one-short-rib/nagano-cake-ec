@@ -71,15 +71,15 @@
 			<table>
 				<tr>
 					<th>商品合計</th>
-					<td><%= total_price(@order.order_items) %>円</td>
+					<td><%= total_price(@order.order_items).to_s %>円</td>
 				</tr>
 				<tr>
 					<th>送料</th>
-					<td><%= @order.postage %>円</td>
+					<td><%= @order.postage.to_s %>円</td>
 				</tr>
 				<tr>
 					<th>請求額合計</th>
-					<td><%= @order.billing_amount %>円</td>
+					<td><%= @order.billing_amount.to_s %>円</td>
 				</tr>
 			</table>
 		</div>

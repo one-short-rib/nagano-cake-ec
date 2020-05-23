@@ -4,6 +4,7 @@ class Admin::OrderItemsController < ApplicationController
   def update
   	@order = OrderItem.find(params[:id])
     @order.update(order_item_params)
+    flash[:success] = 'Success:更新を完了しました'
     redirect_back(fallback_location: root_path)
   end
 

@@ -30,7 +30,7 @@
 				</div>
 				<div class = "item-show-field">
 					<dt>税込価格(税抜価格)</dt>
-					<dd><%= @item.price %></dd>
+					<dd><%= @item.price %>(<%= tax_include(@item.price).to_s %>)円</dd>
 				</div>
 				<div class = "item-show-field">
 					<dt>販売ステータス</dt>

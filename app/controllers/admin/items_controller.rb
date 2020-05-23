@@ -8,8 +8,10 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      flash[:success] = 'Success:登録が完了しました'
       redirect_to admin_item_path(@item.id)
     else
+      flash.now[:danger] = 'False:登録に失敗しました'
       render 'new'
     end
   end
@@ -33,8 +35,10 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
+      flash[:success] = 'Success:編集が完了しました'
       redirect_to admin_item_path(@item.id)
     else
+      flash.now[:danger] = 'False:編集に失敗しました'
       render 'edit'
     end
   end

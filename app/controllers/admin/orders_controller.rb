@@ -12,8 +12,9 @@ class Admin::OrdersController < ApplicationController
 
   #注文ステータスの更新
   def update
-	@order = Order.find(params[:id])#注文idが渡っているけど、注文ステータスだけ取り出すことは面倒か？
+	  @order = Order.find(params[:id])#注文idが渡っているけど、注文ステータスだけ取り出すことは面倒か？
     @order.update(order_params)
+    flash[:success] = 'Success:更新が完了しました'
     redirect_back(fallback_location: root_path)
   end
 
