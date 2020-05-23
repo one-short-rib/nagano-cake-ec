@@ -1,7 +1,6 @@
 <% provide(:title, "商品編集") %>
 <!--エラーメッセージ入れる-->
 <div class = "row">
-	<%= flash[:danger] %>
 	<%= form_for(@item, url: admin_item_path(@item)) do |f| %>
 		<div class = "col-md-4">
 			<div class = "field">
