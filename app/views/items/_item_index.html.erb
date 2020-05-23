@@ -2,7 +2,7 @@
 
 <% items.each do |item| %>
   <div class="item-box pull-left">
-    <%= attachment_image_tag item, :item_image, format: 'jpg', fallback: "no_image.jpg", size: "250x200" %><br>
+    <%= attachment_image_tag item, :item_image, format: 'jpg', fallback: "sample3.jpg", size: "200x140" %><br>
     <%= link_to item.name, item_path(item) %><br>
     <%= "¥#{item.price.to_s(:delimited)}" %>
   </div>
