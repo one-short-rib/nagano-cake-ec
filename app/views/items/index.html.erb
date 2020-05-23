@@ -6,5 +6,8 @@
   <div class="item-index col-xs-9">
     <h1>商品一覧 <span>(全<%= @items.count %>件)</span></h1>
     <%= render 'items/item_index', items: @items %>
+    <div class="col-xs-offset-4">
+        <%= paginate @items %>
+    </div>
   </div>
 </div>
