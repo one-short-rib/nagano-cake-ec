@@ -14,11 +14,9 @@
   </head>
 
   <body>
-    <%= render('layouts/header')%>
-    <% if notice%>
-      <p id="notice"><%= notice %></p>
-    <% end %>
+    <%= render 'layouts/header' %>
     <div class="body">
+      <%= render 'layouts/flash' %>
       <div class="container">
         <%= yield %>
       </div>
