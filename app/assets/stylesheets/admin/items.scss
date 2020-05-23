@@ -16,7 +16,7 @@ dl dd{
   padding:10px 0;
 }
 
-.show-heading, .new-heading{
+.show-heading, .new-heading, .edit-heading{
   padding-left:150px;
   h3{
     height:40px;
@@ -68,7 +68,15 @@ dl dd{
 /*---admin-item-new---*/
 
 .btn-down{
-  padding-top:250px;
+  padding-top:300px;
+}
+
+.item-new-img{
+  padding-left:50px;
+}
+
+.item-new-form{
+  padding-left:100px;
 }
 
 
@@ -82,13 +90,26 @@ dl dd{
 }
 
 .item-show-menu{
-  padding-left:150px;
-  dd{
-  font-size:20px;
+  padding-left:100px;
+  th, td{
+  padding:10px 10px;
+  }
+  th{
+  width:160px;
+  text-align:center;
   }
 }
 
 /*---admin-item-show---*/
 
+/*---admin-item-edit---*/
 
-/*admin-new*/
+.item-edit{
+  padding-left:100px;
+}
+
+.edit-buttom-action{
+  padding-top:300px;
+}
+
+/*---admin-item-edit---*/
