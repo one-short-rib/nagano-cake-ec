@@ -13,7 +13,7 @@ class Member::CartItemsController < ApplicationController
 			@existing_cart_item.destroy
   	end
   	if @cart_item.save
-  		redirect_to members_cart_items_path
+  		redirect_to members_cart_items_path,notice: 'カートに商品を追加しました。'
   	else
 			redirect_back(fallback_location: root_path)
 		end
@@ -23,8 +23,10 @@ class Member::CartItemsController < ApplicationController
   	@cart_item = CartItem.find(params[:id])
     if params[:cart_item][:amount] == '0'
   		@cart_item.destroy
+      flash[:danger]= "カートから商品を1点削除しました"
     else
       @cart_item.update(cart_item_params)
+      flash[:success]= "カート内商品の数量を変更しました"
     end
     redirect_to members_cart_items_path
   end
@@ -32,12 +34,14 @@ class Member::CartItemsController < ApplicationController
   def destroy
   	@cart_item = CartItem.find(params[:id])
   	@cart_item.destroy
+    flash[:danger]="カートから商品を1点削除しました"
 		redirect_to members_cart_items_path
   end
 
   def clear
   	@cart_items = current_member.cart_items.all
   	@cart_items.destroy_all
+    flash[:danger]= "カート内の全商品を削除しました"
 		redirect_to members_cart_items_path
   end
 

@@ -6,7 +6,7 @@ item1:
   explanation: "シェアハピ？"
   price: 100
   is_saled: true
-  #item_image_id: sample1.jpg
+  #item_image: sample1.jpg
 
 item2:
   genre: genre1
@@ -14,7 +14,7 @@ item2:
   explanation: "しっとりクリーミー"
   price: 400
   is_saled: false
-  #item_image_id: sample1.jpg
+  #item_image: sample1.jpg
 
 item3:
   genre: genre2
@@ -22,7 +22,7 @@ item3:
   explanation: "サクサクとろーり"
   price: 200
   is_saled: true
-  #item_image_id: sample1.jpg
+  #item_image: sample1.jpg
 
 item4:
   genre: genre2
@@ -30,7 +30,7 @@ item4:
   explanation: "棒　into チョコ"
   price: 98
   is_saled: true
-  #item_image_id: sample2.jpg
+  #item_image: sample2.jpg
 
 item5:
   genre: genre3
@@ -38,7 +38,7 @@ item5:
   explanation: "ホイップ"
   price: 210
   is_saled: true
-  #item_image_id: sample2.jpg
+  #item_image: sample2.jpg
 
 item6:
   genre: genre3
@@ -46,7 +46,7 @@ item6:
   explanation: "くりくり"
   price: 410
   is_saled: true
-  #item_image_id: sample2.jpg
+  #item_image: sample2.jpg
 
 item7:
   genre: genre4
@@ -54,7 +54,7 @@ item7:
   explanation: "超自然系ドリンク"
   price: 500
   is_saled: true
-  #item_image_id: sample3.jpg
+  #item_image: sample3.jpg
 
 item8:
   genre: genre4
@@ -62,7 +62,7 @@ item8:
   explanation: "オーガニック！"
   price: 290
   is_saled: true
-  #item_image_id: sample3.jpg
+  #item_image: sample3.jpg
 
 item9:
   genre: genre5
@@ -70,12 +70,12 @@ item9:
   explanation: "2枚入り"
   price: 70
   is_saled: true
-  #item_image_id: sample4.jpg
+  #item_image: sample4.jpg
 
 item10:
   genre: genre5
   name: "ポタポタ焼き"
-  explanation: "ポタポタ"
+  explanation: "ポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタポタ"
   price: 90
   is_saled: true
-  #item_image_id: sample4.jpg
+  #item_image: sample4.jpg
