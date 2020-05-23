@@ -117,7 +117,17 @@ label{
 
 td,th{
 	padding: 7px 10px;
+  vertical-align: middle !important; /*もし他のページのレイアウトに支障あればお伝えください！*/
+  border-color: #222 !important;
 }
+
 th{
 	background-color:#eee;
+}
+
+.no-border tr{
+    border: none;
+    td{
+        border:none !important;
+    }
 }

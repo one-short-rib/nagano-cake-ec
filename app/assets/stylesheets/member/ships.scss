@@ -9,21 +9,24 @@
 	table{
 		width:100%;
 		tr{
+			border: none;
 			td {
 				input{
-					// width:100%;
-					max-width:600px;
+					width:100%;
+					//max-width:600px;
+					max-width:12em;
 					height:40px;
 					font-size:1em;
 					border-radius:5px;
 					&#ship_address{
-						width:100%
+						//width:100%
+						max-width:22em;
 					}
 				}
-			}
-			td:first-child{
-				text-align:left;
-				width:200px;
+				&:first-child{
+					text-align:left;
+					width:200px;
+				}
 			}
 		}
 	}
