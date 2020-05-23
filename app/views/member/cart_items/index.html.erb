@@ -2,50 +2,58 @@
 <% if @cart_items.present? %>
 <!-- ナビバーで -->
 <div class="row">
-	<nav class="nav navbar-nav navbar-left">
-		<h4>ショッピングカート</h4>
-	</nav>
-	<nav class="nav navbar-nav navbar-right">
-		<%= link_to 'カートを空にする', clear_members_cart_items_path, method: :delete, class: "btn btn-danger" %>
-	</nav>
-</div>
-
-<div class="row index-table">
-	<table>
-		<thead>
-			<tr>
-				<th colspan="2">商品名</th>
-				<th>単価(税込)</th>
-				<th>数量</th>
-				<th>小計</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @cart_items.each do |cart_item| %>
-				<%= render 'member/cart_items/cart_item', cart_item: cart_item %>
-			<% end %>
-			<tr>
-				<td colspan="4">
-						<%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
-				</td>
-				<th>合計金額</th>
-				<td><%= total_price(@cart_items) %></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<div class="center">
-	<%= link_to "情報入力に進む", new_members_order_path, class: "btn btn-success btn-lg" %>
+	<div class="col-xs-12" >
+		<div class="page-title clearfix">
+			<span>ショッピングカート</span>
+			<%= link_to 'カートを空にする', clear_members_cart_items_path, method: :delete, class: "btn btn-danger pull-right" %>
+		</div>
+		<div class="cart-index">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="2">商品名</th>
+						<th>単価(税込)</th>
+						<th>数量</th>
+						<th>小計</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cart_items.each do |cart_item| %>
+						<%= render 'member/cart_items/cart_item', cart_item: cart_item %>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="actions cart-bottom clearfix">
+			<%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
+			<table class="pull-right table-bordered">
+				<tbody>
+					<tr>
+						<th>合計金額</th>
+						<td><%= total_price(@cart_items) %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="actions wide-btn">
+			<%= link_to "情報入力に進む", new_members_order_path, class: "btn btn-success btn-lg center-block" %>
+		</div>
+	</div>
 </div>
 
 <% else %>
-<div>
-	<h4>ショッピングカート</h4>
-	<h5>カートの中は空です</h5>
-</div>
-<div>
-	<%= link_to '買い物を続ける', items_path, class: "btn btn-primary"  %>
+<div class="row">
+	<div class="col-xs-12" >
+		<div class="page-title">
+			<span>ショッピングカート</span>
+		</div>
+		<div class="cart-index">
+			<h2>カートの中は空です</h2>
+		</div>
+		<div class="actions">
+			<%= link_to '買い物を続ける', items_path, class: "btn btn-primary"  %>
+		</div>
+	</div>
 </div>
 <% end %>

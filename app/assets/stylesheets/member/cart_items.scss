@@ -8,6 +8,7 @@
 		width:100%;
 		margin:20px auto;
 		td,th{
+			height:70px;
 			padding:10px;
 		}
 		th{
@@ -16,31 +17,27 @@
 		td:nth-child(3),td:nth-child(4),td:nth-child(5){
 			border:1px solid;
 		}
+		input#cart_item_amount{
+			width:40px;
+			padding:2px;
+		}
 		.btn-danger{
 			display:block;
 			max-width:80px;
 		}
 	}
-}
-
-form.edit_cart_item{
-	input#cart_item_amount{
-		width:40px;
-		padding:2px;
+	h2{
+		margin:30px;
 	}
 }
 
 .cart-bottom{
 	table{
 		width:30%;
-		tr{
-			height:34px;
-			th{
-				width:50%;
-			}
-			td{
-				width:50%;
-			}
+		th,td{
+			height:70px;
+			width:50%;
+			padding:10px;
 		}
 	}
 }
