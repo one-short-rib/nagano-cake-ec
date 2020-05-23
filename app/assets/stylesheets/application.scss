@@ -111,6 +111,17 @@ header{
 	}
 }
 
+.actions{
+	margin:30px auto;
+}
+.wide-btn{
+	.btn{
+		padding:5px 80px;
+		width:30vw;
+		max-width:300px;
+	}
+}
+
 label{
 	font-weight:normal;
 }
