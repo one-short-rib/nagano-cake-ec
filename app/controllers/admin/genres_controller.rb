@@ -9,6 +9,8 @@ class Admin::GenresController < ApplicationController
 			flash[:success] = 'Genre was successfully create'
 			redirect_to admin_genres_path
 		else
+			@genres = Genre.all
+			flash[:danger] = 'errors prohibited this genre from being saved'
 			render :index
 		end
 	end
@@ -21,6 +23,7 @@ class Admin::GenresController < ApplicationController
 			flash[:notice] = 'You have updated Genre successfully.'
     	redirect_to admin_genres_path
     else
+    	flash[:danger] = 'errors prohibited this genre from being updated'
      	render :edit
     end
 	end
