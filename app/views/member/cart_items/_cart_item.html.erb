@@ -1,14 +1,13 @@
 <tr>
 	<td>
-		<%= image_tag 'sample1.jpg', size: "40x40" %></br>
-		画像
+    <%= attachment_image_tag cart_item.item, :item_image, :fill, 50, 50, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %><br>
 	</td>
 	<td><%= cart_item.item.name %></td>
 	<td><%= tax_include(cart_item.item.price) %></td>
 	<td>
 		<%= form_for cart_item, url: "/members/cart_items/#{cart_item.id}" do |f| %>
-		<%= f.number_field :amount, in: 0..50,size: "30x25", class: "" %>
-		<%= f.submit '変更', class: "btn btn-primary btn-sm" %>
+		<%= f.number_field :amount, in: 0..50 %>
+		<%= f.submit '変更', class: "btn btn-primary" %>
 		<% end %>
 	</td>
 	<td><%= subtotal_price(cart_item) %></td>
