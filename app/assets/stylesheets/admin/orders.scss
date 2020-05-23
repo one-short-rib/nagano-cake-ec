@@ -2,10 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*注文一覧ページ*/
-admin-order-table th{
-  background-color:#DDDDDD;
-}
+/*---common---*/
 
 /*ここまで*/
 
@@ -13,13 +10,15 @@ admin-order-table th{
 .head-box{
     table{
     th{
-	    padding:10px 20px 10px 0px;
+	    text-align:center;
 	}
 	td{
 	    padding:10px 0;
+	    padding-left:20px;
 	}
     }
 }
+
 
 .btn-push{
     margin-left:50px;
@@ -33,8 +32,14 @@ admin-order-table th{
 	    padding:10px 0;
 	    background-color:#DDDDDD;
 	}
+	th:nth-child(1){
+	    text-align:center;
+	}
 	td{
 	    padding:5px 0;
+	}
+	td:nth-child(1){
+	    text-align:center;
 	}
 	}
 }
