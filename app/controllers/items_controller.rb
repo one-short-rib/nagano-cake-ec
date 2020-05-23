@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_genres
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(8).reverse_order
   end
 
   def show
