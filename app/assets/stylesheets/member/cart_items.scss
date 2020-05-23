@@ -1,3 +1,43 @@
 // Place all the styles related to the member::cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart-index{
+	table{
+		border:1px solid;
+		width:100%;
+		margin:20px auto;
+		td,th{
+			height:70px;
+			padding:10px;
+		}
+		th{
+			border:1px solid;
+		}
+		td:nth-child(3),td:nth-child(4),td:nth-child(5){
+			border:1px solid;
+		}
+		input#cart_item_amount{
+			width:40px;
+			padding:2px;
+		}
+		.btn-danger{
+			display:block;
+			max-width:80px;
+		}
+	}
+	h2{
+		margin:30px;
+	}
+}
+
+.cart-bottom{
+	table{
+		width:30%;
+		th,td{
+			height:70px;
+			width:50%;
+			padding:10px;
+		}
+	}
+}

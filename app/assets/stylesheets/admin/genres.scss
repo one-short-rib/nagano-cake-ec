@@ -2,15 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h4 {
+.admin-title {
   padding-left: 40px;
 }
 
-table {
+.list {
   margin-top: 30px;
 }
-
-/*たけしさんのborderコメントアウトした箇所*/
 
 .title {
   padding-left: 20px;
@@ -20,6 +18,11 @@ table {
 
 .genre-info {
   background-color: #ddd;
+  border: 1px solid #ddd;
+}
+
+.genre-info2 {
+  border: 1px solid #ddd;
 }
 
 .genre-field {

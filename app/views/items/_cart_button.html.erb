@@ -1,9 +1,9 @@
 <!-- recieves cart_item -->
 
-<div class="cart_button">
+<div class="cart-button">
   <%= form_for(cart_item, url: members_cart_items_path) do |f| %>
         <%= f.hidden_field :item_id, value: item.id %>
-        <%= f.number_field :amount, min: 1, max: 50, placeholder:"個数選択", class:"col-xs-5" %>
-        <%= f.submit "カートに入れる", class:"btn btn-info" %>
+        <%= f.number_field :amount, min: 1, max: 50, placeholder:"個数選択", class:"item-count" %>
+        <%= f.submit "カートに入れる", class:"btn btn-primary link" %>
   <% end %>
 </div>
