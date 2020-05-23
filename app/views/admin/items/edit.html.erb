@@ -1,38 +1,51 @@
 <% provide(:title, "商品編集") %>
 <!--エラーメッセージ入れる-->
+
+<div class = "row">
+	<div class = "edit-heading">
+		<h3>商品編集</h3>
+	</div>
+</div>
+
 <div class = "row">
 	<%= form_for(@item, url: admin_item_path(@item)) do |f| %>
-		<div class = "col-md-4">
+		<div class = "col-md-3">
 			<div class = "field">
+				<%= attachment_image_tag @item, :item_image, :fill, 100, 60, format:'jpeg', class:"item-img", fallback:"no_image.jpg" %>
 				<%= f.attachment_field :item_image %>
 			</div>
 		</div>
 
-		<div class = "col-md-8">
+		<div class = "col-md-6">
 			<dl>
-				<div class = "field">
-					<dt>商品名</dt>
-					<dd><%= f.text_field :name %></dd>
-				</div>
-				<div class = "field">
-					<dt>商品説明</dt>
-					<dd><%= f.text_area :explanation %></dd>
-				</div>
-				<div class = "field">
-					<dt>ジャンル</dt>
-					<dd><%= f.collection_select :genre_id, Genre.all, :id, :name %></dd>
-				</div>
-				<div class = "field">
-					<dt>税抜価格</dt>
-					<dd><%= f.text_field :price %></dd>
-				</div>
-				<div class = "field">
-					<dt>販売ステータス</dt>
-					<dd><%= f.select :is_saled, [["販売停止中","false"],["販売中","true"]] %></dd>
+				<div class = "item-edit">
+					<div class = "field">
+						<dt>商品名</dt>
+						<dd><%= f.text_field :name %></dd>
+					</div>
+					<div class = "field">
+						<dt>商品説明</dt>
+						<dd><%= f.text_area :explanation, size:"20x5" %></dd>
+					</div>
+					<div class = "field">
+						<dt>ジャンル</dt>
+						<dd><%= f.collection_select :genre_id, Genre.all, :id, :name %></dd>
+					</div>
+					<div class = "field">
+						<dt>税抜価格</dt>
+						<dd><%= f.text_field :price %></dd>
+					</div>
+					<div class = "field">
+						<dt>販売ステータス</dt>
+						<dd><%= f.select :is_saled, [["販売停止中","false"],["販売中","true"]] %></dd>
+					</div>
 				</div>
 			</dl>
-			<div class = "action">
-				<%= f.submit "保存を変更", class:"btn btn-primary", method: :patch %>
+		</div>
+
+		<div class = "col-md-3">
+			<div class = "edit-buttom-action">
+				<%= f.submit "保存を変更", class:"btn btn-primary", style:"width:150px;height:50px;font-size:17px;font-weight:bold;", method: :patch %>
 			</div>
 		</div>
 	<% end %>

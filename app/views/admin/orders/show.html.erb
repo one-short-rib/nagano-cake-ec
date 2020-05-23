@@ -1,9 +1,12 @@
 <% provide(:title, "注文詳細") %>
+
+
 <div class = "row">
 	<div class = "head-box">
 		<div class = "col-md-8 col-md-offset-1">
-			<h3>注文履歴詳細</h3>
-
+			<div class = "headbox">
+				<h3>注文履歴詳細</h3>
+			</div>
 			<table>
 				<tr>
 					<th>購入者</th>
@@ -79,7 +82,7 @@
 				</tr>
 				<tr>
 					<th>請求額合計</th>
-					<td><%= @order.billing_amount + @order.postage %>円</td>
+					<td><%= @order.billing_amount.to_i %>円</td>
 				</tr>
 			</table>
 		</div>
