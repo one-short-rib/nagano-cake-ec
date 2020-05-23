@@ -3,8 +3,8 @@
   <div class="col-xs-2">
     <%= render 'items/genres_box', genres: @genres %>
   </div>
-  <div class="col-xs-10">
-    <h1>商品一覧<span class="item-count">(全<%= @items.count %>件)</span></h1>
+  <div class="item-index col-xs-10">
+    <h1>商品一覧 <span>(全<%= @items.count %>件)</span></h1>
     <%= render 'items/item_index', items: @items %>
   </div>
 </div>

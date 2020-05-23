@@ -1,7 +1,16 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.item-box{
-    margin: 20px 20px 0 0;
+.item-index{
+    h1{
+        font-weight:bold;
+        font-size: 2em;
+        span{
+        font-weight:100;
+        font-size: 0.6em;
+        }
+    }
+    .item-box{
+        margin: 20px 20px 0 0;
+    }
 }
