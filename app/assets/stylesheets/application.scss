@@ -154,6 +154,12 @@ th{
 	background-color:#eee;
 }
 
+#error_explanation {
+  ul{
+    // padding-left:5px;
+  }
+}
+
 .no-border tr{
     border: none;
     td{
