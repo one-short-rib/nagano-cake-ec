@@ -1,0 +1,60 @@
+ja:
+  activerecord:
+    models:
+      admin: "管理者"
+      member: "会員"
+      ship: "配送先"
+      item: "商品"
+      genre: "ジャンル"
+      order: "注文情報"
+      order_item: "注文された商品"
+      cart_items: "カート内商品"
+    attributes:
+      admin:
+        email: "メールアドレス"
+        encrypted_password: "パスワード"
+      member:
+        email: "メールアドレス"
+        encrypted_password: "パスワード"
+        last_name: "姓"
+        first_name: "名"
+        last_name_kana: "セイ"
+        first_name_kana: "メイ"
+        phone_number: "電話番号"
+        postal_code: "郵便番号"
+        address: "住所"
+        is_deleted: "退会ステータス"
+      genre:
+        name: "名前"
+        is_valid: "有効ステータス"
+      item:
+        genre_id: "ジャンルのID"
+        name: "名前"
+        explanation: "説明文"
+        price: "値段"
+        is_saled: "販売ステータス"
+        item_image_id: "画像情報"
+      cart_item:
+        member_id: "会員のID"
+        item_id: "商品のID"
+        amount: "数量"
+      order_item:
+        item_id: "商品のID"
+        order_id: "注文情報のID"
+        amount: "数量"
+        making_status: "製作ステータス"
+        order_price: "注文時の単価"
+      order:
+        member_id: "会員のID"
+        order_status: "注文ステータス"
+        postal_code: "配送先郵便番号"
+        address: "配送先住所"
+        name: "配送先宛名"
+        postage: "送料"
+        payment_method: "支払い方法"
+        billing_amount: "支払い金額"
+      ship:
+        member_id: "会員のID"
+        postal_code: "郵便番号"
+        address: "住所"
+        name: "宛名"
