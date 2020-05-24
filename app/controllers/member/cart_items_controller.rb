@@ -1,4 +1,5 @@
 class Member::CartItemsController < ApplicationController
+  before_action :limited_member
 
   def index
   	@cart_items = current_member.cart_items.all
@@ -51,5 +52,11 @@ class Member::CartItemsController < ApplicationController
   	params.require(:cart_item).permit(:item_id,:amount)
   end
 
+  def limited_member
+    unless current_member
+      flash[:danger]="会員登録しないと購入できません"
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
 end
