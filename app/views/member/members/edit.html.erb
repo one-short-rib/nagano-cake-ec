@@ -1,49 +1,54 @@
-<% provide(:title, "新規登録") %>
-<div class="row" >
-	<%= form_for(@member, url:'/members') do |f| %>
-	<%= render 'layouts/error_messages', model:@member %>
-		<div class="col-xs-10 col-xs-offset-1" >
-			<h3>登録情報編集</h3>
-			<table>
-				<tr>
-					<td>名前</td>
-					<td>(姓)</td>
-					<td><%= f.text_field :last_name, class: "last_name" %></td>
-					<td>(名)</td>
-					<td><%= f.text_field :first_name, class: "first_name" %></td>
-				</tr>
-				<tr>
-					<td>フリガナ</td>
-					<td>(セイ)</td>
-					<td><%= f.text_field :last_name_kana, class: "last_name_kana" %></td>
-					<td>(メイ)</td>
-					<td><%= f.text_field :first_name_kana, class: "first_name_kana" %></td>
-				</tr>
-				<tr>
-					<td>メールアドレス</td>
-					<td></td>
-					<td colspan="3"><%= f.text_field :email, class: "email" %></td>
-				</tr>
-				<tr>
-					<td>郵便番号(ハイフンなし)</td>
-					<td></td>
-					<td colspan="3"><%= f.text_field :postal_code, class: "postal_code" %></td>
-				</tr>
-				<tr>
-					<td>住所</td>
-					<td></td>
-					<td colspan="3"><%= f.text_field :address, class: "address" %></td>
-				</tr>
-				<tr>
-					<td>電話番号(ハイフンなし)</td>
-					<td></td>
-					<td colspan="3"><%= f.text_field :phone_number, class: "phone_number" %></td>
-				</tr>
-			</table>
-			<div class="row clearfix">
-				<div class="col-xs-10 col-xs-offset-2">
-					<%= f.submit "編集内容を保存する", class: "btn btn-primary pull-left" %>
-					<%= link_to "退会する", exit_members_path, class: "btn btn-danger exit pull-right" %>
+<div class="row">
+  <div class="col-xs-12" >
+		<div class="page-title">
+			<span>登録情報編集</span>
+		</div>
+		<%= form_for(@member, url:'/members') do |f| %>
+			<%= render "members/shared/error_messages", resource: @member %>
+	    <div class="member-form">
+				<table>
+					<tr>
+						<td>名前</td>
+						<td>(姓)</td>
+						<td><%= f.text_field :last_name, class: "last_name" %></td>
+						<td>(名)</td>
+						<td><%= f.text_field :first_name, class: "first_name" %></td>
+					</tr>
+					<tr>
+						<td>フリガナ</td>
+						<td>(セイ)</td>
+						<td><%= f.text_field :last_name_kana, class: "last_name_kana" %></td>
+						<td>(メイ)</td>
+						<td><%= f.text_field :first_name_kana, class: "first_name_kana" %></td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td>
+						<td></td>
+						<td><%= f.text_field :email, class: "email" %></td>
+					</tr>
+					<tr>
+						<td>郵便番号(ハイフンなし)</td>
+						<td></td>
+						<td><%= f.text_field :postal_code, class: "postal_code" %></td>
+					</tr>
+					<tr>
+						<td>住所</td>
+						<td></td>
+						<td colspan="3"><%= f.text_field :address, class: "address" %></td>
+					</tr>
+					<tr>
+						<td>電話番号(ハイフンなし)</td>
+						<td></td>
+						<td><%= f.text_field :phone_number, class: "phone_number" %></td>
+					</tr>
+				</table>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 col-xs-offset-4">
+					<div class="link-box center-block which-one">
+						<%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+						<%= link_to "退会する", exit_members_path, class: "btn btn-danger", id: "exit" %>
+					</div>
 				</div>
 			</div>
 		<% end %>
