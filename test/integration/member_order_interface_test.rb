@@ -82,6 +82,15 @@ class MemberOrderInterfaceTest < ActionDispatch::IntegrationTest
     CartItem.create(member: @member,
                     item: items(:item1),
                     amount: 2)
+    #失敗
+    post members_orders_path, params: {order:{ postal_code: "",
+                                            address: "",
+                                            name: "",
+                                            billing_amount: nil,
+                                            payment_method: ""}}
+    assert_not flash.empty?
+    assert_redirected_to members_cart_items_path
+    #成功
     assert_difference 'CartItem.count', -1 do #member1がcart_item1個の前提
       assert_difference 'Order.count', 1 do
         assert_difference 'OrderItem.count', 1 do

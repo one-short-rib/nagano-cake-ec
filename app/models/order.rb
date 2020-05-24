@@ -25,7 +25,6 @@ class Order < ApplicationRecord
       @message = ""
       unless self.valid?
           self.errors.full_messages.each { |error| @message += error + "<br>" }
-          @message.html_safe
       end
   end
 
