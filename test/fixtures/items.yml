@@ -6,7 +6,7 @@ item1:
   explanation: "シェアハピ？"
   price: 100
   is_saled: true
-  #item_image: sample1.jpg
+  item_image_id: <%= File.open("./app/assets/images/sample1.jpg") %>
 
 item2:
   genre: genre1

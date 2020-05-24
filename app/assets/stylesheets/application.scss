@@ -31,7 +31,7 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 15px;
   line-height: 18px;
-  padding-bottom: 70px; 
+  padding-bottom: 70px;
 }
 
 header{
@@ -71,6 +71,7 @@ header{
 	}
 }
 .body {
+    height: 100%;
 	padding-top:70px;
   background-color: #fff;
   color: #333;
@@ -171,4 +172,14 @@ footer{
 	background-color:#FFFFCC;
     position: absolute;
     bottom: 0;
+    .texts{
+        height: 70px;
+        text-align: center;
+        .links{
+            list-style: none;
+            li{
+                display: inline-block;
+            }
+        }
+    }
 }
