@@ -17,7 +17,7 @@ module ApplicationHelper
 	end
 
 	def full_address(key)
-		"#{current_member.postal_code} #{current_member.address}"
+		"#{key.postal_code} #{key.address}"
 	end
 
 	def tax_include(price)
