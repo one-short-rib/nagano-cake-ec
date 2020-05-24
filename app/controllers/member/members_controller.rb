@@ -9,8 +9,11 @@ class Member::MembersController < ApplicationController
 	end
 
 	def update
-		@member.update(member_params)
-		redirect_to members_path
+		if @member.update(member_params)
+			redirect_to members_path
+		else
+			render :edit
+		end
 	end
 
 	def exit
@@ -18,6 +21,7 @@ class Member::MembersController < ApplicationController
 
 	def is_deleted
 		@member.update(is_deleted: true)
+		flash[:danger]="退会処理が実行されました"
 		redirect_to root_path
 	end
 
