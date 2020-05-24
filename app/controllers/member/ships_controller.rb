@@ -1,6 +1,4 @@
 class Member::ShipsController < ApplicationController
-
-  before_action :check_member
   before_action :authenticate_member!
 	before_action :set_ship, only: [:edit,:update,:destroy]
   def index

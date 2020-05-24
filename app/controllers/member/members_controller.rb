@@ -1,6 +1,4 @@
 class Member::MembersController < ApplicationController
-
-	before_action :check_member
 	before_action :authenticate_member!
 	before_action :set_member,only: [:show,:edit,:update,:is_deleted]
 
