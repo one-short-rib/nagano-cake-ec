@@ -4,7 +4,7 @@
 			<span>登録情報編集</span>
 		</div>
 		<%= form_for(@member, url:'/members') do |f| %>
-			<%= render "members/shared/error_messages", resource: @member %>
+			<%= render 'layouts/error_messages', model:@member %>
 	    <div class="member-form">
 				<table>
 					<tr>
