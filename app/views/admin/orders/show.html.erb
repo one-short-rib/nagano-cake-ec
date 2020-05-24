@@ -56,9 +56,9 @@
 				<% @order.order_items.each do |order_item| %>
 					<tr>
 						<td><%= order_item.item.name %></td>
-						<td><%= order_item.order_price %></td>
+						<td><%= order_item.order_price.to_s(:delimited) %></td>
 						<td><%= order_item.amount %></td>
-						<td><%= subtotal_price(order_item) %></td>
+						<td><%= subtotal_price(order_item).to_s(:delimited) %></td>
 						<%= form_for(order_item, url: admin_order_items_path(order_item)) do |f| %>
 						<td><%= f.select :making_status, OrderItem.making_statuses.keys %></td>
 						<td><%= f.submit"更新", class:"btn btn-primary" %></td>
@@ -74,15 +74,15 @@
 			<table>
 				<tr>
 					<th>商品合計</th>
-					<td><%= total_price(@order.order_items).to_s %>円</td>
+					<td><%= total_price(@order.order_items).to_s(:delimited) %>円</td>
 				</tr>
 				<tr>
 					<th>送料</th>
-					<td><%= @order.postage.to_s %>円</td>
+					<td><%= @order.postage.to_s(:delimited) %>円</td>
 				</tr>
 				<tr>
 					<th>請求額合計</th>
-					<td><%= @order.billing_amount.to_s %>円</td>
+					<td><%= @order.billing_amount.to_s(:delimited) %>円</td>
 				</tr>
 			</table>
 		</div>
