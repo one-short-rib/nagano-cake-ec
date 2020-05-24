@@ -23,7 +23,7 @@ class Member::MembersController < ApplicationController
 
 	def is_deleted
 		@member.update(is_deleted: true)
-		flash[:danger]="退会処理が実行されました"
+		# flash[:danger]="退会処理が実行されました"
     redirect_to '/member/logout'
 	end
 

@@ -11,7 +11,7 @@ class Members::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     self.resource = warden.authenticate!(auth_options)
-    if current_member.is_deleted ==true
+    if current_member.is_deleted
       check_member
     else
       set_flash_message!(:notice, :signed_in)
@@ -22,9 +22,18 @@ class Members::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    @path = Rails.application.routes.recognize_path(request.referer)
+    binding.pry
+    if @path[:controller] == "member/members"
+      signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+      flash[:danger]="退会処理が実行されました"
+      yield if block_given?
+      respond_to_on_destroy
+    else
+      super
+    end
+  end
 
   # protected
 
