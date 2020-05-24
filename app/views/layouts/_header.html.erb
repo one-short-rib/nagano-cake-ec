@@ -2,7 +2,9 @@
       <div class = "row">
         <header class = "nav navbar-fluid navbar-fixed-top">
           <nav class = "nav navbar-nav navbar-left">
-            <span class = "logo"><i class="fas fa-store"></i>Nagano cake</span>
+            <%= link_to root_path, style:"text-decoration:none;" do %>
+                <span class = "logo"><i class="fas fa-store"></i> ながのCAKE</span>
+            <% end %>
           </nav>
           <!-- 管理者様ヘッダー -->
           <% if admin_signed_in? %>
