@@ -1,5 +1,5 @@
 <% provide(:title, "商品登録") %>
-<!--エラーメッセージ入れる-->
+
 <div class = "row">
 	<div class = "new-heading">
 		<h3>商品新規登録</h3>
@@ -8,6 +8,9 @@
 
 <div class = "row">
 	<%= form_for(@item, url:'/admin/items') do |f| %>
+	<!--エラーメッセージ入れる-->
+	<%= render 'layouts/error' %>
+
 		<div class = "col-md-3">
 			<div class = "item-new-img">
 				<div class = "field">

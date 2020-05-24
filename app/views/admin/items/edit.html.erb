@@ -1,5 +1,4 @@
 <% provide(:title, "商品編集") %>
-<!--エラーメッセージ入れる-->
 
 <div class = "row">
 	<div class = "edit-heading">
@@ -9,6 +8,9 @@
 
 <div class = "row">
 	<%= form_for(@item, url: admin_item_path(@item)) do |f| %>
+	<!--エラーメッセージ入れる-->
+	<%= render 'layouts/error' %>
+	
 		<div class = "col-md-3">
 			<div class = "field">
 				<%= attachment_image_tag @item, :item_image, :fill, 100, 60, format:'jpeg', class:"item-img", fallback:"no_image.jpg" %>
