@@ -1,4 +1,6 @@
 class Admin::MembersController < ApplicationController
+	before_action :authenticate_admin!
+
 	def index
 		@members = Member.all
 	end
@@ -10,7 +12,7 @@ class Admin::MembersController < ApplicationController
 	end
 	def update
 		@member = Member.find(params[:id])
-#		if 
+#		if
 		@member.update(member_params)
 		redirect_to admin_members_path#向かうページ
 #		else

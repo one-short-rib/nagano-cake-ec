@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-  before_action :authenticate_admin!, except: [:create, :update]
+  before_action :authenticate_admin!
   #商品新規登録ページの表示
   def new
     @item = Item.new

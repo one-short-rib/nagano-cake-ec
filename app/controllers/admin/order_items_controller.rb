@@ -1,6 +1,6 @@
 class Admin::OrderItemsController < ApplicationController
+  before_action :authenticate_admin!
 
-	#製作ステータスの変更
   def update
   	@order = OrderItem.find(params[:id])
     @order.update(order_item_params)
