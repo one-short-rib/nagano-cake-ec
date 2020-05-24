@@ -9,7 +9,7 @@
 <div class = "row">
 	<%= form_for(@item, url:'/admin/items') do |f| %>
 	<!--エラーメッセージ入れる-->
-	<%= render 'layouts/error' %>
+	<%= render 'layouts/error_messages', model:@item %>
 
 		<div class = "col-md-3">
 			<div class = "item-new-img">
