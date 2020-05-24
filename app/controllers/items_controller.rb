@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
     @items = Item.page(params[:page]).per(8).reverse_order
   end
 
+  def search
+    @genre = Genre.find(params[:id])
+    @items = @genre.items.page(params[:page]).per(8).reverse_order
+  end
+
   def show
     @item = Item.find(params[:id])
   end

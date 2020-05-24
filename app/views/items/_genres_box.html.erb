@@ -7,7 +7,7 @@
   <div class="genres_list">
     <ul>
         <% genres.each do |genre| %>
-            <li><%= genre.name %></li>
+            <li><%= link_to genre.name, search_item_path(genre.id) %></li>
         <% end %>
     </ul>
   </div>
