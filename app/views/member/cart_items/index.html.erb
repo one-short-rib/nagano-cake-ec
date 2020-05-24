@@ -5,7 +5,8 @@
 	<div class="col-xs-12" >
 		<div class="page-title clearfix">
 			<span>ショッピングカート</span>
-			<%= link_to 'カートを空にする', clear_members_cart_items_path, method: :delete, class: "btn btn-danger pull-right" %>
+			<%= link_to 'カートを空にする', clear_members_cart_items_path, method: :delete,
+		data: {confirm: "本当にカートを空にしてもよろしいですか？"}, class: "btn btn-danger pull-right" %>
 		</div>
 		<div class="cart-index">
 			<table>
