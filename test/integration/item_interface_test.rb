@@ -11,7 +11,7 @@ class ItemInterfaceTest < ActionDispatch::IntegrationTest
     get items_path
     assert_template 'items/index'
     assert_match @genre.name, response.body
-    assert_select "h1", "商品一覧(全#{Item.count}件)"
+    assert_select "h1", "商品一覧 (全#{Item.count}件)"
     assert_match Item.count.to_s, response.body
     assert_match @item.price.to_s(:delimited), response.body
     assert_match @item.name, response.body
