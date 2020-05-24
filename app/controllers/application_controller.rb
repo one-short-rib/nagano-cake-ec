@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
   end
 
   def check_member
-  	current_member.is_deleted == true
+  	if current_member.is_deleted
     flash[:danger] = "退会済みアカウントです。ご利用するには新たに会員登録するか管理者にご連絡ください"
   	redirect_to root_path
+    end
   end
 end

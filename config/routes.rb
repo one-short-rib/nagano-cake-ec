@@ -25,12 +25,23 @@ Rails.application.routes.draw do
       end
     end
   end
+  devise_for :member, skip: :all
+  devise_scope :member do
+    get 'member/sign_up', to: 'members/registrations#new', as: :new_member_registration
+    post 'member/sign_up', to: 'members/registrations#create', as: :member_registration
+    get '/member/sign_in', to: 'members/sessions#new', as: :new_member_session
+    post '/member/sign_in', to: 'members/sessions#create', as: :member_session
+    delete '/member/sign_out', to: 'members/sessions#destroy', as: :destroy_member_session
+    get '/member/logout', to: 'members/sessions#destroy', as: :logout_member
+    get '/member/password/new', to: 'members/passwords#new', as: :new_member_password
+    get '/member/password/edit', to: 'members/passwords#edit', as: :edit_member_password
+  end
 
-  devise_for :members, controllers: {
-    sessions:      'members/sessions',
-    passwords:     'members/passwords',
-    registrations: 'members/registrations'
-  }
+  # devise_for :members, controllers: {
+  #   sessions:      'members/sessions',
+  #   passwords:     'members/passwords',
+  #   registrations: 'members/registrations'
+  # }
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
