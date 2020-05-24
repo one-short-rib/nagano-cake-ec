@@ -29,7 +29,7 @@ class Member < ApplicationRecord
 
   # 削除したユーザーにカスタムメッセージを追加
   def inactive_message
-    !is_deleted ? super : "削除されたユーザーです"
+    !is_deleted ? super : "削除されたユーザーです。新たに会員登録するか管理者にご連絡ください。"
   end
 
 end
