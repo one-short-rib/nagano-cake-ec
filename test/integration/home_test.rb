@@ -5,7 +5,7 @@ class HomeTest < ActionDispatch::IntegrationTest
     test "top view" do
       get root_path
       assert_template 'homes/top'
-      assert_select "p", "ようこそ、NaganoCakeへ！
+      assert_select "p", "ようこそ、ながのCAKEへ！
           このサイトは、ケーキ販売のECサイトになります。
           会員でない方も商品の閲覧はできますが、
           購入には会員登録が必要になります。"

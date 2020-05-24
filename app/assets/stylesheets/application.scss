@@ -24,11 +24,14 @@
 @import "font-awesome";
 
 body {
+  min-height: 600px;
+  position: relative;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 15px;
   line-height: 18px;
+  padding-bottom: 70px; 
 }
 
 header{
@@ -37,7 +40,7 @@ header{
 	color:#008080;
 	background-color:#FFFFCC;
 	.navbar-left{
-		paddin:3px;
+		padding:3px;
 		margin-top:5px;
 		margin-left:30px;
 		font-size: 2em;
@@ -171,4 +174,13 @@ th{
     td{
         border:none !important;
     }
+}
+
+footer{
+	height: 70px;
+	width: 100%;
+	color:#008080;
+	background-color:#FFFFCC;
+    position: absolute;
+    bottom: 0;
 }
