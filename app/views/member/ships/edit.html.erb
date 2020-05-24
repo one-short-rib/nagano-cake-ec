@@ -5,6 +5,7 @@
 			<span>配送先編集</span>
 		</div>
 		<%= form_for @ship, url: "/members/ships/#{@ship.id}" do |f| %>
+		<%= render 'layouts/error_messages', model:@ship %>
 			<div class="ship-form">
 			<table>
 				<tr>
