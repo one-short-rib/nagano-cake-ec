@@ -1,6 +1,7 @@
 <% provide(:title, "新規登録") %>
 <div class="row" >
 	<%= form_for(@member, url:'/members') do |f| %>
+	<%= render 'layouts/error_messages', model:@member %>
 		<div class="col-xs-10 col-xs-offset-1" >
 			<h3>登録情報編集</h3>
 			<table>
