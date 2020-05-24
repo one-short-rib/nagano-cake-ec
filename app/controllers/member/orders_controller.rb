@@ -18,6 +18,10 @@ class Member::OrdersController < ApplicationController
   def confirm
     @order = current_member.orders.new(payment_method: params[:order][:payment_method])
     @new_ship = @order.set_new_order(confirm_params)
+    if @new_ship.class == String
+        flash.now[:danger] = @new_ship.html_safe
+        render :new
+    end
   end
 
   def create
