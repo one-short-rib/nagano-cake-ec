@@ -19,4 +19,17 @@ class Member < ApplicationRecord
   validates :email, 			   presence: true, length: {maximum: 255 }
   validates :is_deleted,     inclusion: [true, false]
 
+  # 以下論理削除でググった結果判明したdeviseのメソッド
+
+  # ユーザーのアカウントが有効であることの確認メソッドに条件追加
+  # !is_deletedにすることでtrueの時に下の式がfalseになりアカウントが無効になる
+  def active_for_authentication?
+    super && !is_deleted
+  end
+
+  # 削除したユーザーにカスタムメッセージを追加
+  def inactive_message
+    !is_deleted ? super : "削除されたユーザーです"
+  end
+
 end

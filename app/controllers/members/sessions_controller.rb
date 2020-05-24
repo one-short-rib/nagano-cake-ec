@@ -9,17 +9,9 @@ class Members::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    self.resource = warden.authenticate!(auth_options)
-    if current_member.is_deleted
-      check_member
-    else
-      set_flash_message!(:notice, :signed_in)
-      sign_in(resource_name, resource)
-      yield resource if block_given?
-      respond_with resource, location: after_sign_in_path_for(resource)
-    end
-  end
+  # def create
+  #   super
+  # end
 
   # DELETE /resource/sign_out
   def destroy
