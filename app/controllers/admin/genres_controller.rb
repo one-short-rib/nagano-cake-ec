@@ -10,7 +10,6 @@ class Admin::GenresController < ApplicationController
 			redirect_to admin_genres_path
 		else
 			@genres = Genre.all
-			flash.now[:danger] = 'ジャンル空欄のため、更新できませんでした。'
 			render :index
 		end
 	end
@@ -23,7 +22,6 @@ class Admin::GenresController < ApplicationController
 			flash[:success] = '更新しました。'
     	redirect_to admin_genres_path
     else
-    	flash.now[:danger] = 'ジャンル空欄のため、更新できませんでした。'
      	render :edit
     end
 	end
