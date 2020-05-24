@@ -10,12 +10,13 @@ class Admin::MembersController < ApplicationController
 	end
 	def update
 		@member = Member.find(params[:id])
-#		if 
-		@member.update(member_params)
-		redirect_to admin_members_path#向かうページ
-#		else
-#			render エラー作るならそのページ
-#		end
+		if @member.update(member_params)
+			 flash[:notice] = 'You have updated Member successfully.'
+			 redirect_to admin_members_path
+		else
+			flash[:danger] = 'errors prohibited this Member from being updated'
+			render :edit
+		end
 	end
 	private
 	def member_params
