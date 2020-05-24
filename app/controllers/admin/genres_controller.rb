@@ -6,11 +6,11 @@ class Admin::GenresController < ApplicationController
 	def create
 		@genre = Genre.new(genre_params)
 		if @genre.save
-			flash[:success] = 'Genre was successfully create'
+			flash[:success] = '新規作成しました。'
 			redirect_to admin_genres_path
 		else
 			@genres = Genre.all
-			flash[:danger] = 'errors prohibited this genre from being saved'
+			flash.now[:danger] = 'ジャンル空欄のため、更新できませんでした。'
 			render :index
 		end
 	end
@@ -20,10 +20,10 @@ class Admin::GenresController < ApplicationController
 	def update
 		@genre = Genre.find(params[:id])
 		if @genre.update(genre_params)
-			flash[:notice] = 'You have updated Genre successfully.'
+			flash[:success] = '更新しました。'
     	redirect_to admin_genres_path
     else
-    	flash[:danger] = 'errors prohibited this genre from being updated'
+    	flash.now[:danger] = 'ジャンル空欄のため、更新できませんでした。'
      	render :edit
     end
 	end
