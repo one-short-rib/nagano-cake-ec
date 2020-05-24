@@ -18,7 +18,7 @@ class Admins::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
+  private
   def after_sign_in_path_for(resource)
     admin_path
   end

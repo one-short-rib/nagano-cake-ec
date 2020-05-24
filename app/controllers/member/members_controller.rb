@@ -1,5 +1,7 @@
 class Member::MembersController < ApplicationController
 
+	before_action :check_member
+	before_action :authenticate_member!
 	before_action :set_member,only: [:show,:edit,:update,:is_deleted]
 
 	def show
@@ -22,7 +24,7 @@ class Member::MembersController < ApplicationController
 	def is_deleted
 		@member.update(is_deleted: true)
 		flash[:danger]="退会処理が実行されました"
-		redirect_to root_path
+    redirect_to root_path
 	end
 
 	private
@@ -35,6 +37,5 @@ class Member::MembersController < ApplicationController
 	def set_member
 		@member = current_member
 	end
-
 
 end

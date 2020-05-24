@@ -1,4 +1,5 @@
 class Member::CartItemsController < ApplicationController
+  before_action :check_member
   before_action :limited_member
 
   def index

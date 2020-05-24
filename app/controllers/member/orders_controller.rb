@@ -1,5 +1,7 @@
 class Member::OrdersController < ApplicationController
 
+  before_action :check_member
+  before_action :authenticate_member!
   before_action :to_confirm, only: [:show]
 
   def index
