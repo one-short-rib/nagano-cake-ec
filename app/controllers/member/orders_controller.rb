@@ -18,14 +18,20 @@ class Member::OrdersController < ApplicationController
   def confirm
     @order = current_member.orders.new(payment_method: params[:order][:payment_method])
     @new_ship = @order.set_new_order(confirm_params)
+    if @new_ship.class == String
+        flash.now[:danger] = @new_ship.html_safe
+        render :new
+    end
   end
 
   def create
-    if @order = current_member.orders.create(order_params)
+    @order = current_member.orders.new(order_params)
+    if @order.save
       @order.cart_to_order(current_member.cart_items)
       ship = current_member.ships.create(ship_params) if params[:order][:new_ship] == "true"
       redirect_to thanks_members_orders_path
     else
+      flash[:danger] = "注文に失敗しました"
       redirect_to members_cart_items_path
     end
   end

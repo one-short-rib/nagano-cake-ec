@@ -21,8 +21,16 @@ class Order < ApplicationRecord
       self.name = (key.class == Member)? full_name(key) : key.name
   end
 
+  def valid_address?
+      @message = ""
+      unless self.valid?
+          self.errors.full_messages.each { |error| @message += error + "<br>" }
+      end
+  end
+
   def set_new_order(params)
     new_ship = false
+    self.billing_amount = total_price(self.member.cart_items) + self.postage
     case params[:choice]
       when "0"
         self.set_address(self.member)
@@ -33,9 +41,10 @@ class Order < ApplicationRecord
         ship = self.member.ships.new(postal_code: params[:ship_postal_code],
                                         name: params[:ship_name],
                                         address: params[:ship_address])
-          self.set_address(ship)
+        self.set_address(ship)
+        self.valid_address?
+        return @message unless self.valid?
     end
-    self.billing_amount = total_price(self.member.cart_items) + self.postage
     return new_ship
   end
 
