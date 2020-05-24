@@ -14,7 +14,6 @@ class Admin::MembersController < ApplicationController
 			 flash[:notice] = 'You have updated Member successfully.'
 			 redirect_to admin_members_path
 		else
-			flash[:danger] = 'errors prohibited this Member from being updated'
 			render :edit
 		end
 	end
