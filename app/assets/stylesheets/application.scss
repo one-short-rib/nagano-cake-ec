@@ -24,6 +24,8 @@
 @import "font-awesome";
 
 body {
+  min-height: 600px;
+  position: relative;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -166,4 +168,6 @@ footer{
 	width: 100%;
 	color:#008080;
 	background-color:#FFFFCC;
+    position: absolute;
+    bottom: 0;
 }
