@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!, except: [:update]
 
 	#全顧客の注文履歴一覧
   def index
