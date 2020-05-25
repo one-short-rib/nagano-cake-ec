@@ -1,61 +1,96 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.item-index{
-    h1{
-        font-weight:bold;
-        font-size: 2em;
-        span{
-        font-weight:100;
-        font-size: 0.6em;
-        }
+
+.genres-box{
+  margin-bottom: 40px;
+  border: solid 1px #222;
+  border-radius: 5px;
+  .genres-box-title{
+    border-bottom: solid 1px #222;
+    text-align: center;
+    span{
+      display: block;
+      padding: 8px 2px;
     }
+  }
+  .genres_list{
+    padding-left: 5px;
+    li{
+      list-style: none;
+      margin: 20px 0;
+      font-size: 1.3em;
+      a{
+        color: inherit;
+      }
+    }
+  }
 }
-.item-box{
-    margin: 20px 20px 0 0;
-    p{
-        margin: 0;
-        color: #111;
-        line-height: 2em;
+
+.item-index-title{
+  h1{
+    font-weight:bold;
+    font-size: 2em;
+    margin:0;
+    span{
+    font-weight:normal;
+    font-size: 0.6em;
     }
-    .page{
+  }
+}
+.item-index{
+  margin-top: 20px;
+  min-height: 500px;
+  .item-box{
+    min-height:150px !important;
+    img{
+      width:100%;
     }
+  }
+}
+
+.center-align{
+  text-align: center;
 }
 
 .item-show{
-    margin-top: 40px;
-    .item-details, h2{
-        font-weight: bold;
-        h3{
-            font-weight: 80;
-            span{
-                font-weight: normal;
-                font-size: 0.7em;
-            }
-        }
+  .item-image img{
+    width:100%;
+  }
+  .item-details{
+    h3{
+      margin:0;
+      span{
+        font-size: 0.7em;
+      }
     }
+    h3:first-child{
+      font-weight: bold;
+    }
+    p#item-explanation{
+      margin:20px 0 30px;
+    }
+
+  }
 }
-.cart-button .item-count{
-    height: 40px;
-    width: 180px;
+.cart-button{
+  text-align: right;
+  form{
+    input{
+      vertical-align: top;
+    }
+    input#cart_item_amount{
+      width:85px;
+      padding: 6px 0 6px 6px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      &:focus{
+        border:2px solid skyblue ;
+        box-shadow: 0 0 5px skyblue;
+        outline: 0;
+      }
+    }
+  }
 }
 
-.genres-box{
-    margin-top: 40px;
-    width: 210px;
-    border: solid 1px #222;
-    .genres-box-title{
-        border-bottom: solid 1px #222;
-        h4{
-            text-indent: 0.8em;
-            font-weight: bold;
-        }
-    }
-    .genres_list{
-        li{
-            list-style: none;
-            margin: 20px 0;
-            font-size: 1.3em;
-        }
-    }
-}
+
