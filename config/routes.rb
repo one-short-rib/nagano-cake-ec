@@ -38,7 +38,10 @@ Rails.application.routes.draw do
     delete '/member/sign_out', to: 'members/sessions#destroy', as: :destroy_member_session
     get '/member/logout', to: 'members/sessions#destroy', as: :logout_member
     get '/member/password/new', to: 'members/passwords#new', as: :new_member_password
-    get '/member/password/edit', to: 'members/passwords#edit', as: :edit_member_password
+    get '/member/password/edit', to: 'members/registrations#edit', as: :edit_member_password
+    put '/member/password', to: 'members/registrations#update', as: :member_password
+    #password/editはうまく使えなかったので、registration/editで代用
+    #urlはpassward/editですが、使用しているコントローラーはregistraionsです
   end
 
   # devise_for :members, controllers: {
