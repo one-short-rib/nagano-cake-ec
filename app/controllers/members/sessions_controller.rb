@@ -14,9 +14,17 @@ class Members::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    @path = Rails.application.routes.recognize_path(request.referer)
+    if @path[:controller] == "member/members"
+      signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+      flash[:danger]="退会処理が実行されました"
+      yield if block_given?
+      respond_to_on_destroy
+    else
+      super
+    end
+  end
 
   # protected
 

@@ -1,4 +1,6 @@
 class Admin::MembersController < ApplicationController
+	before_action :authenticate_admin!
+
 	def index
 		@members = Member.all
 	end
@@ -17,6 +19,7 @@ class Admin::MembersController < ApplicationController
       render :edit
     end
   end
+
 	private
 	def member_params
 		params.require(:member).permit(:email, :last_name, :first_name, :last_name_kana, :first_name_kana, :phone_number, :postal_code, :address, :is_deleted)
