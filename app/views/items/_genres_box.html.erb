@@ -2,13 +2,13 @@
 
 <div class="genres-box">
   <div class="genres-box-title">
-    <h4>ジャンル検索</h4>
+    <span class="info-title">ジャンル検索</span>
   </div>
   <div class="genres_list">
     <ul>
-        <% genres.each do |genre| %>
-            <li><%= link_to genre.name, search_item_path(genre.id) %></li>
-        <% end %>
+      <% genres.each do |genre| %>
+        <li><%= link_to genre.name, search_item_path(genre.id) %></li>
+      <% end %>
     </ul>
   </div>
 </div>
