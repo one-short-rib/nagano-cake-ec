@@ -1,10 +1,12 @@
 <div class="search-form">
-	<div class="input-group">
-	  <input type="text" class="form-control" placeholder="テキスト入力欄">
-	  <span class="input-group-btn">
-	    <button type="button" class="btn btn-default">
-	      <span class="glyphicon glyphicon-search"></span>
-	    </button>
-	  </span>
-	</div>
+	<%= form_with url:search_admin_orders_path, local:true, method: :get do |form| %>
+		<div class="input-group">
+			<%= form.text_field :term, placeholder: "テキスト入力欄", class:"form-control" %>
+		</div>
+		<div class="input-group">
+		  	<%= form.button class:"btn btn-default" do %>
+		      <i class="glyphicon glyphicon-search"></i>
+		    <% end %>
+		</div>
+	<% end %>
 </div>
