@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class Admin::MembersControllerTest < ActionDispatch::IntegrationTest
+    include Warden::Test::Helpers
+
+  def setup
+    @admin = admins(:admin1)
+    login_as(@admin, :scope => :admin)
+  end
 
   test "should get index" do
    get admin_members_path
