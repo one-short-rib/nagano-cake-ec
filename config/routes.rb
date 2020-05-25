@@ -48,6 +48,9 @@ Rails.application.routes.draw do
       member do
         resource :order_items, only: [:update]
       end
+      collection do
+        get :search#orderコントローラーにsearch追加
+      end
     end
     resources :genres,only:[:index,:create,:edit,:update]
   end

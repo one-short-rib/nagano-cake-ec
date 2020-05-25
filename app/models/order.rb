@@ -57,4 +57,9 @@ class Order < ApplicationRecord
     cart_items.destroy_all
   end
 
+  def self.search(search)
+    return Order.all unless search
+    Order.where('name LIKE? OR created_at LIKE?',"%#{search}%", "%#{search}%")
+  end
+
 end
