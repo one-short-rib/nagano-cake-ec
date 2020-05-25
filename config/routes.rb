@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   # 一般公開URL
   root 'homes#top'
   get '/about' => 'homes#about'
-  resources :items,only:[:index,:show]
+  resources :items,only:[:index,:show] do
+    member do
+      get :search
+    end
+  end
 
   # 会員限定URL
   scope module: :member do
