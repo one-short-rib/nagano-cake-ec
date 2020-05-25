@@ -1,9 +1,9 @@
 <% provide(:title, "商品一覧") %>
 <div class="row">
-  <div class="col-sm-3">
+  <div class="col-sm-3 col-md-2">
     <%= render 'items/genres_box', genres: @genres %>
   </div>
-  <div class="col-sm-9">
+  <div class="col-sm-9 col-md-10">
     <div class="item-index-title">
       <% unless @genre %>
         <h1>商品一覧 <span>(全<%= @count %>件)</span></h1>
@@ -13,7 +13,7 @@
     </div>
     <div class="item-index row">
       <% @items.each do |item| %>
-        <div class="item-box col-sm-3">
+        <div class="item-box col-md-3 col-sm-6 col-xs-12">
           <%= link_to item_path(item) do %>
           <%= attachment_image_tag item, :item_image, format: 'jpg', fallback: "sample1.jpg"%>
           <p><%= item.name %></p>
