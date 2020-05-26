@@ -8,7 +8,7 @@
           <p><%= "#{full_name(current_member)}" %></p>
       </div>
 
-      <% unless current_member.ships == [] %>
+      <% if current_member.ships.any? %>
       <div class="radio-button">
           <%= f.radio_button :choice, 1, class:"radio" %>
           <%= f.label "登録済み住所から選択", class:"radio-choice" %>

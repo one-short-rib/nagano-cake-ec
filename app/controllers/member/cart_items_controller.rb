@@ -27,11 +27,11 @@ class Member::CartItemsController < ApplicationController
   	@cart_item = CartItem.find(params[:id])
     if params[:cart_item][:amount] == '0'
   		@cart_item.destroy
-      flash[:danger]= "カートから商品を1点削除しました"
+      flash.now[:danger]= "カートから商品を1点削除しました"
     else
       @cart_item.update(cart_item_params)
       @subtotal = subtotal_price(@cart_item).to_s(:delimited)
-      flash[:success]= "カート内商品の数量を変更しました"
+      flash.now[:success]= "カート内商品の数量を変更しました"
     end
     respond_to do |format|
 			format.html {redirect_to members_cart_items_path}
@@ -43,7 +43,7 @@ class Member::CartItemsController < ApplicationController
   def destroy
   	@cart_item = CartItem.find(params[:id])
   	@cart_item.destroy
-    flash[:danger]="カートから商品を1点削除しました"
+    flash.now[:danger]="カートから商品を1点削除しました"
     respond_to do |format|
 			format.html {redirect_to members_cart_items_path}
 			format.js

@@ -1,1 +1,2 @@
 $("#delete-cart-<%= @cart_item.id.to_s %>").empty();
+$("#flash").html("<%= j(render 'layouts/flash') %>");

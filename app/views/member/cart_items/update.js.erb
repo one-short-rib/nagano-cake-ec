@@ -1,1 +1,2 @@
 $("#cart-subtotal-<%= @cart_item.id.to_s %>").html("<%= @subtotal %>");
+$("#flash").html("<%= j(render 'layouts/flash') %>");
