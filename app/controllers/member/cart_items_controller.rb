@@ -18,7 +18,8 @@ class Member::CartItemsController < ApplicationController
         flash[:notice] = "カートに商品を追加しました"
   		redirect_to members_cart_items_path
   	else
-			redirect_back(fallback_location: root_path)
+        flash[:danger] = "個数を選択してください"
+		redirect_back(fallback_location: root_path)
 	end
   end
 
