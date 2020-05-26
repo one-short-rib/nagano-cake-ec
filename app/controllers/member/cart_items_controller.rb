@@ -26,6 +26,7 @@ class Member::CartItemsController < ApplicationController
   def update
   	@cart_item = CartItem.find(params[:id])
     @amount = params[:cart_item][:amount]
+    @total = total_price(current_member.cart_items).to_s(:delimited)
     if  @amount == '0'
   		@cart_item.destroy
       flash.now[:danger]= "カートから商品を1点削除しました"
