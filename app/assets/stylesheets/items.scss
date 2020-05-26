@@ -22,6 +22,9 @@
       font-size: 1.3em;
       a{
         color: inherit;
+        &:hover{
+          color: #008080;
+        }
       }
     }
   }
@@ -43,6 +46,9 @@
   min-height: 500px;
   .item-box{
     min-height:150px !important;
+    a{
+      color:inherit;
+    }
     img{
       width:100%;
     }
