@@ -29,7 +29,11 @@ class Member::CartItemsController < ApplicationController
       @cart_item.update(cart_item_params)
       flash[:success]= "カート内商品の数量を変更しました"
     end
-    redirect_to members_cart_items_path
+    respond_to do |format|
+			format.html {redirect_to members_cart_items_path}
+			format.js
+		end
+
   end
 
   def destroy

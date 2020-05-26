@@ -5,9 +5,9 @@
 	<td><%= cart_item.item.name %></td>
 	<td><%= tax_include(cart_item.item.price).to_s(:delimited) %></td>
 	<td>
-		<%= form_for cart_item, url: "/members/cart_items/#{cart_item.id}" do |f| %>
+		<%= form_for cart_item, url: "/members/cart_items/#{cart_item.id}", remote: true do |f| %>
 		<%= f.number_field :amount, in: 0..50 %>
-		<%= f.submit '変更', class: "btn btn-primary" %>
+		<%= f.submit '変更', class: "btn btn-primary", id:"cart-count-#{cart_item.id.to_s}" %>
 		<% end %>
 	</td>
 	<td><%= subtotal_price(cart_item).to_s(:delimited) %></td>
