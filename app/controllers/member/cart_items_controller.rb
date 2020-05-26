@@ -44,6 +44,7 @@ class Member::CartItemsController < ApplicationController
   def destroy
   	@cart_item = CartItem.find(params[:id])
   	@cart_item.destroy
+    @total = total_price(current_member.cart_items).to_s(:delimited)
     flash.now[:danger]="カートから商品を1点削除しました"
     respond_to do |format|
 			format.html {redirect_to members_cart_items_path}
