@@ -34,15 +34,18 @@ class Member::CartItemsController < ApplicationController
     respond_to do |format|
 			format.html {redirect_to members_cart_items_path}
 			format.js
-		end
+	end
 
   end
 
   def destroy
   	@cart_item = CartItem.find(params[:id])
   	@cart_item.destroy
-    flash[:danger]="カートから商品を1点削除しました"
-		redirect_to members_cart_items_path
+    flash.now[:danger]="カートから商品を1点削除しました"
+    respond_to do |format|
+			format.html {redirect_to members_cart_items_path}
+			format.js
+	end
   end
 
   def clear
