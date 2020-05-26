@@ -1,1 +1,1 @@
-$("#cart-count-<%= @cart_item.id.to_s %>").html("<%= j(render(partial:'member/cart_items/cart_item', locals:{cart_item:@cart_item})) %>");
+$("#cart-subtotal-<%= @cart_item.id.to_s %>").html("<%= @subtotal %>");
