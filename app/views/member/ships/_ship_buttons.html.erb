@@ -1,4 +1,4 @@
-
+<!-- recieves f new_ship-->
 
   <div class="ship-buttons col-xs-offset-1 col-xs-11">
       <div class="radio-button">
@@ -8,7 +8,9 @@
           <p><%= "#{full_name(current_member)}" %></p>
       </div>
 
-      <% if current_member.ships.any? %>
+        <!-- ships.any? だと、配送先入力でエラーが出てnewにrenderした時、
+            Ship.newがあるせいでtrueになってしまう -->
+      <% if current_member.ships.count != 0 %>
       <div class="radio-button">
           <%= f.radio_button :choice, 1, class:"radio" %>
           <%= f.label "登録済み住所から選択", class:"radio-choice" %>
