@@ -31,5 +31,4 @@ class Member < ApplicationRecord
   def inactive_message
     !is_deleted ? super : "削除されたユーザーです。新たに会員登録するか管理者にご連絡ください。"
   end
-
 end

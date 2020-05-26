@@ -30,12 +30,12 @@
           <tr>
             <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
             <td></td>
-            <td><%= f.text_field :postal_code, autofocus: true, class: "postal_code" %></td>
+            <td><%= f.text_field :postal_code, autofocus: true, class: "postal_code",id:"postal_code" %></td>
           </tr>
           <tr>
             <td><%= f.label :address, "住所" %></td>
             <td></td>
-            <td colspan="3"><%= f.text_field :address, autofocus: true, class: "address" %></td>
+            <td colspan="3"><%= f.text_field :address, autofocus: true, class: "address", id:"address" %></td>
           </tr>
           <tr>
             <td><%= f.label :phone_number, "電話番号(ハイフンなし)" %></td>
