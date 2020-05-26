@@ -24,7 +24,7 @@
 @import "font-awesome";
 
 body {
-  min-height: 600px;
+  min-height: 100vh;
   position: relative;
   background-color: #fff;
   color: #333;
@@ -37,6 +37,7 @@ body {
 header{
 	height: 70px;
 	width: 100%;
+	position: relative;
 	nav{
 		min-width: 750px;
 		z-index: 2;
@@ -65,11 +66,10 @@ header{
 		}
 	}
 	.search-form {
-		position:fixed;
+		position:absolute;
 		top:60px;
-		right:30px;
-		width:40%;
-		max-width:400px;
+		right:35px;
+		width:235px;
 		.input-group{
 		float:left;
 		}
