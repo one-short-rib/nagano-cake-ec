@@ -4,8 +4,9 @@
 		<div class="page-title">
 			<span>配送先登録 / 一覧</span>
 		</div>
-		<%= form_for @ship, url: '/members/ships' do |f| %>
-			<%= render 'layouts/error_messages', model:@ship %>
+		<%= form_with model:@ship, url: '/members/ships' do |f| %>
+			<div id="error_render">
+			</div>
 			<div class="ship-form">
 				<table>
 					<tr>
@@ -29,28 +30,8 @@
 		<% end %>
 		<!-- ships一覧 -->
 		<div class="row">
-			<div class="ships-index col-xs-12">
-				<table class=" table-bordered">
-					<thead>
-						<tr>
-							<th>郵便番号</th>
-							<th>住所</th>
-							<th>宛名</th>
-							<th colspan="2"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% if @ships.present? %>
-							<% @ships.each do |ship| %>
-								<%= render 'member/ships/ship', ship: ship %>
-							<% end %>
-						<% else %>
-						 <tr>
-						 	<td colspan="5">登録された配送先はありません</td>
-						 </tr>
-					 <% end %>
-					</tbody>
-				</table>
+			<div class="ships-index col-xs-12" id="ships-index">
+				<%= render 'member/ships/ship', ships: @ships %>
 			</div>
 		</div>
 	</div>

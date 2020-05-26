@@ -1,0 +1,7 @@
+$("#flash").html("<%= j(render 'layouts/flash') %>")
+<% if @ship.errors.any? %>
+	$("#error_render").html("<%= j(render 'layouts/error_messages', model:@ship) %>")
+<% else %>
+	$("input").val("")
+	$("#ships-index").html("<%= j(render 'member/ships/ship', ships: @ships) %>")
+<% end %>

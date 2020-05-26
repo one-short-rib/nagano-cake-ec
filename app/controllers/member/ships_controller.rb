@@ -1,19 +1,19 @@
 class Member::ShipsController < ApplicationController
   before_action :authenticate_member!
 	before_action :set_ship, only: [:edit,:update,:destroy]
+  before_action :set_ships, only: [:index]
+
   def index
-  	@ships = current_member.ships.all
   	@ship  = current_member.ships.new
   end
 
   def create
   	@ship = current_member.ships.new(ship_params)
   	if @ship.save
+      set_ships
       flash[:notice]="配送先を登録しました"
-  		redirect_to members_ships_path
   	else
-  		@ships = current_member.ships.all
-  		render :index
+      flash[:danger]="配送先を登録できませんでした"
   	end
   end
 
@@ -31,8 +31,8 @@ class Member::ShipsController < ApplicationController
 
   def destroy
   	@ship.destroy
+    set_ships
     flash[:danger]="#{@ship.name}様宛の配送先を１件削除しました"
-  	redirect_to members_ships_path
   end
 
   private
@@ -40,6 +40,10 @@ class Member::ShipsController < ApplicationController
   def set_ship
   	@ship = Ship.find(params[:id])
 	end
+
+  def set_ships
+    @ships = current_member.ships.all
+  end
 
   def ship_params
   	params.require(:ship).permit(:postal_code,:address,:name)
