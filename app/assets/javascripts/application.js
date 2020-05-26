@@ -16,3 +16,9 @@
 //= repuire jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function(){
+    setTimeout(function(){
+    $(".flash").slideUp(2000)
+}, 2000);
+});
