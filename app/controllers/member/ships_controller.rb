@@ -11,9 +11,9 @@ class Member::ShipsController < ApplicationController
   	@ship = current_member.ships.new(ship_params)
   	if @ship.save
       set_ships
-      flash[:notice]="配送先を登録しました"
+      flash.now[:notice]="配送先を登録しました"
   	else
-      flash[:danger]="配送先を登録できませんでした"
+      flash.now[:danger]="配送先を登録できませんでした"
   	end
   end
 
@@ -32,7 +32,7 @@ class Member::ShipsController < ApplicationController
   def destroy
   	@ship.destroy
     set_ships
-    flash[:danger]="#{@ship.name}様宛の配送先を１件削除しました"
+    flash.now[:danger]="#{@ship.name}様宛の配送先を１件削除しました"
   end
 
   private
