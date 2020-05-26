@@ -25,7 +25,8 @@ class Member::CartItemsController < ApplicationController
 
   def update
   	@cart_item = CartItem.find(params[:id])
-    if params[:cart_item][:amount] == '0'
+    @amount = params[:cart_item][:amount]
+    if  @amount == '0'
   		@cart_item.destroy
       flash.now[:danger]= "カートから商品を1点削除しました"
     else
@@ -37,7 +38,6 @@ class Member::CartItemsController < ApplicationController
 			format.html {redirect_to members_cart_items_path}
 			format.js
 	end
-
   end
 
   def destroy
