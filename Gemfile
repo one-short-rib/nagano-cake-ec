@@ -12,8 +12,7 @@ gem 'rubocop-airbnb'
 gem "pry-byebug"
 gem 'kaminari','~> 1.1.1'
 gem 'rails-i18n'
-
-#勝手に追加、font-awesome,faker
+gem 'jp_prefecture'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'faker'
 

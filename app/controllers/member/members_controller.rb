@@ -10,6 +10,7 @@ class Member::MembersController < ApplicationController
 
 	def update
 		if @member.update(member_params)
+			flash[:success]= "登録情報を更新しました"
 			redirect_to members_path
 		else
 			render :edit

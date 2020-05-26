@@ -17,8 +17,11 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).ready(function(){
-    setTimeout(function(){
-    $(".flash").slideUp(2000)
-}, 2000);
+$(function(){
+	$("#postal_code").jpostal({
+		postcode:["#postal_code"],
+		address:{
+	    	"#address" : "%3%4%5%6%7"
+		}
+	});
 });

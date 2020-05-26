@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   end
   devise_for :member, skip: :all
   devise_scope :member do
-    get 'member/sign_up', to: 'members/registrations#new', as: :new_member_registration
-    post 'member/sign_up', to: 'members/registrations#create', as: :member_registration
+    get '/member/sign_up', to: 'members/registrations#new', as: :new_member_registration
+    post '/member/sign_up', to: 'members/registrations#create', as: :member_registration
     get '/member/sign_in', to: 'members/sessions#new', as: :new_member_session
     post '/member/sign_in', to: 'members/sessions#create', as: :member_session
     delete '/member/sign_out', to: 'members/sessions#destroy', as: :destroy_member_session
@@ -44,20 +44,15 @@ Rails.application.routes.draw do
     #urlはpassward/editですが、使用しているコントローラーはregistraionsです
   end
 
-  # devise_for :members, controllers: {
-  #   sessions:      'members/sessions',
-  #   passwords:     'members/passwords',
-  #   registrations: 'members/registrations'
-  # }
-  devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
   # 管理者用URL
+  devise_for :admin, skip: :all
+  devise_scope :admin do
+    get '/admin/sign_in', to: 'admins/sessions#new', as: :new_admin_session
+    post '/admin/sign_in', to: 'admins/sessions#create', as: :admin_session
+    delete '/admin/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
+  end
   scope module: :admin do
     get "/admin" => "homes#top"
-
   end
   namespace :admin do
   	resources :items,only:[:index,:show,:new,:create,:edit,:update]
