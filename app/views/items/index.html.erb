@@ -1,13 +1,23 @@
 <% provide(:title, "商品一覧") %>
 <div class="row">
-  <div class="col-xs-3">
+  <div class="col-sm-3 col-md-2">
     <%= render 'items/genres_box', genres: @genres %>
   </div>
-  <div class="item-index col-xs-9">
-    <h1>商品一覧 <span>(全<%= @count %>件)</span></h1>
-    <%= render 'items/item_index', items: @items %>
-  </div>
-  <div class="col-xs-offset-6">
-      <%= paginate @items %>
+  <div class="col-sm-9 col-md-10">
+    <div class="item-index-title">
+      <% unless @genre %>
+        <h1>商品一覧 <span>(全<%= @count %>件)</span></h1>
+      <% else %>
+        <h1><%= @genre.name %>一覧 <span>(全<%= @count %>件)</span></h1>
+      <% end %>
+    </div>
+    <div class="item-index row">
+      <%= render 'items/item_index', items: @items %>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 center-align">
+        <%= paginate @items %>
+      </div>
+    </div>
   </div>
 </div>

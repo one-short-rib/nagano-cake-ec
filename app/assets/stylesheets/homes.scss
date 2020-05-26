@@ -3,14 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-visual{
-    height:300px;
-    max-width: 600px;
     position:relative;
+    height:300px;
+    width: 100%;
+    max-width: 675px;
     background-image: url("sample6.jpg");
-    background-size: contain;
+    background-size: cover;
     .main-message{
+        height:100px;
+        width: 380px;
+        font-weight: bold;
         position:absolute;
-        top:100px;
-        left:150px;
+        display: inline-box;
+        text-align: left;
+        margin: auto;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
     }
+}
+.recommendations{
+    min-height:1px !important;
 }

@@ -8,6 +8,7 @@
           <p><%= "#{full_name(current_member)}" %></p>
       </div>
 
+      <% unless current_member.ships == [] %>
       <div class="radio-button">
           <%= f.radio_button :choice, 1, class:"radio" %>
           <%= f.label "登録済み住所から選択", class:"radio-choice" %>
@@ -16,6 +17,7 @@
                 |ship| ["#{full_address(ship)} #{ship.name}", ship.id]} %>
           </div>
       </div>
+      <% end %>
 
       <div class="radio-button">
         <label>

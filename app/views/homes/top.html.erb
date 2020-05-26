@@ -1,23 +1,27 @@
 <% provide(:title, "トップページ") %>
 <div class="row">
-  <div class="col-xs-3">
+  <div class="col-sm-3 col-md-2">
     <%= render 'items/genres_box', genres: @genres %>
   </div>
-  <div class="col-xs-9">
-    <div class="main-visual">
-      <div class="main-message">
-        <p>
-          ようこそ、ながのCAKEへ！<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員でない方も商品の閲覧はできますが、<br>
-          購入には会員登録が必要になります。
-        </p>
+  <div class="col-xs-9 col-md-10">
+    <div class="row">
+      <div class="main-visual col-xs-12 col-md-10 col-md-offset-1 col-lg-offset-2">
+        <div class="main-message">
+          <p>
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </p>
+        </div>
       </div>
     </div>
-    <div class="recommendations">
+    <div class="recommendations item-index row">
       <h2 class="info-title">オススメ商品</h2>
       <%= render 'items/item_index', items: @items %>
     </div>
+    <div class="text-link">
+      <%= link_to "もっと見る>", items_path, class:"pull-right" %>
+    </div>
   </div>
-  <%= link_to "もっと見る>", items_path, class:"pull-right" %>
 </div>

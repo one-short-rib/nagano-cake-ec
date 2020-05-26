@@ -14,6 +14,11 @@ class Admin::OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def search
+    @orders = Order.search(params[:term])
+    render 'index'#viewの引用
+  end
+
   private
   def order_params
     params.require(:order).permit(:order_status)

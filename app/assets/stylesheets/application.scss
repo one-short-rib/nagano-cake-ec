@@ -24,7 +24,7 @@
 @import "font-awesome";
 
 body {
-  min-height: 600px;
+  min-height: 100vh;
   position: relative;
   background-color: #fff;
   color: #333;
@@ -37,6 +37,11 @@ body {
 header{
 	height: 70px;
 	width: 100%;
+	position: relative;
+	nav{
+		min-width: 750px;
+		z-index: 2;
+	}
 	color:#008080;
 	background-color:#FFFFCC;
 	.navbar-left{
@@ -45,7 +50,12 @@ header{
 		margin-left:30px;
 		font-size: 2em;
 		line-height: 2em;
+		text-decoration: none;
     display: inline-block;
+    span{
+    	font-family: fantasy;
+    	color:#008080;
+    }
 	}
 	.navbar-right{
 		margin-right:20px;
@@ -58,11 +68,13 @@ header{
 		}
 	}
 	.search-form {
-		position:fixed;
+		position:absolute;
 		top:60px;
-		right:30px;
-		width:40%;
-		max-width:400px;
+		right:35px;
+		width:235px;
+		.input-group{
+		float:left;
+		}
 	}
 	.welcom-name{
 		padding-top:15px;
@@ -71,8 +83,7 @@ header{
 	}
 }
 .body {
-    height: 100%;
-	padding-top:70px;
+  height: 100%;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -95,7 +106,7 @@ header{
 	}
 }
 .main{
-	margin-top:20px;
+	margin-top:40px;
 }
 
 .page-title{
@@ -138,9 +149,7 @@ header{
 }
 .wide-btn{
 	.btn{
-		padding:5px 80px;
-		width:30vw;
-		max-width:300px;
+		width:300px;
 	}
 }
 
