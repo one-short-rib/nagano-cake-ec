@@ -60,9 +60,11 @@ Rails.application.routes.draw do
     resources :orders, only:[:index,:show,:update] do
       member do
         resource :order_items, only: [:update]
+        get :personal
       end
       collection do
         get :search#orderコントローラーにsearch追加
+        get :today
       end
     end
     resources :genres,only:[:index,:create,:edit,:update]
