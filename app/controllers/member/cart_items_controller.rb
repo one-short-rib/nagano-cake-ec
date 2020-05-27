@@ -38,7 +38,7 @@ class Member::CartItemsController < ApplicationController
     respond_to do |format|
 			format.html {redirect_to members_cart_items_path}
 			format.js
-	end
+	  end
   end
 
   def destroy
@@ -46,10 +46,14 @@ class Member::CartItemsController < ApplicationController
   	@cart_item.destroy
     @total = total_price(current_member.cart_items).to_s(:delimited)
     flash.now[:danger]="カートから商品を1点削除しました"
-    respond_to do |format|
-			format.html {redirect_to members_cart_items_path}
-			format.js
-	end
+    if current_member.cart_items.any?
+      respond_to do |format|
+  			format.html {redirect_to members_cart_items_path}
+  			format.js
+  	  end
+    else
+      redirect_to members_cart_items_path
+    end
   end
 
   def clear
