@@ -1,0 +1,4 @@
+<%= form_for order, url:admin_order_path(order.id), remote: true do |f| %>
+	<%= f.select :order_status, Order.order_statuses.keys %>
+	<%= f.submit "更新", class:"btn btn-primary" %>
+<% end %>
