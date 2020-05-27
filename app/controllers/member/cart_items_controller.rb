@@ -35,15 +35,22 @@ class Member::CartItemsController < ApplicationController
       @subtotal = subtotal_price(@cart_item).to_s(:delimited)
       flash.now[:success]= "カート内商品の数量を変更しました"
     end
-    respond_to do |format|
-			format.html {redirect_to members_cart_items_path}
-			format.js
-	  end
+    if current_member.cart_items.count != 0 #何故かany?が効かない
+      respond_to do |format|
+  			format.html {redirect_to members_cart_items_path}
+  			format.js
+  	  end
+    else
+      redirect_to members_cart_items_path
+    end
   end
 
   def destroy
   	@cart_item = CartItem.find(params[:id])
   	@cart_item.destroy
+
+binding.pry
+
     @total = total_price(current_member.cart_items).to_s(:delimited)
     flash.now[:danger]="カートから商品を1点削除しました"
     if current_member.cart_items.any?
