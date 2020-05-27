@@ -2,10 +2,10 @@ class Admin::OrderItemsController < ApplicationController
   before_action :authenticate_admin!
 
   def update
-  	@order = OrderItem.find(params[:id])
-    @order.update(order_item_params)
+  	@order_item = OrderItem.find(params[:id])
+    @order_item.update(order_item_params)
     flash[:success] = 'Success:更新を完了しました'
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
   private
