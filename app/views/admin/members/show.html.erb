@@ -48,7 +48,7 @@
 		<br>
 		<div class="col-xs-8">
 			<%= link_to "編集する", edit_admin_member_path(@member.id), class: "btn btn-primary btn-sm" %>
-			<%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary btn-sm" %>
+			<%= link_to "注文履歴一覧を見る", personal_admin_order_path(@member.id), class: "btn btn-primary btn-sm" %>
 			<!--注文履歴一覧を見るボタン-->
 		</div>
 	</div>
