@@ -1,0 +1,8 @@
+<% if @amount == '0' %>
+    $("#delete-cart-<%= @cart_item.id.to_s %>").empty();
+<% else %>
+    $("#cart-subtotal-<%= @cart_item.id.to_s %>").html("<%= @subtotal %>");
+<% end %>
+
+$("#cart-total").html("<%= @total %>");
+$("#flash").html("<%= j(render 'layouts/flash') %>");
