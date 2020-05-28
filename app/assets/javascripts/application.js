@@ -19,11 +19,13 @@
 //= require_tree .
 
 $(function(){
-	$("#postal_code").jpostal({
-		postcode:["#postal_code"],
-		address:{
-	    	"#address" : "%3%4%5%6%7"
-		}
+  $(document).on('turbolinks:load', () => {
+		$("#postal_code").jpostal({
+			postcode:["#postal_code"],
+			address:{
+	    		"#address" : "%3%4%5%6%7"
+			}
+		});
 	});
 	$('form input:file').uploadThumbs();
 });

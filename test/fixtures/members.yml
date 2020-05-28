@@ -20,36 +20,3 @@ member2:
   address: "東京"
   email: "jiro@example.com"
   encrypted_password: <%= Member.new.send(:password_digest, 'password') %>
-
-member3:
-  last_name: "野比"
-  first_name: "のび太"
-  last_name_kana: "のび"
-  first_name_kana: "のびた"
-  phone_number: "1112223334"
-  postal_code: "1122334"
-  address: "栃木"
-  email: "nobita@example.com"
-  encrypted_password: <%= Member.new.send(:password_digest, 'password') %>
-
-member4:
-  last_name: "野原"
-  first_name: "ひろし"
-  last_name_kana: "のはら"
-  first_name_kana: "ひろし"
-  phone_number: "5556667778"
-  postal_code: "5566778"
-  address: "春日部"
-  email: "hirishi@example.com"
-  encrypted_password: <%= Member.new.send(:password_digest, 'password') %>
-
-member5:
-  last_name: "江戸川"
-  first_name: "コナン"
-  last_name_kana: "えどがわ"
-  first_name_kana: "こなん"
-  phone_number: "8889990001"
-  postal_code: "8899001"
-  address: "探偵"
-  email: "conan@example.com"
-  encrypted_password: <%= Member.new.send(:password_digest, 'password') %>

@@ -29,11 +29,11 @@
                 <table>
                       <tr>
                         <td><%= f.label :ship_postal_code, "郵便番号(ハイフンなし)" %></td>
-                        <td><%= f.text_field :ship_postal_code %></td>
+                        <td><%= f.text_field :ship_postal_code, id:"postal_code" %></td>
                       </tr>
                       <tr>
                         <td><%= f.label :ship_address, "住所" %></td>
-                        <td><%= f.text_field :ship_address, id:"ship_address" %></td>
+                        <td><%= f.text_field :ship_address, id:"address" %></td>
                       </tr>
                       <tr>
                         <td><%= f.label :ship_name, "宛名" %></td>
