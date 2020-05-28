@@ -24,7 +24,4 @@ class Item < ApplicationRecord
       genre.blank? ? Item.where(is_saled: true) : genre.items.where(is_saled: true)
   end
 
-  def genre_valid_items
-  end
-
 end
