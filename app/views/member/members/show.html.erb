@@ -9,33 +9,35 @@
 			<%= link_to '編集する', edit_members_path, class: "btn btn-primary" %>
 			<%= link_to 'パスワードを変更する', edit_member_password_path, class: "btn btn-primary" %>
 		</div>
-		<div class="member-info">
-			<table class="table-bordered">
-				<tr>
-					<td>氏名</td>
-					<td><%= full_name(@member) %></td>
-				</tr>
-				<tr>
-					<td>カナ</td>
-					<td><%= full_name_kana(@member) %></td>
-				</tr>
-				<tr>
-					<td>郵便番号</td>
-					<td><%= @member.postal_code.to_s.insert(3, "-") %></td>
-				</tr>
-				<tr>
-					<td>住所</td>
-					<td><%= @member.address %></td>
-				</tr>
-				<tr>
-					<td>電話番号</td>
-					<td><%= @member.phone_number %></td>
-				</tr>
-				<tr>
-					<td>メールアドレス</td>
-					<td><%= @member.email %></td>
-				</tr>
-			</table>
+		<div class="member-info row">
+			<div class=" col-xs-12 col-md-10 col-lg-8">
+				<table class="table-bordered">
+					<tr>
+						<td>氏名</td>
+						<td><%= full_name(@member) %></td>
+					</tr>
+					<tr>
+						<td>カナ</td>
+						<td><%= full_name_kana(@member) %></td>
+					</tr>
+					<tr>
+						<td>郵便番号</td>
+						<td><%= @member.postal_code.to_s.insert(3, "-") %></td>
+					</tr>
+					<tr>
+						<td>住所</td>
+						<td><%= @member.address %></td>
+					</tr>
+					<tr>
+						<td>電話番号</td>
+						<td><%= @member.phone_number %></td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td>
+						<td><%= @member.email %></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div class="row">
 			<div class="link-box">
