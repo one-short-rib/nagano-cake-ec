@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 
   private
     def set_genres
-      @genres = Genre.all
+      @genres = Genre.where(is_valid: true)
     end
 
     def check_valid_items
