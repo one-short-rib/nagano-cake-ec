@@ -1,7 +1,9 @@
 class HomesController < ApplicationController
   def top
+    Item.check_valid_items
     @genres = Genre.all
-    Item.count > 3 ? @items = Item.all.sort_by{rand}.first(4) : @items = Item.take(1)
+    Item.saled_items.count > 3 ?
+    @items = Item.saled_items.all.sort_by{rand}.first(4) : @items = Item.saled_items.take(1)
   end
 
   def about
