@@ -1,21 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 genre1:
-  name: "snack"
+  name: "ケーキ"
   is_valid: true
 
 genre2:
-  name: "chocolate"
+  name: "プリン"
   is_valid: true
 
 genre3:
-  name: "sweets"
+  name: "焼き菓子"
   is_valid: true
 
 genre4:
-  name: "organic"
-  is_valid: true
-
-genre5:
-  name: "煎餅"
+  name: "キャンディー"
   is_valid: true
