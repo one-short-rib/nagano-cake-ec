@@ -26,13 +26,14 @@ class Member::CartItemsController < ApplicationController
   def update
   	@cart_item = CartItem.find(params[:id])
     @amount = params[:cart_item][:amount]
-    @total = total_price(current_member.cart_items).to_s(:delimited)
     if  @amount == '0'
   		@cart_item.destroy
+        @total = total_price(current_member.cart_items).to_s(:delimited)
       flash.now[:danger]= "カートから商品を1点削除しました"
     else
       @cart_item.update(cart_item_params)
       @subtotal = subtotal_price(@cart_item).to_s(:delimited)
+      @total = total_price(current_member.cart_items).to_s(:delimited)
       flash.now[:success]= "カート内商品の数量を変更しました"
     end
     if current_member.cart_items.count != 0 #何故かany?が効かない
