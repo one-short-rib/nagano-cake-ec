@@ -1,6 +1,6 @@
 <tr id="delete-cart-<%= cart_item.id.to_s %>">
 	<td>
-    <%= attachment_image_tag cart_item.item, :item_image, :fill, 50, 50, format: 'jpg', fallback: "no_image2.jpg", size: "50x50" %><br>
+    <%= attachment_image_tag cart_item.item, :item_image, format: 'jpg', fallback: "no_image2.jpg", size: "50x50" %><br>
 	</td>
 	<td><%= cart_item.item.name %></td>
 	<td><%= tax_include(cart_item.item.price).to_s(:delimited) %></td>
