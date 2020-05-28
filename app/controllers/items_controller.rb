@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_genres
 
   def index
-    @items = Item.saled_items().page(params[:page]).per(8).reverse_order
-    @count = Item.saled_items().count
+    @items = Item.saled_items.page(params[:page]).per(8).reverse_order
+    @count = Item.saled_items.count
   end
 
   def search
