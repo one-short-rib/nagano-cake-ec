@@ -59,7 +59,7 @@ class Order < ApplicationRecord
 
   def self.search(search)
     return Order.all unless search
-    Order.where('name LIKE? OR created_at LIKE?',"%#{search}%", "%#{search}%")
+    Order.joins(:member).where('first_name LIKE? OR last_name LIKE? OR first_name_kana LIKE? OR last_name_kana LIKE?',"%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 end
