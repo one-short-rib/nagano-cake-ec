@@ -12,8 +12,8 @@
 	<%= render 'layouts/error_messages', model:@item %>
 	
 		<div class = "col-md-3">
-			<div class = "field">
-				<%= attachment_image_tag @item, :item_image, :fill, 300, 300, class:"item-img", format:'jpeg', fallback:"no_image.jpg" %>
+			<div class = "item-show-img">
+				<%= attachment_image_tag @item, :item_image, class:"item-img", format:'jpeg', fallback:"no_image.jpg" %>
 				<%= f.attachment_field :item_image %>
 			</div>
 		</div>
