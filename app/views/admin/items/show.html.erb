@@ -8,7 +8,8 @@
 <div class = "row">
 	<div class = "col-md-3">
 		<div class = "item-show-img">
-			<%= attachment_image_tag @item, :item_image, :fill, 300, 300, format:'jpeg', class:"item-img", fallback:"no_image.jpg" %>
+			<%= attachment_image_tag @item, :item_image, :fill, 300, 300,
+			 format:'jpeg', class:"item-img", fallback:"no_image2.jpg", size:"250x180" %>
 			<!--no_imageのjpeg入れたassetに-->
 		</div>
 	</div>
@@ -55,7 +56,8 @@
 	</div>
 	<div class = "col-md-3">
 		<div class = "btn-down">
-			<%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-primary", style:"width:150px;font-size:17px;line-height:40px;font-weight:bold;" %>
+			<%= link_to "編集する", edit_admin_item_path(@item.id),
+			 class: "btn btn-primary", style:"width:150px;font-size:17px;line-height:40px;font-weight:bold;", data: {"turbolinks" => false} %>
 		</div>
 	</div>
 </div>

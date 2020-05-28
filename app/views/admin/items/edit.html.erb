@@ -10,12 +10,13 @@
 	<%= form_for(@item, url: admin_item_path(@item)) do |f| %>
 	<!--エラーメッセージ入れる-->
 	<%= render 'layouts/error_messages', model:@item %>
-	
+
 		<div class = "col-md-3">
-			<div class = "field">
-				<%= attachment_image_tag @item, :item_image, :fill, 300, 300, class:"item-img", format:'jpeg', fallback:"no_image.jpg" %>
-				<%= f.attachment_field :item_image %>
+			<div class = "field" id="item-image">
+				<%= attachment_image_tag @item, :item_image, :fill, 100, 60,
+				 format:'jpeg', class:"item-img", fallback:"no_image2.jpg", size:"250x180" %>
 			</div>
+			<%= f.attachment_field :item_image %>
 		</div>
 
 		<div class = "col-md-6">
