@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_genres
+  before_action :check_valid_items, only: [:index, :search] #毎度eachを回すのはあまり好ましくない
 
   def index
     @items = Item.saled_items.page(params[:page]).per(8).reverse_order
@@ -8,8 +9,8 @@ class ItemsController < ApplicationController
 
   def search
     @genre = Genre.find(params[:id])
-    @items = saled_items(@genre).page(params[:page]).per(8).reverse_order
-    @count = saled_items(@genre).count
+    @items = Item.saled_items(@genre).page(params[:page]).per(8).reverse_order
+    @count = Item.saled_items(@genre).count
     render :index
   end
 
@@ -21,4 +22,9 @@ class ItemsController < ApplicationController
     def set_genres
       @genres = Genre.all
     end
+
+    def check_valid_items
+        Item.check_valid_items
+    end
+
 end
