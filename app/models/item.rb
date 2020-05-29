@@ -16,8 +16,7 @@ class Item < ApplicationRecord
 
   def self.check_valid_items #ジャンルが無効なら商品を「売り切れ」に
       self.all.each do |item|
-          item.update(is_saled: false) if !item.genre.is_valid && item.is_saled
-          item.update(is_saled: true) if item.genre.is_valid && !item.is_saled
+          item.toggle(:is_saled).save if item.genre.is_valid != item.is_saled
       end
   end
 
