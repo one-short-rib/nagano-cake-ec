@@ -15,8 +15,9 @@ class Item < ApplicationRecord
   validates :is_saled, inclusion: [true, false]
 
   def self.check_valid_items #ジャンルが無効なら商品を「売り切れ」に
-      self.saled_items.each do |item|
-          item.update(is_saled: false) unless item.genre.is_valid
+      self.all.each do |item|
+          item.update(is_saled: false) if !item.genre.is_valid && item.is_saled
+          item.update(is_saled: true) if item.genre.is_valid && !item.is_saled
       end
   end
 
