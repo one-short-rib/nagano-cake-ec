@@ -1,6 +1,5 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :check_valid_items, only: [:index, :show, :edit]
   #商品新規登録ページの表示
   def new
     @item = Item.new
@@ -49,8 +48,5 @@ class Admin::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :explanation, :price, :item_image, :genre_id, :is_saled)
   end
-
-  def check_valid_items
-      Item.check_valid_items
-  end
+  
 end

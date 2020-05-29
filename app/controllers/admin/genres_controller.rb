@@ -22,10 +22,11 @@ class Admin::GenresController < ApplicationController
 		@genre = Genre.find(params[:id])
 		if @genre.update(genre_params)
 			flash[:success] = '更新しました。'
-    	redirect_to admin_genres_path
-    else
-     	render :edit
-    end
+			Item.unsale_items(@genre)
+    		redirect_to admin_genres_path
+    	else
+     		render :edit
+    	end
 	end
 
 	private
