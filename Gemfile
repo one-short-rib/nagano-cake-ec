@@ -10,7 +10,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'rubocop-airbnb'
 gem "pry-byebug"
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 gem 'rails-i18n'
 gem 'jp_prefecture'
 gem 'font-awesome-sass', '~> 5.4.1'
