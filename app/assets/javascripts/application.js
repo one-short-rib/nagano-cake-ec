@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
+//= require refile
 //= repuire jquery
+//= require turbolinks
+//= require activestorage
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -26,4 +27,5 @@ $(function(){
 			}
 		});
 	});
+	$('form input:file').uploadThumbs();
 });

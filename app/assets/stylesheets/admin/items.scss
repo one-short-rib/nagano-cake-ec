@@ -81,6 +81,15 @@ dl dd{
 
 
 /*---admin-item-new---*/
+.item-new-img .field{
+    width: 250px;
+    height: 180px;
+}
+
+form img.thumb{
+    max-width: 250px;
+    height: 180px;
+}
 
 /*---admin-item-show---*/
 
